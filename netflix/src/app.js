@@ -1,7 +1,6 @@
 import './app.scss'
  
 import { Home, SignIn, SignUp, Browse } from './pages'
-import { HeaderContainer } from './containers/header'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import * as ROUTES from './constants/routes'
@@ -11,7 +10,7 @@ export default function App () {
     <>
     
 
-    <Router><HeaderContainer/>
+    <Router>
       <Routes>
 
         <Route exact path={ROUTES.HOME} element={<Home/>}/>
