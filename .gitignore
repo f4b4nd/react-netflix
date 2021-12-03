@@ -25,3 +25,5 @@ yarn-error.log*
 # media
 netflix/public/images
 netflix/public/videos
+
+memo.md
