@@ -8,13 +8,16 @@ export default function JumbotronContainer () {
       {
         jumboData.map(v => 
           <Jumbotron key={v.id} direction={v.direction}>
+
             <Jumbotron.Pane>
               <Jumbotron.Title> {v.title} </Jumbotron.Title>
               <Jumbotron.SubTitle> {v.subTitle} </Jumbotron.SubTitle>
             </Jumbotron.Pane>
+
             <Jumbotron.Pane>
               <Jumbotron.Image src={v.image} alt={v.alt} />
             </Jumbotron.Pane>
+            
           </Jumbotron>
         )
       }      
