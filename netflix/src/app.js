@@ -1,3 +1,4 @@
+import './app.scss'
 import Jumbotron  from "./components/jumbotron"
 import jumboData from './fixtures/jumbo.json'
 

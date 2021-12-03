@@ -1,10 +1,12 @@
-import { Container, Pane, Title, SubTitle, Image, Inner } from "./styles/jumbotron"
+import { Container, Item, Inner, Pane, Title, SubTitle, Image  } from "./styles/jumbotron"
 
 export default function Jumbotron ({children, direction = 'column', ...restProps}) {
     return (
-        <Inner direction={direction} >
-            {children}
-        </Inner>
+        <Item direction={direction} >
+            <Inner> 
+                {children}
+            </Inner>
+        </Item>
     )
 }
 
