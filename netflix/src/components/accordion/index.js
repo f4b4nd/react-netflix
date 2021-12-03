@@ -41,16 +41,19 @@ Accordion.Header = function AccordionHeader({children, ...restProps}) {
             {...restProps} 
             onClick={() => setToggleShow(toggleShow => !toggleShow)}
         > 
-            {children} 
+            {children}
+
+            {toggleShow ?  (
+                <img src="/images/icons/close-slim.png" alt="Close" />
+            ) : (      
+                <img src="/images/icons/add.png" alt="Open" />
+            )}
+
         </Header>
     )
 }
 
 Accordion.Body = function AccordionFrame({children, ...restProps}) {
     const {toggleShow, setToggleShow} = useContext(ToggleContext)
-    if (toggleShow) {    
-        return <Body {...restProps} > {children} </Body>
-    } else {
-        return null
-    }
+    return toggleShow ? <Body {...restProps} > {children} </Body> : null
 }
