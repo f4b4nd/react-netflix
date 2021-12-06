@@ -21,13 +21,14 @@ export default function SignIn () {
     const isInvalid = password === '' || emailAddress === ''
     
     const handleSignin = (event) => {
-        event.PreventDefault()
+
+        event.preventDefault()
 
         return firebase
             .auth()
             .signInWithEmailAndPassword(emailAddress, password)
             .then(() => { 
-                navigate.push(ROUTES.BROWSE)
+                navigate(ROUTES.BROWSE)
             })
             .catch(error => {
                 setEmailAddress('')
