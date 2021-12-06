@@ -29,4 +29,5 @@ netflix/public/videos
 memo.md
 names.md
 
-firebase.prod.js
+
+firebase-credentials.json
