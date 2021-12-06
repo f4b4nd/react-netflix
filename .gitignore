@@ -29,5 +29,6 @@ netflix/public/videos
 memo.md
 names.md
 
+.env
 
 firebase-credentials.json
