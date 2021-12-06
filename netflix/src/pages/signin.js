@@ -1,38 +1,89 @@
-import { HeaderContainer } from '../containers/header'
+import { useState, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+import { FirebaseContext } from '../context/firebase'
+
 import { Form } from '../components'
-import { useState, useEffect } from 'react'
+import { HeaderContainer } from '../containers/header'
+import FooterContainer from '../containers/footer'
+
+import * as ROUTES from '../constants/routes'
 
 export default function SignIn () {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [disabled, setDisabled] = useState(true)
 
-    useEffect(() => {
-        if (email !== '' && password !=='') { 
-            setDisabled(false)
-        } else {
-            setDisabled(true)
-        }
-    }, [email, password])
+    const navigate = useNavigate()
+    const { firebase } = useContext(FirebaseContext)
+
+    const [emailAddress, setEmailAddress] = useState('')
+    const [password, setPassword] = useState('')
+    const [error, setError] = useState('')
+    
+    const isInvalid = password === '' || emailAddress === ''
+    
+    const handleSignin = (event) => {
+        event.PreventDefault()
+
+        return firebase
+            .auth()
+            .signInWithEmailAndPassword(emailAddress, password)
+            .then(() => { 
+                navigate.push(ROUTES.BROWSE)
+            })
+            .catch(error => {
+                setEmailAddress('')
+                setPassword('')
+                setError(error.message)
+            })
+    }
 
     return (
-        <>
-            <HeaderContainer> </HeaderContainer>
+    <>
+        <HeaderContainer>
             <Form>
-                <Form.Title> Please log in </Form.Title>
-                <Form.Email 
-                    placeholder="your email" 
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <Form.Password 
-                    placeholder="your password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <Form.Button method="POST" disabled={disabled}> Log in </Form.Button>
+
+                <Form.Title>Sign In</Form.Title>
+
+                {error && <Form.Error data-testid="error">{error}</Form.Error>}
+
+                <Form.Base onSubmit={handleSignin} method="POST">
+
+                    <Form.Input
+                        placeholder="Email address"
+                        value={emailAddress}
+                        onChange={({ target }) => setEmailAddress(target.value)}
+                    />
+
+                    <Form.Input
+                        type="password"
+                        value={password}
+                        autoComplete="off"
+                        placeholder="Password"
+                        onChange={({ target }) => setPassword(target.value)}
+                    />
+
+                    <Form.Submit 
+                        disabled={isInvalid} 
+                        type="submit" 
+                        data-testid="sign-in"
+                    >
+                        Sign In
+                    </Form.Submit>
+
+                </Form.Base>
+
+                <Form.Text>
+                    New to Netflix? <Form.Link to="/signup">Sign up now.</Form.Link>
+                </Form.Text>
+
+                <Form.TextSmall>
+                    This page is protected by Google reCAPTCHA to ensure you're not a bot. Learn more.
+                </Form.TextSmall>
+            
             </Form>
-        </> 
+        </HeaderContainer>
+
+        <FooterContainer />    
+    </>
     )
 }
   
