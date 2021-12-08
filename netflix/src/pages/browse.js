@@ -13,4 +13,3 @@ export default function Browse () {
     return <BrowseContainer slides={slides} />
     
 }
-  

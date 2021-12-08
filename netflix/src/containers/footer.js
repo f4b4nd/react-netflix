@@ -1,6 +1,6 @@
 import { Footer } from "../components"
 
-export default function FooterContainer() {
+export function FooterContainer() {
   return (
     <Footer>
 

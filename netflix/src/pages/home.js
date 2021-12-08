@@ -1,13 +1,13 @@
 import FaqsContainer from '../containers/faqs'
 import JumbotronContainer from '../containers/jumbotron'
-import FooterContainer from '../containers/footer'
+import { FooterContainer } from '../containers/footer'
 import { HeaderContainer } from '../containers/header'
 
 import { OptForm, Feature } from '../components'
 
 export default function Home () {
-  return (
-      <>
+    return (
+        <>
         <HeaderContainer>
             <Feature>
                 <Feature.Title> Unlimited films, TV programms and more. </Feature.Title>
@@ -23,9 +23,11 @@ export default function Home () {
             </Feature>
         </HeaderContainer>
 
-        <JumbotronContainer />      
+        <JumbotronContainer />
+
         <FaqsContainer />
+        
         <FooterContainer />
-    </>
+        </>
     )
 }
