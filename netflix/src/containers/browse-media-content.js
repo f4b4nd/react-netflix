@@ -3,7 +3,6 @@ import { Card, Player } from '../components'
 export function BrowseMediaContentContainer ({category, slideRows}) {
     
     return (
-    <>
 
     <Card.Group>
 
@@ -37,7 +36,5 @@ export function BrowseMediaContentContainer ({category, slideRows}) {
 
     </Card.Group>
 
-
-    </>
     )
 }

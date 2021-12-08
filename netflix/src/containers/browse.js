@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
+
 import { SelectProfileContainer } from './profiles'
 import { BrowseMediaContentContainer } from './browse-media-content'
 import { BrowseHeaderContainer } from './browse-header'
@@ -20,7 +21,7 @@ export function BrowseContainer({ slides }) {
     useEffect(() => {
         setTimeout(() => {
             setLoading(false)
-        }, 3000)
+        }, 2000)
     }, [profile.displayName])
     
     useEffect(() => {
@@ -36,7 +37,7 @@ export function BrowseContainer({ slides }) {
                 user={user}
                 category={category}
                 setCategory={setCategory}
-                slides = {slides}
+                slides={slides}
                 setSlideRows={setSlideRows}
                 slideRows={slideRows}
             />
@@ -54,6 +55,4 @@ export function BrowseContainer({ slides }) {
                 setProfile={setProfile} 
             />  
         )
-        
-
 }
