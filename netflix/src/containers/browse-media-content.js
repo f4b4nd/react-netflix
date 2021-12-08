@@ -1,5 +1,4 @@
 import { Card, Player } from '../components'
-import { FooterContainer } from './footer'
 
 export function BrowseMediaContentContainer ({category, slideRows}) {
     
@@ -38,7 +37,6 @@ export function BrowseMediaContentContainer ({category, slideRows}) {
 
     </Card.Group>
 
-    <FooterContainer />
 
     </>
     )

@@ -1,17 +1,29 @@
-import { Header, Loading } from '../components'
+import { Header } from '../components'
 import * as ROUTES from '../constants/routes'
 import { FirebaseContext } from '../context/firebase'
 import logo from '../logo.svg'
-import { useContext } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import Fuse from 'fuse.js'
 
 
-export function BrowseHeaderContainer ({user, category, setCategory, searchTerm, setSearchTerm, loading}) {
-
+export function BrowseHeaderContainer ({user, category, setCategory, slides, setSlideRows, slideRows}) {
+    
     const { firebase } = useContext(FirebaseContext)
+    const [searchTerm, setSearchTerm] = useState('')
+
+    useEffect(() => {
+        const fuse = new Fuse(slideRows, { keys: ['data.description', 'data.title', 'data.genre'] })
+        const results = fuse.search(searchTerm).map(({ item }) => item)
+    
+        if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
+            setSlideRows(results)
+        } else {
+            setSlideRows(slides[category])
+        }
+    }, [searchTerm])
+
 
     return (
-    <>
-    {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
 
     <Header src="joker1" dontShowOnSmallViewPort>
 
@@ -71,6 +83,5 @@ export function BrowseHeaderContainer ({user, category, setCategory, searchTerm,
         </Header.Feature>
 
     </Header>
-    </>
     )
 }
