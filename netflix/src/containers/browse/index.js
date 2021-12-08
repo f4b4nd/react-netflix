@@ -1,11 +1,12 @@
 import { useState, useEffect, useContext } from 'react'
 
-import { SelectProfileContainer } from './profiles'
-import { BrowseMediaContentContainer } from './browse-media-content'
-import { BrowseHeaderContainer } from './browse-header'
-import { FirebaseContext } from '../context/firebase'
-import { FooterContainer } from './footer'
-import { Loading } from '../components'
+import { SelectProfileContainer } from '../profiles'
+import { BrowseMediaContentContainer } from './media-content'
+import { BrowseHeaderContainer } from './header'
+import { FirebaseContext } from '../../context/firebase'
+import { FooterContainer } from '../footer'
+import { Loading } from '../../components'
+import { Browse } from '../../pages'
 
 export function BrowseContainer({ slides }) {
 
@@ -56,3 +57,4 @@ export function BrowseContainer({ slides }) {
             />  
         )
 }
+

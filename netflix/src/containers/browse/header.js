@@ -1,7 +1,7 @@
-import { Header } from '../components'
-import * as ROUTES from '../constants/routes'
-import { FirebaseContext } from '../context/firebase'
-import logo from '../logo.svg'
+import { Header } from '../../components'
+import * as ROUTES from '../../constants/routes'
+import { FirebaseContext } from '../../context/firebase'
+import logo from '../../logo.svg'
 import { useState, useEffect, useContext } from 'react'
 import Fuse from 'fuse.js'
 

@@ -1,5 +1,4 @@
 import { useState, useEffect, useContext } from "react"
-import styledComponentsCjs from "styled-components"
 import { FirebaseContext } from "../context/firebase"
 
 export default function useContent (target) {

@@ -1,4 +1,4 @@
-import { Card, Player } from '../components'
+import { Card, Player } from '../../components'
 
 export function BrowseMediaContentContainer ({category, slideRows}) {
     
