@@ -1,8 +1,8 @@
 import { useState, useEffect, useContext } from 'react'
 import Fuse from 'fuse.js'
 import { SelectProfileContainer } from './profiles'
-import { HeaderContainer } from './header'
 import { BrowseMediaContentContainer } from './browse-media-content'
+import { BrowseHeaderContainer } from './browse-header'
 import { FirebaseContext } from '../context/firebase'
 
 export function BrowseContainer({ slides }) {
@@ -38,11 +38,22 @@ export function BrowseContainer({ slides }) {
         }
     }, [searchTerm])
     
-    console.log(user)
     return profile.displayName ? (
-            <BrowseMediaContentContainer 
+        <>
+            <BrowseHeaderContainer 
                 user={user}
+                category={category}
+                setCategory={setCategory}
+                searchTerm={searchTerm}
+                setSearchTerm={setSearchTerm}
+                loading={loading}
             />
+            <BrowseMediaContentContainer 
+                slideRows={slideRows}
+                category={category}
+
+            />
+        </>
         ) : (
             <SelectProfileContainer 
                 user={user} 
