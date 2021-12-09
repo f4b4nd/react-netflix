@@ -1,11 +1,11 @@
- import React from "react"
- import { render, fireEVent } from '@testing-library/react'
+import React from "react"
+import { render, fireEvent } from '@testing-library/react'
+import { Player } from "../../components"
 
- import { Player } from "../../components"
 
- describe(<Player />, () => {
+describe('<Player />', () => {
     it ('renders <Player /> with a bunny video', () => {
-        const { container, getByText, queryByTestId } = render (
+        const { container, getByText, queryByTestId } = render(
             <Player>
                 <Player.Button />
                 <Player.Video src="Videos/bunny.mp4"/>
@@ -13,7 +13,14 @@
         )
 
         expect(queryByTestId('player')).toBeFalsy()
-        fireEVent.click(queryByTestId('player'))
-    })
+        fireEvent.click(getByText('Play'))
+        
+        /*
+        expect(queryByTestId('player')).toBeTruthy()
+        fireEvent.click(queryByTestId('player'))
 
+        expect(queryByTestId('player')).toBeFalsy()
+        expect(container.firstChild).toMatchSnapshot()
+        */
+    })
  })
