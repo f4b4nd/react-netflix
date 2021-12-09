@@ -1,11 +1,9 @@
 
-# Netflix Project
+# Netflix-Clone Project
 
-## Frontend
-- ReactJS
+A Netflix clone using ReactJS, Styled-components, Firebase, and Fuse.js
 
-## Database 
-- Firebase
+# How to set up and use
 
-## Searching library
-- Fuse.js
+1. clone/download the code
+2. run docker-compose up
