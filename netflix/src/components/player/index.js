@@ -30,8 +30,8 @@ Player.Video = function PlayerVideo({ src, ...restProps }) {
                     </Inner>
                 </Overlay>,
                 document.body
-            ) 
-        )   : null
+            )
+        ) : null
     )
 }
 

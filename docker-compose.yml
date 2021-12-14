@@ -6,8 +6,8 @@ services:
     build:
       context: ./
       dockerfile: dockerfile
-    container_name: web-node12
-    image: web:node12
+    container_name: web-node16
+    image: web:node16
     ports:
       - '3000:3000'
     volumes:
