@@ -3,6 +3,11 @@
 
 A Netflix clone using ReactJS, Styled-components, Firebase, and Fuse.js
 
+This app is currently hosted on netlify :
+
+https://react-netflix-clone-f4b4nd.netlify.app/
+
+
 ---
 
 # How to set up and use

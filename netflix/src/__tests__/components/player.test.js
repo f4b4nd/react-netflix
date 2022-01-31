@@ -23,4 +23,4 @@ describe('<Player />', () => {
         expect(container.firstChild).toMatchSnapshot()
         
     })
- })
+})
