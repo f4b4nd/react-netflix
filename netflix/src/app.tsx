@@ -16,7 +16,7 @@ export default function App () {
     <Router>
         <Routes>
         
-            <Route exact path={ROUTES.HOME} element={
+            <Route path={ROUTES.HOME} element={
                 <>
                 <IsUserRedirect user={user} loggedInPath={ROUTES.BROWSE}>
                     <Home/>
@@ -24,7 +24,7 @@ export default function App () {
                 </>
             }/>
             
-            <Route exact path={ROUTES.SIGN_IN} element={
+            <Route path={ROUTES.SIGN_IN} element={
                 <>
                 <IsUserRedirect user={user} loggedInPath={ROUTES.BROWSE}>
                     <SignIn/>
@@ -32,7 +32,7 @@ export default function App () {
                 </>
             }/>
                         
-            <Route exact path={ROUTES.SIGN_UP} element={
+            <Route path={ROUTES.SIGN_UP} element={
                 <>
                 <IsUserRedirect user={user} loggedInPath={ROUTES.BROWSE}>
                     <SignUp/>
@@ -40,7 +40,7 @@ export default function App () {
                 </>
             }/>
 
-            <Route exact path={ROUTES.BROWSE} element={
+            <Route path={ROUTES.BROWSE} element={
                 <>
                 <ProtectedRoute user={user}>
                     <Browse/>
