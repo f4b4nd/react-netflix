@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react"
 
-//import { FirebaseContext } from "../context/firebase"
-
 import  { firebase } from "../lib/firebase.prod"
 
 export default function useAuthListener() {
@@ -30,7 +28,7 @@ export default function useAuthListener() {
             }
         })
 
-        return () => listener && listener()
+        return () => listener()
 
     //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])

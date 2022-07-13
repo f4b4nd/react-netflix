@@ -1,26 +1,25 @@
-import { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { FirebaseContext } from '../context/firebase'
+import  { firebase } from "../lib/firebase.prod"
 
 import { Form } from '../components'
 import { HeaderContainer } from '../containers/header'
 import { FooterContainer } from '../containers/footer'
 
-import * as ROUTES from '../constants/routes'
+import { ROUTES } from '../constants'
 
 export default function SignIn () {
 
     const navigate = useNavigate()
-    const { firebase } = useContext(FirebaseContext)
 
-    const [emailAddress, setEmailAddress] = useState('')
-    const [password, setPassword] = useState('')
-    const [error, setError] = useState('')
+    const [emailAddress, setEmailAddress] = useState<string>('')
+    const [password, setPassword] = useState<string>('')
+    const [error, setError] = useState<string>('')
     
     const isInvalid = password === '' || emailAddress === ''
     
-    const handleSignin = (event) => {
+    const handleSignin = (event: React.FormEvent) => {
 
         event.preventDefault()
 
@@ -51,7 +50,7 @@ export default function SignIn () {
                     <Form.Input
                         placeholder="Email address"
                         value={emailAddress}
-                        onChange={({ target }) => setEmailAddress(target.value)}
+                        onChange={(e) => setEmailAddress(e.target.value as string)}
                     />
 
                     <Form.Input
@@ -59,7 +58,7 @@ export default function SignIn () {
                         value={password}
                         autoComplete="off"
                         placeholder="Password"
-                        onChange={({ target }) => setPassword(target.value)}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
 
                     <Form.Submit 
@@ -73,7 +72,7 @@ export default function SignIn () {
                 </Form.Base>
 
                 <Form.Text>
-                    New to Netflix? <Form.Link to="/signup">Sign up now.</Form.Link>
+                    New to Netflix? <Form.Link to={ROUTES.SIGN_UP}>Sign up now.</Form.Link>
                 </Form.Text>
 
                 <Form.TextSmall>

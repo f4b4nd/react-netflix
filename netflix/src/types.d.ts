@@ -1,3 +1,8 @@
+/*** Children */
+
+interface IChildren {
+    children?: React.ReactNode
+}
 
 /** USER */
 

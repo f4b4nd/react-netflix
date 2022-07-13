@@ -6,7 +6,7 @@ import { FirebaseContext } from './context/firebase'
 
 import { Home, SignIn, SignUp, Browse } from './pages'
 
-import * as ROUTES from './constants/routes'
+import { ROUTES } from './constants'
 
 import './app.css'
 import { useContext } from 'react';

@@ -4,7 +4,8 @@ import { FirebaseContext } from '../context/firebase'
 import { Form } from '../components'
 import { HeaderContainer } from '../containers/header'
 import { FooterContainer } from '../containers/footer'
-import * as ROUTES from '../constants/routes'
+
+import { ROUTES } from '../constants'
 
 
 export default function SignUp() {
