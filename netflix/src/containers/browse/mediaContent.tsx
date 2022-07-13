@@ -1,6 +1,6 @@
 import { Card, Player } from '../../components'
 
-export function BrowseMediaContentContainer ({category, slideRows}) {
+export function BrowseMediaContentContainer ({category, slideRows}: IBrowseMediaContentContainer) {
     
     return (
 

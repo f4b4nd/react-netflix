@@ -1,25 +1,33 @@
-import { Header } from '../../components'
-import * as ROUTES from '../../constants/routes'
-import { FirebaseContext } from '../../context/firebase'
-import logo from '../../logo.svg'
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
+
 import Fuse from 'fuse.js'
 
+import { ROUTES } from '../../constants'
 
-export function BrowseHeaderContainer ({user, category, setCategory, slides, setSlideRows, slideRows}) {
+import { firebase } from "../../lib/firebase.prod"
+
+import { Header } from '../../components'
+
+import logo from '../../logo.svg'
+
+
+export function BrowseHeaderContainer ({user, category, setCategory, slides, setSlideRows, slideRows}: IBrowseHeaderContainer) {
     
-    const { firebase } = useContext(FirebaseContext)
-    const [searchTerm, setSearchTerm] = useState('')
+    const [searchTerm, setSearchTerm] = useState<string>('')
 
     useEffect(() => {
+        
         const fuse = new Fuse(slideRows, { keys: ['data.description', 'data.title', 'data.genre'] })
+
         const results = fuse.search(searchTerm).map(({ item }) => item)
     
         if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
             setSlideRows(results)
         } else {
-            setSlideRows(slides[category])
+            setSlideRows(slides[category as keyof Tslides])
         }
+
+        //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchTerm])
 
 
@@ -47,13 +55,13 @@ export function BrowseHeaderContainer ({user, category, setCategory, slides, set
 
                 <Header.Profile>
 
-                    <Header.Picture src={user.photoURL} />
+                    <Header.Picture src={user?.photoURL} />
 
                     <Header.Dropdown>
 
                         <Header.Group>
-                            <Header.Picture src={user.photoURL} />
-                            <Header.TextLink>{user.displayName}</Header.TextLink>
+                            <Header.Picture src={user?.photoURL} />
+                            <Header.TextLink>{user?.displayName}</Header.TextLink>
                         </Header.Group>
 
                         <Header.Group>

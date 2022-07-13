@@ -3,22 +3,26 @@ import { useState, useEffect } from 'react'
 import { SelectProfileContainer } from '../profiles'
 
 import { BrowseMediaContentContainer } from './mediaContent'
+
 import { BrowseHeaderContainer } from './header'
 
 import { FooterContainer } from '../footer'
+
 import { Loading } from '../../components'
 
 import { firebase } from '../../lib/firebase.prod'
 
-export function BrowseContainer({ slides }: {slides: any}) {
+export function BrowseContainer({ slides }: IBrowserContainer) {
 
     const user = firebase.auth().currentUser || null
 
     const [profile, setProfile] = useState<any>({})
+
     const [loading, setLoading] = useState<boolean>(true)
 
-    const [category, setCategory] = useState<string>('series')
-    const [slideRows, setSlideRows] = useState<any[]>([])
+    const [category, setCategory] = useState<Tcategory>('series')
+
+    const [slideRows, setSlideRows] = useState<TslideRows>([])
 
     useEffect(() => {
         setTimeout(() => {
@@ -27,7 +31,7 @@ export function BrowseContainer({ slides }: {slides: any}) {
     }, [profile.displayName])
     
     useEffect(() => {
-        setSlideRows(slides[category])
+        setSlideRows(slides[category as keyof Tslides])
     }, [slides, category])
 
 
