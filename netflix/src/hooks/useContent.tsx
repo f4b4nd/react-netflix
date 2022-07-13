@@ -1,11 +1,12 @@
-import { useState, useEffect, useContext } from "react"
-import { FirebaseContext } from "../context/firebase"
+import { useState, useEffect } from "react"
 
-export default function useContent (target) {
+import  { firebase } from "../lib/firebase.prod"
+
+export default function useContent (target: string) {
     
-    const [content, setContent] = useState([])
-    const { firebase } = useContext(FirebaseContext)
+    const [content, setContent] = useState<Record<string, string>[]>([])
 
+    
     useEffect(() => {
         firebase
             .firestore()
@@ -21,6 +22,8 @@ export default function useContent (target) {
             .catch((error) => {
                 console.log(error.message)
             })
+
+    //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return {[target]: content}

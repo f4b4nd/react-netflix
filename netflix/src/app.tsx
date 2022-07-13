@@ -1,15 +1,20 @@
-import './app.scss'
- 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
+import { IsUserRedirect, ProtectedRoute } from './helpers/routes'
+
+import { FirebaseContext } from './context/firebase'
+
 import { Home, SignIn, SignUp, Browse } from './pages'
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import * as ROUTES from './constants/routes'
-import { IsUserRedirect, ProtectedRoute } from './helpers/routes'
-import { useAuthListener } from './hooks'
+
+import './app.css'
+import { useContext } from 'react';
+
 
 export default function App () {
 
-    const { user } = useAuthListener()
+    const { user } = useContext(FirebaseContext)
 
     return (
     <>

@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react'
 
 import { SelectProfileContainer } from '../profiles'
-import { BrowseMediaContentContainer } from './media-content'
+import { BrowseMediaContentContainer } from './mediaContent'
 import { BrowseHeaderContainer } from './header'
 import { FirebaseContext } from '../../context/firebase'
 import { FooterContainer } from '../footer'
