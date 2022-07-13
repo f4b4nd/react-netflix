@@ -1,15 +1,15 @@
+import { useContext } from 'react'
+import { FirebaseContext } from './context/firebase'
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import { IsUserRedirect, ProtectedRoute } from './helpers/routes'
 
-import { FirebaseContext } from './context/firebase'
+import { ROUTES } from './constants'
 
 import { Home, SignIn, SignUp, Browse } from './pages'
 
-import { ROUTES } from './constants'
-
 import './app.css'
-import { useContext } from 'react';
 
 
 export default function App () {

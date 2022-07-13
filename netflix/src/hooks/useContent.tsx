@@ -4,7 +4,7 @@ import  { firebase } from "../lib/firebase.prod"
 
 export default function useContent (target: string) {
     
-    const [content, setContent] = useState<Record<string, string>[]>([])
+    const [content, setContent] = useState<any>([])
     
     useEffect(() => {
         firebase

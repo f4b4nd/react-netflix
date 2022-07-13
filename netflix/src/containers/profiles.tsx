@@ -1,8 +1,11 @@
-import { Header, Profiles } from '../components'
-import * as ROUTES from '../constants/routes'
+import { ROUTES } from '../constants'
+
 import logo from '../logo.svg'
 
-export function SelectProfileContainer({ user, setProfile }) {
+import { Header, Profiles } from '../components'
+
+
+export function SelectProfileContainer({ user, setProfile }: ISelectProfileContainer) {
   return (
     <>
     <Header bg={false}>
@@ -21,11 +24,11 @@ export function SelectProfileContainer({ user, setProfile }) {
 
         <Profiles.List>
             <Profiles.User
-                onClick={() => setProfile({ displayName: user.displayName, photoURL: user.photoURL })}
+                onClick={() => setProfile({ displayName: user?.displayName, photoURL: user?.photoURL })}
                 data-testid="user-profile"
             >
-                <Profiles.Picture src={user.photoURL} />
-                <Profiles.Name>{user.displayName}</Profiles.Name>
+                <Profiles.Picture src={user?.photoURL} />
+                <Profiles.Name>{user?.displayName}</Profiles.Name>
             </Profiles.User>
 
         </Profiles.List>

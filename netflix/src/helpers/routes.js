@@ -1,5 +1,6 @@
 import { Navigate } from "react-router-dom"
-import * as ROUTES from '../constants/routes'
+
+import { ROUTES  } from '../constants'
 
 
 export function IsUserRedirect ({loggedInPath, children, user, ...rest}) {

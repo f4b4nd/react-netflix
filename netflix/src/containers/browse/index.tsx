@@ -1,23 +1,24 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 
 import { SelectProfileContainer } from '../profiles'
+
 import { BrowseMediaContentContainer } from './mediaContent'
 import { BrowseHeaderContainer } from './header'
-import { FirebaseContext } from '../../context/firebase'
+
 import { FooterContainer } from '../footer'
 import { Loading } from '../../components'
-import { Browse } from '../../pages'
 
-export function BrowseContainer({ slides }) {
+import { firebase } from '../../lib/firebase.prod'
 
-    const { firebase } = useContext(FirebaseContext)
-    const user = firebase.auth().currentUser || {}
+export function BrowseContainer({ slides }: {slides: any}) {
 
-    const [profile, setProfile] = useState({})
-    const [loading, setLoading] = useState(true)
+    const user = firebase.auth().currentUser || null
 
-    const [category, setCategory] = useState('series')
-    const [slideRows, setSlideRows] = useState([])
+    const [profile, setProfile] = useState<any>({})
+    const [loading, setLoading] = useState<boolean>(true)
+
+    const [category, setCategory] = useState<string>('series')
+    const [slideRows, setSlideRows] = useState<any[]>([])
 
     useEffect(() => {
         setTimeout(() => {
@@ -32,7 +33,7 @@ export function BrowseContainer({ slides }) {
 
     return profile.displayName ? (
         <>
-            {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
+            {loading ? <Loading src={user?.photoURL} /> : <Loading.ReleaseBody />}
 
             <BrowseHeaderContainer 
                 user={user}
@@ -54,7 +55,7 @@ export function BrowseContainer({ slides }) {
             <SelectProfileContainer 
                 user={user} 
                 setProfile={setProfile} 
-            />  
+            /> 
+            
         )
 }
-

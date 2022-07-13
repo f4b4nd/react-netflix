@@ -20,7 +20,7 @@ interface IFormInput {
 interface IFormSubmit {
     children?: React.ReactNode
     disabled: boolean
-    type: string
+    type: "button" | "reset" | "submit" | undefined
     'data-testid': string
 }
 

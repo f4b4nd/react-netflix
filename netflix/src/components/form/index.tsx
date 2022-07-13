@@ -1,5 +1,5 @@
 
-import { Container, Error, Base, Title, Text, TextSmall, Link, Input, Submit } from './styles/form'
+import { Container, Error, Base, Title, Text, TextSmall, Link, Input, Submit } from './style'
 
 export default function Form({ children, ...restProps }: IChildren) {
     return <Container {...restProps}>{children}</Container>

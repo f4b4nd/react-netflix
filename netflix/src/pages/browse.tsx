@@ -1,6 +1,6 @@
 import { useContent } from '../hooks'
-import selectionFilter from '../utils/selection-filter'
-import { BrowseContainer } from '../containers/browse/index'
+import selectionFilter from '../utils/selectionFilter'
+import { BrowseContainer } from '../containers/browse'
 
 export default function Browse () {
 

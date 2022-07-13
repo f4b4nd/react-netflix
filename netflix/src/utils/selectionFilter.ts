@@ -1,4 +1,9 @@
-export default function selectionFilter({ series, films } = []) {
+interface IselectionFilter {
+    series: any[],
+    films: any[],
+}
+
+export default function selectionFilter({ series, films }: IselectionFilter) {
     return {
         series: [
             { title: 'Documentaries', data: series?.filter((item) => item.genre === 'documentaries') },
