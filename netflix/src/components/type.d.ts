@@ -1,7 +1,5 @@
 /**FORM */
-interface RestProps {
-    [key: string]: string
-}
+
 interface IFormBase {
     children?: React.ReactNode
     onSubmit?: any
@@ -24,7 +22,29 @@ interface IFormSubmit {
     'data-testid': string
 }
 
-interface IFormLink {
-    children?: React.ReactNode
+interface IFormLink extends IChildren {
     to: string
+}
+
+/*** FOOTER */
+
+interface IFooterLink extends IChildren {
+    href: string
+}
+
+/** LOADING */
+
+interface ILoading {
+    src: string | null
+}
+
+/** PROFILES */
+
+interface IProfilesPicture {
+    src: string | null
+}
+
+interface IProfilesUser extends IChildren {
+    onClick?: () => void
+    'data-testid': string,
 }

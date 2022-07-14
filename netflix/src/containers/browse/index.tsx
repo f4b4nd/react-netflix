@@ -16,7 +16,7 @@ export function BrowseContainer({ slides }: IBrowserContainer) {
 
     const user = firebase.auth().currentUser || null
 
-    const [profile, setProfile] = useState<any>({})
+    const [profile, setProfile] = useState<Tprofile>({} as Tprofile)
 
     const [loading, setLoading] = useState<boolean>(true)
 
@@ -37,7 +37,7 @@ export function BrowseContainer({ slides }: IBrowserContainer) {
 
     return profile.displayName ? (
         <>
-            {loading ? <Loading src={user?.photoURL} /> : <Loading.ReleaseBody />}
+            {loading ? <Loading src={user && user.photoURL} /> : <Loading.ReleaseBody />}
 
             <BrowseHeaderContainer 
                 user={user}

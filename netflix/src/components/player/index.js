@@ -5,6 +5,7 @@ import { Container, Button, Overlay, Inner, Close } from './styles/player'
 export const PlayerContext = createContext()
 
 export default function Player({ children, ...restProps }) {
+
     const [showPlayer, setShowPlayer] = useState(false)
 
     return (
@@ -12,6 +13,7 @@ export default function Player({ children, ...restProps }) {
             <Container {...restProps}>{children}</Container>
         </PlayerContext.Provider>
     )
+
 }
 
 Player.Video = function PlayerVideo({ src, ...restProps }) {
@@ -36,6 +38,7 @@ Player.Video = function PlayerVideo({ src, ...restProps }) {
 }
 
 Player.Button = function PlayerButton({ ...restProps }) {
+
     const { showPlayer, setShowPlayer } = useContext(PlayerContext)
 
     return (

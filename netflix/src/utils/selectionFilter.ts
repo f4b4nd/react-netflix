@@ -1,8 +1,3 @@
-interface IselectionFilter {
-    series: any[],
-    films: any[],
-}
-
 export default function selectionFilter({ series, films }: IselectionFilter) {
     return {
         series: [

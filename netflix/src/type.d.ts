@@ -13,6 +13,12 @@ type IFilms = Record<TSeriesKeys, string>[]
 /** CATEGORY */
 type Tcategory = string
 
+/** PROFILE */
+type Tprofile = {
+    displayName: string,
+    photoURL: string,
+}
+
 /** SLIDES */
 type Tslides = {
     series: {
@@ -42,10 +48,8 @@ interface IChildren {
     children?: React.ReactNode
 }
 
-/**FIREBASE */
-interface IFirebaseContext  {
-    user: IUser
+/** RESTPROPS */
+interface RestProps {
+    [key: string]: string
 }
 
-interface IFirebaseContextProvider extends IChildren {
-}

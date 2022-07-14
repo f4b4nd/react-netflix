@@ -1,6 +1,5 @@
-
-
 /**BROWSER */
+
 interface IBrowseHeaderContainer {
     user: IUser
     category: Tcategory,
@@ -22,5 +21,5 @@ interface IBrowseMediaContentContainer {
 /** PROFILE */
 interface ISelectProfileContainer {
     user: IUser,
-    setProfile: React.Dispatch<IUser>
+    setProfile: React.Dispatch<Tprofile>
 }

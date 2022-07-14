@@ -6,6 +6,13 @@ import { Header, Profiles } from '../components'
 
 
 export function SelectProfileContainer({ user, setProfile }: ISelectProfileContainer) {
+
+  const handleClickOnUserProfile = (user: IUser) => {
+    if (user && user.displayName && user.photoURL) {
+        setProfile({ displayName: user.displayName, photoURL: user.photoURL })
+    }
+  }
+
   return (
     <>
     <Header bg={false}>
@@ -24,10 +31,10 @@ export function SelectProfileContainer({ user, setProfile }: ISelectProfileConta
 
         <Profiles.List>
             <Profiles.User
-                onClick={() => setProfile({ displayName: user?.displayName, photoURL: user?.photoURL })}
+                onClick={() => handleClickOnUserProfile(user)}
                 data-testid="user-profile"
             >
-                <Profiles.Picture src={user?.photoURL} />
+                <Profiles.Picture src={user && user.photoURL} />
                 <Profiles.Name>{user?.displayName}</Profiles.Name>
             </Profiles.User>
 

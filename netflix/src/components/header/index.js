@@ -46,6 +46,7 @@ Header.Logo = function HeaderLogo({ to, ...restProps }) {
 }
 
 Header.Search = function HeaderSearch({ searchTerm, setSearchTerm, ...restProps }) {
+  
   const [searchActive, setSearchActive] = useState(false)
 
   return (
