@@ -6,7 +6,7 @@ export const FirebaseContext = createContext<IFirebaseContext>({
     user: null
 })
 
-export const FirebaseContextProvider = ({children}: IFirebaseContextProvider) => {
+export const FirebaseContextProvider = ({children}: IChildren) => {
 
     const { user } = useAuthListener()
 

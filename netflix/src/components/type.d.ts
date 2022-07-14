@@ -38,6 +38,12 @@ interface ILoading {
     src: string | null
 }
 
+/*** PLAYER */
+
+interface IPlayerVideo {
+    src: string
+}
+
 /** PROFILES */
 
 interface IProfilesPicture {

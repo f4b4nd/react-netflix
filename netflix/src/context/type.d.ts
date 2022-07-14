@@ -3,5 +3,7 @@ interface IFirebaseContext  {
     user: IUser
 }
 
-interface IFirebaseContextProvider extends IChildren {
+interface IPlayerContext {
+    showPlayer: boolean,
+    setShowPlayer: React.Dispatch<boolean>,
 }

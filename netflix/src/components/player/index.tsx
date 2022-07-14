@@ -1,22 +1,26 @@
-import { useState, useContext, createContext } from 'react'
+import { useState, useContext,  } from 'react'
+
 import ReactDOM from 'react-dom'
-import { Container, Button, Overlay, Inner, Close } from './styles/player'
 
-export const PlayerContext = createContext()
+import { Container, Button, Overlay, Inner, Close } from './style'
 
-export default function Player({ children, ...restProps }) {
+import { PlayerContext } from '../../context/player'
 
-    const [showPlayer, setShowPlayer] = useState(false)
+export default function Player({ children, ...restProps }: IChildren) {
+
+    const [showPlayer, setShowPlayer] = useState<boolean>(false)
 
     return (
         <PlayerContext.Provider value={{ showPlayer, setShowPlayer }}>
-            <Container {...restProps}>{children}</Container>
+            <Container {...restProps}>
+                {children}
+            </Container>
         </PlayerContext.Provider>
     )
 
 }
 
-Player.Video = function PlayerVideo({ src, ...restProps }) {
+Player.Video = function PlayerVideo({ src }: IPlayerVideo) {
 
     const { showPlayer, setShowPlayer } = useContext(PlayerContext)
 
@@ -29,7 +33,7 @@ Player.Video = function PlayerVideo({ src, ...restProps }) {
                             <source src={src} type="video/mp4" />
                         </video>
                         <Close />
-                    </Inner>
+                    </Inner>bodybody
                 </Overlay>,
                 document.body
             )
@@ -42,7 +46,10 @@ Player.Button = function PlayerButton({ ...restProps }) {
     const { showPlayer, setShowPlayer } = useContext(PlayerContext)
 
     return (
-        <Button onClick={() => setShowPlayer((showPlayer) => !showPlayer)} {...restProps}>
+        <Button 
+            onClick={() => setShowPlayer(!showPlayer)} 
+            {...restProps}
+        >
             Play
         </Button>
     )
