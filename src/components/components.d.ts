@@ -12,8 +12,8 @@ interface ICardItem extends IChildren {
 
 interface IFormBase {
     children?: React.ReactNode
-    onSubmit?: any
-    method?: any
+    onSubmit?: (event: React.FormEvent) => Promise<void>
+    method?: string
 }
 
 interface IFormInput {

@@ -1,4 +1,4 @@
-import { Container, Input, Break, Button, Text } from './style';
+import { Container, Input, Break, Button, Text } from './style'
 
 export default function OptForm({ children, ...restProps }: IChildren) {
   return <Container {...restProps}>{children}</Container>

@@ -156,8 +156,7 @@ export function seedDatabase(firebase : any) {
     firebase.firestore().collection('series').add({
       id: getUUID(),
       title: 'Making a Murderer',
-      description:
-        'Exonerated after spending nearly two decades in prison for a crime he did not commit, Steven Avery filed suit against Manitowoc County, Wis., and several individuals involved with his arrest.',
+      description: 'Exonerated after spending nearly two decades in prison for a crime he did not commit, Steven Avery filed suit against Manitowoc County, Wis., and several individuals involved with his arrest.',
       genre: 'crime',
       maturity: '18',
       slug: 'making-a-murderer',

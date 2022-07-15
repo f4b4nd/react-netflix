@@ -3,11 +3,16 @@ type IUser = import('firebase').User | null
 
 
 /** SERIES + FILMS */
-type TSeriesKeys = 'id' | 'title' | 'description' | 'genre' | 'maturity' | 'slug'
+type TSeriesKeys = 'docId' | 'id' | 'title' | 'description' | 'genre' | 'maturity' | 'slug'
 
-type ISeries = Record<TSeriesKeys, string>[]
+type ISeries = Partial<Record<TSeriesKeys, string>>[]
 
-type IFilms = Record<TSeriesKeys, string>[]
+type IFilms = Partial<Record<TSeriesKeys, string>>[]
+
+
+/** CONTENT */
+type Tcontent = ISeries | IFilms
+
 
 /** FEATURE */
 type TitemFeature = {

@@ -4,7 +4,7 @@ import  { firebase } from "../lib/firebase.prod"
 
 export default function useContent (target: string) {
     
-    const [content, setContent] = useState<any>([])
+    const [content, setContent] = useState<Tcontent>([])
     
     useEffect(() => {
         firebase
@@ -16,7 +16,6 @@ export default function useContent (target: string) {
                     ...contentObj.data(),
                     docId: contentObj.id,
                 }))
-                console.log('allconntent', allContent)
                 setContent(allContent)
             })
             .catch((error) => {

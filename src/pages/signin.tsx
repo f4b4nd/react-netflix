@@ -19,7 +19,7 @@ export default function SignIn () {
     
     const isInvalid = password === '' || emailAddress === ''
     
-    const handleSignin = (event: React.FormEvent) => {
+    const handleSignIn = (event: React.FormEvent) => {
 
         event.preventDefault()
 
@@ -45,7 +45,7 @@ export default function SignIn () {
 
                 {error && <Form.Error data-testid="error">{error}</Form.Error>}
 
-                <Form.Base onSubmit={handleSignin} method="POST">
+                <Form.Base onSubmit={handleSignIn} method="POST">
 
                     <Form.Input
                         placeholder="Email address"
