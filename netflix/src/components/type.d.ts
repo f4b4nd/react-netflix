@@ -57,7 +57,7 @@ interface IHeaderLogo extends RestProps {
 
 interface IHeaderSearch {
     searchTerm: string,
-    setSearchTerm: React.Dispatch<string>,
+    setSearchTerm: React.Dispatch<React.SetStateAction<string>>,
 }
 
 interface IHeaderPicture {

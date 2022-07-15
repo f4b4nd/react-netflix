@@ -1,7 +1,10 @@
-import { Container, Frame, Title, Item, Inner, Header, Body } from './styles/accordion' 
-import { useState, useContext, createContext } from 'react'
+import { useState, useContext } from 'react'
 
-export default function Accordion ({children, ...restProps}) {
+import { ToggleContext } from '../../context/toggle'
+
+import { Container, Frame, Title, Item, Inner, Header, Body } from './style' 
+
+export default function Accordion ({children, ...restProps}: IChildren) {
     return (
         <Container {...restProps} > 
             <Inner> {children} </Inner>
@@ -10,23 +13,24 @@ export default function Accordion ({children, ...restProps}) {
 }
 
 /**GENERIC*/
-Accordion.Inner = function AccordionInner({children, ...restProps}) {
+Accordion.Inner = function AccordionInner({children, ...restProps}: IChildren) {
     return <Inner {...restProps} > {children} </Inner>
 }
 
-Accordion.Title = function AccordionTitle({children, ...restProps}) {
+Accordion.Title = function AccordionTitle({children, ...restProps}: IChildren) {
     return <Title {...restProps} > {children} </Title>
 }
 
-Accordion.Frame = function AccordionFrame({children, ...restProps}) {
+Accordion.Frame = function AccordionFrame({children, ...restProps}: IChildren) {
     return <Frame {...restProps} > {children} </Frame>
 }
 
 /**MAP*/
-const ToggleContext = createContext()
 
-Accordion.Item = function AccordionItem({children, ...restProps}) {
-    const [toggleShow, setToggleShow] = useState(false)
+Accordion.Item = function AccordionItem({children, ...restProps}: IChildren) {
+
+    const [toggleShow, setToggleShow] = useState<boolean>(false)
+    
     return (
         <ToggleContext.Provider value={{toggleShow, setToggleShow}}> 
             <Item {...restProps} > {children} </Item>
@@ -34,12 +38,14 @@ Accordion.Item = function AccordionItem({children, ...restProps}) {
     )
 }
 
-Accordion.Header = function AccordionHeader({children, ...restProps}) {
+Accordion.Header = function AccordionHeader({children, ...restProps}: IChildren) {
+
     const {toggleShow, setToggleShow} = useContext(ToggleContext)
+
     return (        
         <Header 
             {...restProps} 
-            onClick={() => setToggleShow(toggleShow => !toggleShow)}
+            onClick={() => setToggleShow(!toggleShow)}
         > 
             {children}
 
@@ -53,7 +59,10 @@ Accordion.Header = function AccordionHeader({children, ...restProps}) {
     )
 }
 
-Accordion.Body = function AccordionFrame({children, ...restProps}) {
+Accordion.Body = function AccordionFrame({children, ...restProps}: IChildren) {
+
     const {toggleShow, setToggleShow} = useContext(ToggleContext)
+
     return toggleShow ? <Body {...restProps} > {children} </Body> : null
+
 }

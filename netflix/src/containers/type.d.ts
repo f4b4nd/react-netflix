@@ -3,9 +3,9 @@
 interface IBrowseHeaderContainer {
     user: IUser
     category: Tcategory,
-    setCategory: React.Dispatch<Tcategory>,
+    setCategory: React.Dispatch<React.SetStateAction<Tcategory>>,
     slides: Tslides,
-    setSlideRows: React.Dispatch<TslideRows>,
+    setSlideRows: React.Dispatch<React.SetStateAction<TslideRows>>,
     slideRows: TslideRows,
 }
 
@@ -21,5 +21,5 @@ interface IBrowseMediaContentContainer {
 /** PROFILE */
 interface ISelectProfileContainer {
     user: IUser,
-    setProfile: React.Dispatch<Tprofile>
+    setProfile: React.Dispatch<React.SetStateAction<Tprofile>>
 }
