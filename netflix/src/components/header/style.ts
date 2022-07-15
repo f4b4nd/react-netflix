@@ -1,7 +1,25 @@
 import styled from 'styled-components/macro'
 import { Link as ReachRouterLink } from 'react-router-dom'
 
-export const Background = styled.div`
+interface IBackground extends IChildren {
+  dontShowOnSmallViewPort?: boolean
+  src?: string
+}
+
+interface ILink {
+  active?: boolean
+}
+
+interface ISearchInput {
+  active: boolean
+}
+
+interface IPicture {
+  src: string
+}
+
+
+export const Background = styled.div<IBackground>`
   display: flex;
   flex-direction: column;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.35)), url(${({ src }) => (src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg')}) top left / cover
@@ -28,11 +46,11 @@ export const Container = styled.div`
   }
 `
 
-export const Link = styled.p`
+export const Link = styled.p<ILink>`
   color: #fff;
   text-decoration: none;
   margin-right: 30px;
-  font-weight: ${({ active }) => (active === 'true' ? '700' : 'normal')};
+  font-weight: ${({ active }) => (active ? '700' : 'normal')};
   cursor: pointer;
 
   &:hover {
@@ -49,7 +67,7 @@ export const Group = styled.div`
   align-items: center;
 `
 
-export const SearchInput = styled.input`
+export const SearchInput = styled.input<ISearchInput>`
   background-color: rgba(64, 64, 64, 0.5);
   color: white;
   border: 1px solid white;
@@ -99,7 +117,7 @@ export const SearchIcon = styled.button`
   }
 `
 
-export const ButtonLink = styled(ReachRouterLink)`
+export const ButtonLink = styled(ReachRouterLink)<IHeaderButtonLink>`
   display: flex;
   justify-content: center;
   background-color: #e50914;
@@ -118,7 +136,7 @@ export const ButtonLink = styled(ReachRouterLink)`
   }
 `
 
-export const Picture = styled.button`
+export const Picture = styled.button<IPicture>`
   background: url(${({ src }) => src});
   background-size: contain;
   border: 0;

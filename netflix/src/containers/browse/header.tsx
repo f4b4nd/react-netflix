@@ -40,11 +40,11 @@ export function BrowseHeaderContainer ({user, category, setCategory, slides, set
             <Header.Group>
                 <Header.Logo to={ROUTES.HOME} src={logo} alt="Netflix" />
 
-                <Header.TextLink active={category === 'series' ? 'true' : 'false'} onClick={() => setCategory('series')}>
+                <Header.TextLink active={category === 'series'} onClick={() => setCategory('series')}>
                     Series
                 </Header.TextLink>
 
-                <Header.TextLink active={category === 'films' ? 'true' : 'false'} onClick={() => setCategory('films')}>
+                <Header.TextLink active={category === 'films'} onClick={() => setCategory('films')}>
                     Films
                 </Header.TextLink>
             </Header.Group>
@@ -55,12 +55,12 @@ export function BrowseHeaderContainer ({user, category, setCategory, slides, set
 
                 <Header.Profile>
 
-                    <Header.Picture src={user?.photoURL} />
+                    <Header.Picture src={user && user.photoURL} />
 
                     <Header.Dropdown>
 
                         <Header.Group>
-                            <Header.Picture src={user?.photoURL} />
+                            <Header.Picture src={user && user.photoURL} />
                             <Header.TextLink>{user?.displayName}</Header.TextLink>
                         </Header.Group>
 

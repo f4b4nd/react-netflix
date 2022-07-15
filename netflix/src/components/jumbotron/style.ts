@@ -1,8 +1,12 @@
 import styled from "styled-components"
 
-export const Inner = styled.div`
+interface Props {
+    flexDirection: "row" | "column" | "row-reverse" | "column-reverse"
+}
+
+export const Inner = styled.div<Props>`
     display: flex;
-    flex-direction: ${ ({direction}) => direction };
+    flex-direction: ${ ({flexDirection}) => flexDirection };
     align-items: center;
     justify-content: space-between;
     max-width: 1100px;
