@@ -11,15 +11,15 @@ https://react-netflix-clone-f4b4nd.netlify.app/
 ---
 
 # How to set up and use
-1. Clone/download the code
-2. Create a .env file with :
-- `SKIP_PREFLIGHT_CHECK=true`
-- Firebase crendentials (apikey, etc.)
-3. Run `docker-compose up`
+1. Clone/download this repo
+2. To access Firebase data, you need to use environment variables (apikey, etc.)
+- create a .env file at the root of the project
+- add environment variable for firebase config (cf. src/lib/firebase.prod.ts)
+3. Run the project: `npm run start`
 
 ---
 
 # Running tests
 ## Unit tests with Jest
-1. Run `docker exec -it web-node16 /bin/sh`
-2. Run (in container): `cd netflix` then `yarn test`
+
+1. Run `npm run test`
