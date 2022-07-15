@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
 
 import 'normalize.css'
 
@@ -6,10 +6,12 @@ import { FirebaseContextProvider } from './context/firebase'
 
 import App from './app'
 
+const root = ReactDOM.createRoot(
+    document.getElementById('root') as HTMLElement
+)
 
-ReactDOM.render(
+root.render(
     <FirebaseContextProvider>
         <App />
-    </FirebaseContextProvider>,
-    document.getElementById('root')
+    </FirebaseContextProvider>
 )
