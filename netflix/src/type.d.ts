@@ -9,6 +9,15 @@ type ISeries = Record<TSeriesKeys, string>[]
 
 type IFilms = Record<TSeriesKeys, string>[]
 
+/** FEATURE */
+type TitemFeature = {
+    title?: string,
+    genre?: string,
+    slug?: string,
+    description?: string,
+    maturity?: number,
+    genre?: string,
+}
 
 /** CATEGORY */
 type Tcategory = string

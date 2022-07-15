@@ -1,5 +1,24 @@
 import styled from 'styled-components'
 
+interface IGroup {
+  flexDirection?: 'row' | 'column',
+  alignItems?: string,
+  margin?: string,
+}
+
+interface IFeatureText {
+  fontWeight?: string
+}
+
+interface IFeature {
+  src?: string
+}
+
+interface IMaturity {
+  rating?: number
+}
+
+
 export const Title = styled.p`
   font-size: 24px;
   color: #e5e5e5;
@@ -25,7 +44,7 @@ export const Container = styled.div`
   }
 `
 
-export const Group = styled.div`
+export const Group = styled.div<IGroup>`
   display: flex;
   flex-direction: ${({ flexDirection }) => (flexDirection === 'row' ? 'row' : 'column')};
   ${({ alignItems }) => alignItems && `align-items: ${alignItems}`};
@@ -118,7 +137,7 @@ export const Item = styled.div`
   }
 `
 
-export const FeatureText = styled.p`
+export const FeatureText = styled.p<IFeatureText>`
   font-size: 18px;
   color: white;
   font-weight: ${({ fontWeight }) => (fontWeight === 'bold' ? 'bold' : 'normal')};
@@ -129,7 +148,7 @@ export const FeatureText = styled.p`
   }
 `
 
-export const Feature = styled.div`
+export const Feature = styled.div<IFeature>`
   display: flex;
   flex-direction: row;
   background: url(${({ src }) => src});
@@ -185,8 +204,8 @@ export const Content = styled.div`
   }
 `
 
-export const Maturity = styled.div`
-  background-color: ${({ rating }) => (rating >= 15 ? '#f44336' : '#2f9600')};
+export const Maturity = styled.div<IMaturity>`
+  background-color: ${({ rating }) => (rating && rating >= 15 ? '#f44336' : '#2f9600')};
   border-radius: 15px;
   width: 28px;
   line-height: 28px;

@@ -1,3 +1,13 @@
+/** CARD */
+
+interface ICardFeature extends IChildren {
+    category: Tcategory
+}
+
+interface ICardItem extends IChildren {
+    item: TitemFeature
+}
+
 /**FORM */
 
 interface IFormBase {

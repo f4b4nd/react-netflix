@@ -1,4 +1,4 @@
-export function seedDatabase(firebase) {
+export function seedDatabase(firebase : any) {
     
     function getUUID() {
       // eslint gets funny about bitwise
