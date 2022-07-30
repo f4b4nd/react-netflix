@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
 
-import Fuse from 'fuse.js'
-
 import { ROUTES } from '../../constants'
 
 import { firebase } from "../../lib/firebase.prod"
@@ -15,14 +13,40 @@ export function BrowseHeaderContainer ({user, category, setCategory, slides, set
     
     const [searchTerm, setSearchTerm] = useState<string>('')
 
+    const getFilteredSlideRows = (slideRow: TslideRow, searchTerm: string) => {
+
+        const results: TslideRow['data'] = []
+
+        slideRow.data.forEach(movie => {
+            if (movieMatches(movie, searchTerm)) {
+                results.push(movie)
+            }
+        })
+
+        const filteredSlideRow = {...slideRow, data: results}
+
+        return filteredSlideRow
+    }
+
+    const movieMatches = (movie: TslideRowMovie, searchTerm: string) => {
+        const searchTermLowerCase = searchTerm.toLocaleLowerCase()
+        const titleMatches = movie.title.toLocaleLowerCase().includes(searchTermLowerCase)
+        const descriptionMatches = movie.description.toLocaleLowerCase().includes(searchTermLowerCase)
+        const genreMatches = movie.genre.toLocaleLowerCase().includes(searchTermLowerCase)
+        const match = titleMatches || descriptionMatches || genreMatches
+        return match
+    }
+
     useEffect(() => {
         
-        const fuse = new Fuse(slideRows, { keys: ['data.description', 'data.title', 'data.genre'] })
+        const filteredSlideRows = slideRows.map(slideRow => getFilteredSlideRows(slideRow, searchTerm))
+        
+        const hasResults = slideRows.length > 0 && filteredSlideRows.length > 0
+        
+        const preventSearch = searchTerm.length < 1
 
-        const results = fuse.search(searchTerm).map(({ item }) => item)
-    
-        if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
-            setSlideRows(results)
+        if (hasResults && !preventSearch)  {
+            setSlideRows(filteredSlideRows)
         } else {
             setSlideRows(slides[category as keyof Tslides])
         }

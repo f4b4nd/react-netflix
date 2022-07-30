@@ -35,31 +35,42 @@ export function BrowseContainer({ slides }: IBrowserContainer) {
     }, [slides, category])
 
 
-    return profile.displayName ? (
+    return (
         <>
-            {loading ? <Loading src={user && user.photoURL} /> : <Loading.ReleaseBody />}
+            {profile.displayName && 
+                <>
+                
+                {loading ? <Loading src={user && user.photoURL} /> : <Loading.ReleaseBody />}
 
-            <BrowseHeaderContainer 
-                user={user}
-                category={category}
-                setCategory={setCategory}
-                slides={slides}
-                setSlideRows={setSlideRows}
-                slideRows={slideRows}
-            />
+                <BrowseHeaderContainer 
+                    user={user}
+                    category={category}
+                    setCategory={setCategory}
+                    slides={slides}
+                    setSlideRows={setSlideRows}
+                    slideRows={slideRows}
+                />
 
-            <BrowseMediaContentContainer 
-                slideRows={slideRows}
-                category={category}
-            />
+                <BrowseMediaContentContainer 
+                    slideRows={slideRows}
+                    category={category}
+                />
 
-            <FooterContainer />
-        </>
-        ) : (
-            <SelectProfileContainer 
-                user={user} 
-                setProfile={setProfile} 
-            /> 
+                <FooterContainer />
+
+                </>
+            }
+
+            {!profile.displayName && 
             
-        )
+                <SelectProfileContainer 
+                    user={user} 
+                    setProfile={setProfile} 
+                /> 
+                
+            }
+
+        </>
+    )
+
 }

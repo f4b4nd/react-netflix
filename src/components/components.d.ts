@@ -101,3 +101,14 @@ interface IProfilesUser extends IChildren {
     onClick?: () => void
     'data-testid': string,
 }
+
+/*** CHILDREN */
+interface IChildren {
+    children?: React.ReactNode
+}
+
+/** RESTPROPS */
+interface RestProps {
+    [key: string]: string
+}
+

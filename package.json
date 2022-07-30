@@ -6,7 +6,6 @@
     "@types/firebase": "^3.2.1",
     "@types/styled-components": "^5.1.25",
     "firebase": "^7.19.1",
-    "fuse.js": "^6.4.6",
     "json-loader": "^0.5.7",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",

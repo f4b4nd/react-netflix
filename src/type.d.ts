@@ -46,24 +46,18 @@ type Tslides = {
 }
 
 /** SLIDES ROWS*/
-type TslideRows = {
+
+type TslideRow = {
     title: string,
-    data: {
-        title: string,
-        docId: string,
-        genre: string,
-        slug: string,
-        description: string
-    }[]
-}[]
-
-/*** CHILDREN */
-interface IChildren {
-    children?: React.ReactNode
+    data: TslideRowMovie[]
 }
 
-/** RESTPROPS */
-interface RestProps {
-    [key: string]: string
-}
+type TslideRows = TslideRow[]
 
+type TslideRowMovie = {
+    title: string,
+    docId: string,
+    genre: string,
+    slug: string,
+    description: string
+}
