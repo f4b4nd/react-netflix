@@ -13,53 +13,54 @@ export function BrowseHeaderContainer ({user, category, setCategory, slides, set
     
     const [searchTerm, setSearchTerm] = useState<string>('')
 
-    const getFilteredSlideRows = (slideRow: TslideRow, searchTerm: string) => {
+    const getFilteredSlideRow = (slideRow: TslideRow, searchterm: string) => {
 
         const results: TslideRow['data'] = []
 
-        slideRow.data.forEach(movie => {
-            if (movieMatches(movie, searchTerm)) {
-                results.push(movie)
+        slideRow.data.forEach(item => {
+            if (itemMatches(item, searchterm)) {
+                results.push(item)
             }
         })
 
         const filteredSlideRow = {...slideRow, data: results}
 
         return filteredSlideRow
+
     }
 
-    const movieMatches = (movie: TslideRowMovie, searchTerm: string) => {
-        const searchTermLowerCase = searchTerm.toLocaleLowerCase()
-        const titleMatches = movie.title.toLocaleLowerCase().includes(searchTermLowerCase)
-        const descriptionMatches = movie.description.toLocaleLowerCase().includes(searchTermLowerCase)
-        const genreMatches = movie.genre.toLocaleLowerCase().includes(searchTermLowerCase)
-        const match = titleMatches || descriptionMatches || genreMatches
-        return match
+    const itemMatches = (item: TslideRowMovie, searchterm: string) => {
+        const searchtermLowerCase = searchterm.toLocaleLowerCase()
+        const titleMatches = item.title.toLocaleLowerCase().includes(searchtermLowerCase)
+        const descriptionMatches = item.description.toLocaleLowerCase().includes(searchtermLowerCase)
+        const genreMatches = item.genre.toLocaleLowerCase().includes(searchtermLowerCase)
+        return titleMatches || descriptionMatches || genreMatches
     }
 
-    useEffect(() => {
-
-        const slideRows = slides[category as keyof Tslides]
-
-        const filteredSlideRows = slideRows.map(slideRow => getFilteredSlideRows(slideRow, searchTerm))
-        
-        const queryHasResults = filteredSlideRows.filter(slideRow => slideRow.data.length > 0).length > 0
+    const onSearchTermChange = (slideRows: TslideRows, searchterm: string) => {
 
         const preventSearch = searchTerm.length < 1
 
         if (preventSearch) {
             setSlideRows(slideRows)
-        }
-        else if (!preventSearch && queryHasResults) {
-            setSlideRows(filteredSlideRows)
-        }
-        else if (!preventSearch && !queryHasResults) {
-            setSlideRows([])
+            return
         }
 
-        //eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [searchTerm])
+        const filteredSlideRows = slideRows.map(slideRow => getFilteredSlideRow(slideRow, searchterm))
 
+        setSlideRows(filteredSlideRows)
+
+    }
+
+    useEffect(() => {
+        
+        const slideRows = slides[category as keyof Tslides]
+
+        onSearchTermChange(slideRows, searchTerm)
+
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [searchTerm, category])
+    
 
     return (
 

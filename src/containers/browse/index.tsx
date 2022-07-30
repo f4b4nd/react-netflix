@@ -30,11 +30,6 @@ export function BrowseContainer({ slides }: IBrowserContainer) {
         }, 2000)
     }, [profile.displayName])
     
-    useEffect(() => {
-        setSlideRows(slides[category as keyof Tslides])
-    }, [slides, category])
-
-
     return (
         <>
             {profile.displayName && 
