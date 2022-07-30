@@ -48,7 +48,6 @@ export function BrowseContainer({ slides }: IBrowserContainer) {
                     setCategory={setCategory}
                     slides={slides}
                     setSlideRows={setSlideRows}
-                    slideRows={slideRows}
                 />
 
                 <BrowseMediaContentContainer 

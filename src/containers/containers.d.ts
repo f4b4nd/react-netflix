@@ -6,7 +6,6 @@ interface IBrowseHeaderContainer {
     setCategory: React.Dispatch<React.SetStateAction<Tcategory>>,
     slides: Tslides,
     setSlideRows: React.Dispatch<React.SetStateAction<TslideRows>>,
-    slideRows: TslideRows,
 }
 
 interface IBrowserContainer {

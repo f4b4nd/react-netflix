@@ -9,7 +9,7 @@ import { Header } from '../../components'
 import logo from '../../logo.svg'
 
 
-export function BrowseHeaderContainer ({user, category, setCategory, slides, setSlideRows, slideRows}: IBrowseHeaderContainer) {
+export function BrowseHeaderContainer ({user, category, setCategory, slides, setSlideRows}: IBrowseHeaderContainer) {
     
     const [searchTerm, setSearchTerm] = useState<string>('')
 
@@ -38,17 +38,23 @@ export function BrowseHeaderContainer ({user, category, setCategory, slides, set
     }
 
     useEffect(() => {
-        
+
+        const slideRows = slides[category as keyof Tslides]
+
         const filteredSlideRows = slideRows.map(slideRow => getFilteredSlideRows(slideRow, searchTerm))
         
-        const hasResults = slideRows.length > 0 && filteredSlideRows.length > 0
-        
+        const queryHasResults = filteredSlideRows.filter(slideRow => slideRow.data.length > 0).length > 0
+
         const preventSearch = searchTerm.length < 1
 
-        if (hasResults && !preventSearch)  {
+        if (preventSearch) {
+            setSlideRows(slideRows)
+        }
+        else if (!preventSearch && queryHasResults) {
             setSlideRows(filteredSlideRows)
-        } else {
-            setSlideRows(slides[category as keyof Tslides])
+        }
+        else if (!preventSearch && !queryHasResults) {
+            setSlideRows([])
         }
 
         //eslint-disable-next-line react-hooks/exhaustive-deps
