@@ -10,7 +10,7 @@ describe('<Player />', () => {
         const { container, getByText, queryByTestId } = render(
             <Player>
                 <Player.Button />
-                <Player.Video src="/videos/bunny.mp4" />
+                <Player.Video src="/videos/netflix-intro.mp4" />
             </Player>
         )
 
