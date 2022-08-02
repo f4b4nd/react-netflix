@@ -14,6 +14,8 @@ export function HeaderContainer({ children }: IChildren) {
               
               <Header.ButtonLink to={ROUTES.SIGN_IN}>Sign In</Header.ButtonLink>
 
+              <Header.ButtonLink to={ROUTES.BROWSE}>Guest</Header.ButtonLink>
+
           </Header.Frame>
 
           {children}

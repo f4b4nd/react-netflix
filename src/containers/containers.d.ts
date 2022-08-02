@@ -20,5 +20,6 @@ interface IBrowseMediaContentContainer {
 /** PROFILE */
 interface ISelectProfileContainer {
     user: IUser,
+    profile: Tprofile,
     setProfile: React.Dispatch<React.SetStateAction<Tprofile>>
 }

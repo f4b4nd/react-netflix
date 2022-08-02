@@ -47,9 +47,7 @@ export default function App () {
 
             <Route path={ROUTES.BROWSE} element={
                 <>
-                <ProtectedRoute user={user}>
                     <Browse/>
-                </ProtectedRoute>
                 </>
             }/>
         

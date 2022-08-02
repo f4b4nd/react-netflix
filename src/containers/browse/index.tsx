@@ -27,15 +27,20 @@ export function BrowseContainer({ slides }: IBrowserContainer) {
     useEffect(() => {
         setTimeout(() => {
             setLoading(false)
-        }, 2000)
+        }, 1000)
     }, [profile.displayName])
-    
+
+    useEffect(() => {
+        setSlideRows(slides[category as keyof Tslides])
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [slides])
+
     return (
         <>
             {profile.displayName && 
                 <>
                 
-                {loading ? <Loading src={user && user.photoURL} /> : <Loading.ReleaseBody />}
+                {loading ? <Loading src={user ? user.photoURL : "guest"} /> : <Loading.ReleaseBody />}
 
                 <BrowseHeaderContainer 
                     user={user}
@@ -59,6 +64,7 @@ export function BrowseContainer({ slides }: IBrowserContainer) {
             
                 <SelectProfileContainer 
                     user={user} 
+                    profile={profile}
                     setProfile={setProfile} 
                 /> 
                 
