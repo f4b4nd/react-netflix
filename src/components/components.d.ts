@@ -8,6 +8,11 @@ interface ICardItem extends IChildren {
     item: TitemFeature
 }
 
+interface ICardLikeButton extends IChildren {
+    src: string,
+    onClick?: () => void,
+}
+
 /**FORM */
 
 interface IFormBase {

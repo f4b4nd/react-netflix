@@ -55,6 +55,7 @@ type TslideRow = {
 type TslideRows = TslideRow[]
 
 type TslideRowMovie = {
+    id: string,
     title: string,
     docId: string,
     genre: string,

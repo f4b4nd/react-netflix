@@ -88,6 +88,33 @@ export const Meta = styled.div`
   bottom: 0;
   padding: 10px;
   background-color: #0000008f;
+  cursor: default;
+`
+
+export const Actions = styled.div`
+  display: flex;
+  column-gap: 1em;
+  font-size: 0.8em;
+  color: white;
+  margin-bottom: 1em;
+`
+
+export const LikeButton = styled.div`
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+
+  img {
+    height: 100%; 
+    width: 100%;
+    filter: brightness(1.2); 
+
+    &:hover {
+      transform: scale(1.1);
+      filter: brightness(1.5); 
+    }
+  }
+
 `
 
 export const Image = styled.img`
@@ -142,6 +169,7 @@ export const FeatureText = styled.p<IFeatureText>`
   color: white;
   font-weight: ${({ fontWeight }) => (fontWeight === 'bold' ? 'bold' : 'normal')};
   margin: 0;
+  text-transform: capitalize;
 
   @media (max-width: 600px) {
     line-height: 22px;
@@ -216,3 +244,4 @@ export const Maturity = styled.div<IMaturity>`
   margin-right: 10px;
   font-size: 12px;
 `
+

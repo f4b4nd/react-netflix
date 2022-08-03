@@ -27,7 +27,7 @@ export function BrowseContainer({ slides }: IBrowserContainer) {
     useEffect(() => {
         setTimeout(() => {
             setLoading(false)
-        }, 800)
+        }, 700)
     }, [profile.displayName])
 
     useEffect(() => {

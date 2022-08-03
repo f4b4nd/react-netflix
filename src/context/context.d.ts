@@ -24,3 +24,18 @@ interface IToggleContext {
     toggleShow: boolean,
     setToggleShow: React.Dispatch<React.SetStateAction<boolean>>,
 }
+
+/** WISHLIST */
+interface IWishListContext  {
+    state: TslideRowMovie[],
+    dispatch: React.dispatch<Action>,
+}
+
+interface IwishListReducer {
+    (state: TslideRowMovie[], action: IwishListAction)
+}
+
+interface IwishListAction {
+    type: 'ADD_TO_WISHLIST' | 'REMOVE_FROM_WISHLIST',
+    payload: TslideRowMovie
+}

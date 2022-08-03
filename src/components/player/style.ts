@@ -63,23 +63,21 @@ export const Close = styled.button`
 `
 
 export const Button = styled.button`
-  background-color: #e50914;
-  border-color: #ff0a16;
-  width: 115px;
-  height: 45px;
-  text-transform: uppercase;
+  box-shadow: 0 0.6vw 1vw -0.4vw rgba(0, 0, 0, 0.35);
+  background-color: #e6e6e6;
+  color: #000;
+  border-width: 0;
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: 130px;
+  height: 50px;
   font-weight: bold;
-  color: white;
-  font-size: 18px;
-  height: 45px;
+  font-size: 25px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-left: 0;
+  transition: background-color 0.5s ease;
 
   &:hover {
-    transform: scale(1.05);
-    background-color: #ff0a16;
+    background-color: #ff1e1e;
+    color: white;
   }
 `

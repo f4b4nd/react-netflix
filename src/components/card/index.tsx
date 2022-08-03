@@ -18,6 +18,8 @@ import {
     Entities,
     Item,
     Image,
+    Actions,
+    LikeButton,
 } from './style'
 
 
@@ -55,6 +57,18 @@ Card.Entities = function CardEntities({ children, ...restProps }: IChildren) {
 
 Card.Meta = function CardMeta({ children, ...restProps }: IChildren) {
     return <Meta {...restProps}>{children}</Meta>
+}
+
+Card.Actions = function CardActions({ children, ...restProps }: IChildren) {
+    return <Actions {...restProps}>{children}</Actions>
+}
+
+Card.LikeButton = function CardLikeButton({ src, ...restProps }: ICardLikeButton) {
+    return (
+        <LikeButton {...restProps}>
+            <img src={src} alt="like" draggable="false"/>
+        </LikeButton>
+    )
 }
 
 Card.Item = function CardItem({ item, children, ...restProps }: ICardItem) {
@@ -107,7 +121,7 @@ Card.Feature = function CardFeature({ category, children, ...restProps }: ICardF
                     </Maturity>
 
                     <FeatureText fontWeight="bold">
-                        {itemFeature?.genre && itemFeature.genre.charAt(0).toUpperCase() + itemFeature.genre.slice(1)}
+                        {itemFeature?.genre}
                     </FeatureText>
 
                 </Group>
