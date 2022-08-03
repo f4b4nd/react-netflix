@@ -4,8 +4,11 @@ interface IBrowseHeaderContainer {
     category: Tcategory,
     setCategory: React.Dispatch<React.SetStateAction<Tcategory>>,
     slides: Tslides,
-    setSlideRows: React.Dispatch<React.SetStateAction<TslideRows>>,
+    setSlideRows: React.Dispatch<React.SetStateAction<TslideRow[]>>,
     profile: Tprofile,
+    displayWishList: boolean,
+    setDisplayWishList: React.Dispatch<React.SetStateAction<boolean>>,
+
 }
 
 interface IBrowserContainer {
@@ -14,7 +17,7 @@ interface IBrowserContainer {
 
 interface IBrowseMediaContentContainer {
     category: Tcategory,
-    slideRows: TslideRows,
+    slideRows: TslideRow[],
 }
 
 /** PROFILE */

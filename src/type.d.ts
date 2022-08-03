@@ -40,5 +40,3 @@ type TslideRow = {
     title: string,
     data: TMovie[]
 }
-
-type TslideRows = TslideRow[]

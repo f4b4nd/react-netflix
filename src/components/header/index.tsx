@@ -99,7 +99,7 @@ Header.FeatureCallOut = function HeaderFeatureCallOut({ children, ...restProps }
   return <FeatureCallOut {...restProps}>{children}</FeatureCallOut>
 }
 
-Header.Text = function HeaderText({ children, ...restProps }: IChildren) {
+Header.Text = function HeaderText({ children, ...restProps }: IHeaderText) {
   return <Text {...restProps}>{children}</Text>
 }
 

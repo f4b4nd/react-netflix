@@ -26,6 +26,11 @@ export const wishListReducer: IwishListReducer = (state, action) => {
     switch (action.type) {
 
         case 'ADD_TO_WISHLIST':
+            const wishlistHasMovie = state.find(movie => movie.id === action.payload.id)
+            if (wishlistHasMovie) {
+                return state
+            }
+            
             setMovieToLocalStorage(action.payload)
             return  [...state, action.payload]
 

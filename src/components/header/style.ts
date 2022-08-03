@@ -18,6 +18,9 @@ interface IPicture {
   src: string
 }
 
+interface IText {
+  cursor?: string
+}
 
 export const Background = styled.div<IBackground>`
   display: flex;
@@ -243,11 +246,12 @@ export const FeatureCallOut = styled.h2`
   margin: 0;
 `
 
-export const Text = styled.p`
+export const Text = styled.p<IText>`
   color: white;
   font-size: 22px;
   line-height: normal;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+  ${({cursor}) => (cursor ? `cursor: ${cursor};` : "")};
 `
 
 export const Logo = styled.img`

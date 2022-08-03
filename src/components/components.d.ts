@@ -69,6 +69,11 @@ interface IHeaderPicture {
     src: string | null
 }
 
+interface IHeaderText extends IChildren {
+    onClick?: () => void,
+    cursor?: string,
+}
+
 interface IHeaderTextLink extends IChildren {
     active?: boolean
     onClick?: () => void

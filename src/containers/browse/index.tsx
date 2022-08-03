@@ -11,6 +11,7 @@ import { FooterContainer } from '../footer'
 import { Loading } from '../../components'
 
 import { firebase } from '../../lib/firebase.prod'
+import WishListContainer from '../wishlist';
 
 export function BrowseContainer({ slides }: IBrowserContainer) {
 
@@ -22,12 +23,21 @@ export function BrowseContainer({ slides }: IBrowserContainer) {
 
     const [category, setCategory] = useState<Tcategory>('series')
 
-    const [slideRows, setSlideRows] = useState<TslideRows>([])
+    const [slideRows, setSlideRows] = useState<TslideRow[]>([])
+
+    const [displayWishList, setDisplayWishList] = useState<boolean>(false)
 
     useEffect(() => {
+
+        if (profile.displayName) {
+            setLoading(false)
+            return
+        }
+
         setTimeout(() => {
             setLoading(false)
         }, 700)
+
     }, [profile.displayName])
 
     useEffect(() => {
@@ -55,12 +65,21 @@ export function BrowseContainer({ slides }: IBrowserContainer) {
                     setCategory={setCategory}
                     slides={slides}
                     setSlideRows={setSlideRows}
+                    displayWishList={displayWishList}
+                    setDisplayWishList={setDisplayWishList}
                 />
 
-                <BrowseMediaContentContainer 
-                    slideRows={slideRows}
-                    category={category}
-                />
+                {displayWishList ?
+                    (
+                        <WishListContainer />
+                    ) : (
+                        <BrowseMediaContentContainer 
+                            slideRows={slideRows}
+                            category={category}
+                        />
+                    )
+                }
+                
 
                 <FooterContainer />
 

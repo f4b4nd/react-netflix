@@ -28,7 +28,7 @@ interface IToggleContext {
 /** WISHLIST */
 interface IWishListContext  {
     state: TMovie[],
-    dispatch: React.dispatch<Action>,
+    dispatch: React.dispatch<IwishListAction>,
 }
 
 interface IwishListReducer {

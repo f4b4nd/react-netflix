@@ -1,20 +1,13 @@
 import { useContext } from 'react'
 
 import { WishListContext } from '../../context/wishlist'
-
+import { handleClickOnLikeButton, handleClickOnDislikeButton } from '../../utils/likeMovie'
 import { Card, Player } from '../../components'
+
 
 export function BrowseMediaContentContainer ({category, slideRows}: IBrowseMediaContentContainer) {
     
     const { dispatch } = useContext(WishListContext)
-
-    const handleClickOnLikeButton = (item: TMovie) => {
-        dispatch({type: 'ADD_TO_WISHLIST', payload: item})
-    }
-    
-    const handleClickOnDislikeButton = (item: TMovie) => {
-        dispatch({type: 'REMOVE_FROM_WISHLIST', payload: item})
-    }
 
     return (
 
@@ -37,8 +30,8 @@ export function BrowseMediaContentContainer ({category, slideRows}: IBrowseMedia
                                 <Card.Image src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`} />
                                 <Card.Meta>
                                     <Card.Actions>
-                                        <Card.LikeButton src="/images/icons/like.png" onClick={() => handleClickOnLikeButton(item)} />
-                                        <Card.LikeButton src="/images/icons/dislike.png" onClick={() => handleClickOnDislikeButton(item)} />
+                                        <Card.LikeButton src="/images/icons/like.png" onClick={() => handleClickOnLikeButton(item, dispatch)} />
+                                        <Card.LikeButton src="/images/icons/dislike.png" onClick={() => handleClickOnDislikeButton(item, dispatch)} />
                                     </Card.Actions>
                                     <Card.SubTitle> {item.title} </Card.SubTitle>
                                     <Card.Text> {item.description} </Card.Text>
