@@ -4,7 +4,7 @@ import  { firebase } from "../lib/firebase.prod"
 
 export default function useContent (target: string) {
     
-    const [content, setContent] = useState<Tcontent>([])
+    const [content, setContent] = useState<TMovie[]>([])
     
     useEffect(() => {
         firebase

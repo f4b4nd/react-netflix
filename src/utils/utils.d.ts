@@ -1,4 +1,4 @@
 interface IselectionFilter {
-    series: ISeries,
-    films: IFilms,
+    series: TMovie[],
+    films: TMovie[],
 }

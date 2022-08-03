@@ -1,4 +1,4 @@
-export const getWishListFromLocalStorage = (): TslideRowMovie[] => {
+export const getWishListFromLocalStorage = (): TMovie[] => {
 
     const itemsAsString: string = localStorage.getItem("movies") || "[]"
 
@@ -8,7 +8,7 @@ export const getWishListFromLocalStorage = (): TslideRowMovie[] => {
 
 }
 
-export const setMovieToLocalStorage = (item: TslideRowMovie) => {
+export const setMovieToLocalStorage = (item: TMovie) => {
 
     const itemsAsString: string = localStorage.getItem("movies") || "[]"
 
@@ -18,11 +18,11 @@ export const setMovieToLocalStorage = (item: TslideRowMovie) => {
 
 }
 
-export const removeMovieFromLocalStorage = (item: TslideRowMovie) => {
+export const removeMovieFromLocalStorage = (item: TMovie) => {
 
     const itemsAsString: string = localStorage.getItem("movies") || "[]"
 
-    const items: TslideRowMovie[] = JSON.parse(itemsAsString)
+    const items: TMovie[] = JSON.parse(itemsAsString)
 
     const filteredItems = items.filter(movie => movie.id !== item.id)
 

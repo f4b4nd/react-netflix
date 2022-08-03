@@ -8,11 +8,11 @@ export function BrowseMediaContentContainer ({category, slideRows}: IBrowseMedia
     
     const { dispatch } = useContext(WishListContext)
 
-    const handleClickOnLikeButton = (item: TslideRowMovie) => {
+    const handleClickOnLikeButton = (item: TMovie) => {
         dispatch({type: 'ADD_TO_WISHLIST', payload: item})
     }
     
-    const handleClickOnDislikeButton = (item: TslideRowMovie) => {
+    const handleClickOnDislikeButton = (item: TMovie) => {
         dispatch({type: 'REMOVE_FROM_WISHLIST', payload: item})
     }
 

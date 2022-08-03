@@ -4,7 +4,7 @@ import { getWishListFromLocalStorage } from '../utils/localStorage'
 
 export default function useWishList () {
 
-    const [wishList, setWishList] = useState<TslideRowMovie[]>([])
+    const [wishList, setWishList] = useState<TMovie[]>([])
 
     useEffect(() => {
 

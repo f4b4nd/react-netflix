@@ -2,26 +2,15 @@
 type IUser = import('firebase').User | null
 
 
-/** SERIES + FILMS */
-type TSeriesKeys = 'docId' | 'id' | 'title' | 'description' | 'genre' | 'maturity' | 'slug'
-
-type ISeries = Partial<Record<TSeriesKeys, string>>[]
-
-type IFilms = Partial<Record<TSeriesKeys, string>>[]
-
-
-/** CONTENT */
-type Tcontent = ISeries | IFilms
-
-
-/** FEATURE */
-type TitemFeature = {
+/** MOVIE */
+type TMovie = {
+    id?: string,
+    docId?: string,
     title?: string,
     genre?: string,
     slug?: string,
     description?: string,
     maturity?: number,
-    genre?: string,
 }
 
 /** CATEGORY */
@@ -37,11 +26,11 @@ type Tprofile = {
 type Tslides = {
     series: {
         title: string,
-        data: Tseries,
+        data: TMovie[],
     }[],
     films: {
         title: string,
-        data: Tseries,
+        data: TMovie[],
     }[],
 }
 
@@ -49,16 +38,7 @@ type Tslides = {
 
 type TslideRow = {
     title: string,
-    data: TslideRowMovie[]
+    data: TMovie[]
 }
 
 type TslideRows = TslideRow[]
-
-type TslideRowMovie = {
-    id: string,
-    title: string,
-    docId: string,
-    genre: string,
-    slug: string,
-    description: string
-}

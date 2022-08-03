@@ -14,10 +14,10 @@ export const getFilteredSlideRow = (slideRow: TslideRow, searchterm: string) => 
 
 }
 
-const itemMatches = (item: TslideRowMovie, searchterm: string) => {
+const itemMatches = (item: TMovie, searchterm: string) => {
     const searchtermLowerCase = searchterm.toLocaleLowerCase()
-    const titleMatches = item.title.toLocaleLowerCase().includes(searchtermLowerCase)
-    const descriptionMatches = item.description.toLocaleLowerCase().includes(searchtermLowerCase)
-    const genreMatches = item.genre.toLocaleLowerCase().includes(searchtermLowerCase)
+    const titleMatches = item.title?.toLocaleLowerCase().includes(searchtermLowerCase)
+    const descriptionMatches = item.description?.toLocaleLowerCase().includes(searchtermLowerCase)
+    const genreMatches = item.genre?.toLocaleLowerCase().includes(searchtermLowerCase)
     return titleMatches || descriptionMatches || genreMatches
 }

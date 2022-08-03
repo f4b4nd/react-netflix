@@ -26,7 +26,7 @@ import {
 export default function Card({ children, ...restProps }: IChildren) {
 
     const [showFeature, setShowFeature] = useState<boolean>(false)
-    const [itemFeature, setItemFeature] = useState<TitemFeature>({})
+    const [itemFeature, setItemFeature] = useState<TMovie>({})
 
     return (
         <FeatureContext.Provider value={{ showFeature, setShowFeature, itemFeature, setItemFeature }}>
