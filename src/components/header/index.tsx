@@ -16,7 +16,6 @@ import {
   SearchInput,
   ButtonLink,
   Button,
-  PlayButton,
   Text,
   Feature,
   Logo,
@@ -94,10 +93,6 @@ Header.Dropdown = function HeaderDropdown({ children, ...restProps }: IChildren)
 
 Header.TextLink = function HeaderTextLink({ children, ...restProps }: IHeaderTextLink) {
   return <Link {...restProps}>{children}</Link>
-}
-
-Header.PlayButton = function HeaderPlayButton({ children, ...restProps }: IChildren) {
-  return <PlayButton {...restProps}>{children}</PlayButton>
 }
 
 Header.FeatureCallOut = function HeaderFeatureCallOut({ children, ...restProps }: IChildren) {

@@ -14,10 +14,13 @@ export function HeaderContainer({ children }: IChildren) {
 
               <Header.Logo to={ROUTES.HOME} src={logo} alt="Netflix" />
               
-              <Header.ButtonLink to={ROUTES.SIGN_IN}>Sign In</Header.ButtonLink>
+              <Header.Group>
 
-              <Header.Button onClick={() => signInAnonymously()}> Guest</Header.Button>
+                <Header.ButtonLink to={ROUTES.SIGN_IN}>Sign In</Header.ButtonLink>
 
+                <Header.Button onClick={() => signInAnonymously()}> Try as Guest</Header.Button>
+
+              </Header.Group>
           </Header.Frame>
 
           {children}

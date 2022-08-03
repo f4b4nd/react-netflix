@@ -29,7 +29,7 @@ Player.Video = function PlayerVideo({ src }: IPlayerVideo) {
             ReactDOM.createPortal(
                 <Overlay onClick={() => setShowPlayer(false)} data-testid="player">
                     <Inner>
-                        <video id="player" controls>
+                        <video id="player" controls autoPlay>
                             <source src={src} type="video/mp4" />
                         </video>
                         <Close />

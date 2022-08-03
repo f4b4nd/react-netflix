@@ -27,7 +27,7 @@ export function BrowseContainer({ slides }: IBrowserContainer) {
     useEffect(() => {
         setTimeout(() => {
             setLoading(false)
-        }, 1000)
+        }, 800)
     }, [profile.displayName])
 
     useEffect(() => {
@@ -37,7 +37,7 @@ export function BrowseContainer({ slides }: IBrowserContainer) {
 
     useEffect(() => {
         if (user && user.isAnonymous) {
-            setProfile({ displayName: "guest", photoURL: "guest" })
+            setProfile({ displayName: "Guest", photoURL: "guest" })
         }
     //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user])

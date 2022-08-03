@@ -4,7 +4,7 @@ import { ROUTES } from '../../constants'
 
 import { firebase } from "../../lib/firebase.prod"
 
-import { Header } from '../../components'
+import { Header, Player } from '../../components'
 
 import { getFilteredSlideRow } from '../../utils/searchEngine'
 
@@ -97,7 +97,10 @@ export function BrowseHeaderContainer ({category, setCategory, slides, setSlideR
             futile attempt to feel like he's part of the world around him.
             </Header.Text>
 
-            <Header.PlayButton>Play</Header.PlayButton>
+            <Player>
+                <Player.Button />
+                <Player.Video src="/videos/netflix-intro.mp4" />
+            </Player>
 
         </Header.Feature>
 

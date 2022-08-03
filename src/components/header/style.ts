@@ -50,7 +50,9 @@ export const Link = styled.p<ILink>`
   color: #fff;
   text-decoration: none;
   margin-right: 30px;
+  font-size: 1.8em;
   font-weight: ${({ active }) => (active ? '700' : 'normal')};
+  text-shadow: 1px 1px 10px black;
   cursor: pointer;
 
   &:hover {
@@ -65,6 +67,7 @@ export const Link = styled.p<ILink>`
 export const Group = styled.div`
   display: flex;
   align-items: center;
+  column-gap: 1em;
 `
 
 export const SearchInput = styled.input<ISearchInput>`
@@ -137,21 +140,21 @@ export const ButtonLink = styled(ReachRouterLink)<IHeaderButtonLink>`
 `
 
 export const Button = styled.div`
-  display: flex;
-  justify-content: center;
-  background-color: #e50914;
-  width: 84px;
-  height: fit-content;
-  color: white;
-  border: 0;
+  box-shadow: 0 0.6vw 1vw -0.4vw rgba(0, 0, 0, 0.35);
+  background-color: #e6e6e6;
+  color: #000;
+  border-width: 0;
+  padding: 10px 20px;
+  border-radius: 5px;
+  max-width: 130px;
+  font-weight: bold;
   font-size: 15px;
-  border-radius: 3px;
-  padding: 8px 17px;
   cursor: pointer;
-  text-decoration: none;
+  transition: background-color 0.5s ease;
 
   &:hover {
-    background: #f40612;
+    background-color: #ff1e1e;
+    color: white;
   }
 `
 
@@ -255,25 +258,5 @@ export const Logo = styled.img`
   @media (min-width: 1449px) {
     height: 45px;
     width: 167px;
-  }
-`
-
-export const PlayButton = styled.button`
-  box-shadow: 0 0.6vw 1vw -0.4vw rgba(0, 0, 0, 0.35);
-  background-color: #e6e6e6;
-  color: #000;
-  border-width: 0;
-  padding: 10px 20px;
-  border-radius: 5px;
-  max-width: 130px;
-  font-weight: bold;
-  font-size: 20px;
-  margin-top: 10px;
-  cursor: pointer;
-  transition: background-color 0.5s ease;
-
-  &:hover {
-    background-color: #ff1e1e;
-    color: white;
   }
 `
