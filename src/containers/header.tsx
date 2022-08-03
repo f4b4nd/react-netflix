@@ -16,7 +16,7 @@ export function HeaderContainer({ children }: IChildren) {
               
               <Header.ButtonLink to={ROUTES.SIGN_IN}>Sign In</Header.ButtonLink>
 
-              <Header.ButtonLink to={ROUTES.BROWSE} onClick={() => signInAnonymously()}> Guest</Header.ButtonLink>
+              <Header.Button onClick={() => signInAnonymously()}> Guest</Header.Button>
 
           </Header.Frame>
 

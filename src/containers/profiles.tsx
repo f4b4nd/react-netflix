@@ -1,5 +1,3 @@
-import { useEffect } from 'react'
-
 import { ROUTES } from '../constants'
 
 import logo from '../logo.svg'
@@ -17,7 +15,6 @@ export function SelectProfileContainer({ user, setProfile }: ISelectProfileConta
         }
 
     }
-
 
     return (
         <>

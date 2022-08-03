@@ -15,6 +15,7 @@ import {
   SearchIcon,
   SearchInput,
   ButtonLink,
+  Button,
   PlayButton,
   Text,
   Feature,
@@ -109,4 +110,8 @@ Header.Text = function HeaderText({ children, ...restProps }: IChildren) {
 
 Header.ButtonLink = function HeaderButtonLink({ to, children, ...restProps }: IHeaderButtonLink) {
   return <ButtonLink to={to} {...restProps}>{children}</ButtonLink>
+}
+
+Header.Button = function HeaderButton({ children, ...restProps }: IHeaderButton) {
+  return <Button {...restProps}>{children}</Button>
 }

@@ -74,6 +74,10 @@ interface IHeaderButtonLink extends IChildren {
     onClick?: () => void
 }
 
+interface IHeaderButton extends IChildren {
+    onClick?: () => void
+}
+
 /*** JUMBOTRON */
 
 interface IJumbotron extends IChildren {
