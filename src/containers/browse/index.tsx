@@ -35,15 +35,22 @@ export function BrowseContainer({ slides }: IBrowserContainer) {
     //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [slides])
 
+    useEffect(() => {
+        if (user && user.isAnonymous) {
+            setProfile({ displayName: "guest", photoURL: "guest" })
+        }
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [user])
+
     return (
         <>
             {profile.displayName && 
                 <>
                 
-                {loading ? <Loading src={user ? user.photoURL : "guest"} /> : <Loading.ReleaseBody />}
+                {loading ? <Loading src={user && !user.isAnonymous ? user.photoURL : "guest"} /> : <Loading.ReleaseBody />}
 
                 <BrowseHeaderContainer 
-                    user={user}
+                    profile={profile}
                     category={category}
                     setCategory={setCategory}
                     slides={slides}
@@ -60,11 +67,10 @@ export function BrowseContainer({ slides }: IBrowserContainer) {
                 </>
             }
 
-            {!profile.displayName && 
+            {!user?.isAnonymous && !profile.displayName && 
             
                 <SelectProfileContainer 
                     user={user} 
-                    profile={profile}
                     setProfile={setProfile} 
                 /> 
                 

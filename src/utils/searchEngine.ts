@@ -1,4 +1,4 @@
-const getFilteredSlideRow = (slideRow: TslideRow, searchterm: string) => {
+export const getFilteredSlideRow = (slideRow: TslideRow, searchterm: string) => {
 
     const results: TslideRow['data'] = []
 
@@ -21,5 +21,3 @@ const itemMatches = (item: TslideRowMovie, searchterm: string) => {
     const genreMatches = item.genre.toLocaleLowerCase().includes(searchtermLowerCase)
     return titleMatches || descriptionMatches || genreMatches
 }
-
-export default getFilteredSlideRow

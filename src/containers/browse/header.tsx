@@ -6,18 +6,18 @@ import { firebase } from "../../lib/firebase.prod"
 
 import { Header } from '../../components'
 
-import getFilteredSlideRow from '../../utils/searchEngine'
+import { getFilteredSlideRow } from '../../utils/searchEngine'
 
 import logo from '../../logo.svg'
 
 
-export function BrowseHeaderContainer ({user, category, setCategory, slides, setSlideRows}: IBrowseHeaderContainer) {
+export function BrowseHeaderContainer ({category, setCategory, slides, setSlideRows, profile}: IBrowseHeaderContainer) {
     
     const [searchTerm, setSearchTerm] = useState<string>('')
 
     const onSearchTermChange = (slideRows: TslideRows, searchterm: string) => {
 
-        const preventSearch = searchTerm.length < 1
+        const preventSearch = searchterm.length < 1
 
         if (preventSearch) {
             setSlideRows(slideRows)
@@ -65,13 +65,13 @@ export function BrowseHeaderContainer ({user, category, setCategory, slides, set
 
                 <Header.Profile>
 
-                    <Header.Picture src={user?.photoURL || "guest"} />
+                    <Header.Picture src={profile.photoURL} />
 
                     <Header.Dropdown>
 
                         <Header.Group>
-                            <Header.Picture src={user?.photoURL || "guest"} />
-                            <Header.TextLink>{user ? user.displayName : "guest"}</Header.TextLink>
+                            <Header.Picture src={profile.photoURL} />
+                            <Header.TextLink>{profile.displayName}</Header.TextLink>
                         </Header.Group>
 
                         <Header.Group>

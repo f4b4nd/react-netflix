@@ -1,12 +1,13 @@
+import { useEffect } from 'react'
+
 import { ROUTES } from '../constants'
 
 import logo from '../logo.svg'
 
 import { Header, Profiles } from '../components'
-import { useEffect } from 'react';
 
 
-export function SelectProfileContainer({ user, profile, setProfile }: ISelectProfileContainer) {
+export function SelectProfileContainer({ user, setProfile }: ISelectProfileContainer) {
 
     const handleClickOnUserProfile = (user: IUser) => {
  
@@ -17,12 +18,6 @@ export function SelectProfileContainer({ user, profile, setProfile }: ISelectPro
 
     }
 
-    useEffect(() => {
-        if (!user) {
-            setProfile({ displayName: "guest", photoURL: "guest" })
-        }
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [user])
 
     return (
         <>
