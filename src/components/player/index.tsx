@@ -2,7 +2,7 @@ import { useState, useContext,  } from 'react'
 
 import ReactDOM from 'react-dom'
 
-import { Container, Button, Overlay, Inner, Close } from './style'
+import { Container, Button, ButtonIcon, Overlay, Inner, Close } from './style'
 
 import { PlayerContext } from '../../context/player'
 
@@ -41,16 +41,22 @@ Player.Video = function PlayerVideo({ src }: IPlayerVideo) {
     )
 }
 
-Player.Button = function PlayerButton({ ...restProps }) {
+Player.Button = function PlayerButton({ asIcon, ...restProps }: IPlayerButton) {
 
     const { showPlayer, setShowPlayer } = useContext(PlayerContext)
 
     return (
         <Button 
-            onClick={() => setShowPlayer(!showPlayer)} 
+            onClick={() => setShowPlayer(!showPlayer)}
+            asIcon={asIcon}
             {...restProps}
-        >
-            Play
+        >            
+            {asIcon ? (
+                <ButtonIcon src="/images/icons/play.png" alt="play"/>
+                ) : (
+                'Play'
+            )}
+
         </Button>
     )
 }

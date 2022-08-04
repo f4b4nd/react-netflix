@@ -18,6 +18,9 @@ interface IMaturity {
   rating?: number
 }
 
+interface ILikeButton {
+  isActive?: boolean
+}
 
 export const Title = styled.p`
   font-size: 24px;
@@ -78,8 +81,10 @@ export const Text = styled.p`
 `
 
 export const Entities = styled.div`
+  margin-left: 56px;
   display: flex;
   flex-direction: row;
+  gap: 1em 0.5em;
 `
 
 export const Meta = styled.div`
@@ -99,19 +104,18 @@ export const Actions = styled.div`
   margin-bottom: 1em;
 `
 
-export const LikeButton = styled.div`
+export const LikeButton = styled.div<ILikeButton>`
+  height: 22px;
+  width: 22px;
   cursor: pointer;
-  height: 20px;
-  width: 20px;
 
   img {
     height: 100%; 
     width: 100%;
-    filter: brightness(1.2); 
+    ${({isActive}) => `filter: brightness(${isActive ? 1.5 : 0.9 });`}
 
     &:hover {
-      transform: scale(1.1);
-      filter: brightness(1.5); 
+      transform: scale(1.2);
     }
   }
 
@@ -147,21 +151,6 @@ export const Item = styled.div`
     }
   }
 
-  &:first-of-type {
-    margin-left: 56px;
-
-    @media (max-width: 1000px) {
-      margin-left: 30px;
-    }
-  }
-
-  &:last-of-type {
-    margin-right: 56px;
-
-    @media (max-width: 1000px) {
-      margin-right: 30px;
-    }
-  }
 `
 
 export const FeatureText = styled.p<IFeatureText>`

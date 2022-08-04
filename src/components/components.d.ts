@@ -11,6 +11,7 @@ interface ICardItem extends IChildren {
 interface ICardLikeButton extends IChildren {
     src: string,
     onClick?: () => void,
+    isActive?: boolean
 }
 
 /**FORM */
@@ -104,6 +105,10 @@ interface ILoading {
 
 interface IPlayerVideo {
     src: string
+}
+
+interface IPlayerButton {
+    asIcon?: boolean
 }
 
 /** PROFILES */

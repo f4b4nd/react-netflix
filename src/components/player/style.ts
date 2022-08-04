@@ -1,7 +1,11 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
-`
+interface IButton {
+  asIcon?: boolean
+}
+
+
+export const Container = styled.div``
 
 export const Overlay = styled.div`
   display: flex;
@@ -62,22 +66,45 @@ export const Close = styled.button`
   }
 `
 
-export const Button = styled.button`
-  box-shadow: 0 0.6vw 1vw -0.4vw rgba(0, 0, 0, 0.35);
-  background-color: #e6e6e6;
-  color: #000;
-  border-width: 0;
-  padding: 10px 20px;
-  border-radius: 5px;
-  width: 130px;
-  height: 50px;
-  font-weight: bold;
-  font-size: 25px;
+export const Button = styled.div<IButton>`
   cursor: pointer;
-  transition: background-color 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  &:hover {
-    background-color: #ff1e1e;
-    color: white;
+  ${({asIcon}) => asIcon ? `
+    width: 23px;
+    height: 23px;
+    overflow: hidden;
+
+    &:hover img {
+      transform: scale(1.2)
+    }
+
+  ` :
+  `
+    box-shadow: 0 0.6vw 1vw -0.4vw rgba(0, 0, 0, 0.35);
+    background-color: #e6e6e6;
+    color: #000;
+    border-width: 0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 130px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 25px;
+    transition: background-color 0.5s ease;
+
+    &:hover {
+      background-color: #ff1e1e;
+      color: white;
+    }
+  `
   }
+
+`
+
+export const ButtonIcon = styled.img`
+  height: 100%;
+  width: 100%;
 `

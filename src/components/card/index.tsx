@@ -63,9 +63,9 @@ Card.Actions = function CardActions({ children, ...restProps }: IChildren) {
     return <Actions {...restProps}>{children}</Actions>
 }
 
-Card.LikeButton = function CardLikeButton({ src, ...restProps }: ICardLikeButton) {
+Card.LikeButton = function CardLikeButton({ src, isActive, ...restProps }: ICardLikeButton) {
     return (
-        <LikeButton {...restProps}>
+        <LikeButton isActive={isActive} {...restProps}>
             <img src={src} alt="like" draggable="false"/>
         </LikeButton>
     )

@@ -1,13 +1,13 @@
 import { useContext } from 'react'
 
 import { WishListContext } from '../../context/wishlist'
-import { handleClickOnLikeButton, handleClickOnDislikeButton } from '../../utils/likeMovie'
+import { handleClickOnLikeButton } from '../../utils/likeMovie'
 import { Card, Player } from '../../components'
 
 
 export function BrowseMediaContentContainer ({category, slideRows}: IBrowseMediaContentContainer) {
     
-    const { dispatch } = useContext(WishListContext)
+    const { state, dispatch } = useContext(WishListContext)
 
     return (
 
@@ -25,19 +25,31 @@ export function BrowseMediaContentContainer ({category, slideRows}: IBrowseMedia
                     <Card.Title> {slideRow.title} </Card.Title>
 
                     <Card.Entities>
-                        {slideRow.data.map((item) => (
+                        {slideRow.data.map((item) => {
+
+                            const itemIsLiked = state.filter(movie => movie.id === item.id).length > 0
+
+                            return (
                             <Card.Item key={item.docId} item={item}>
                                 <Card.Image src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`} />
                                 <Card.Meta>
                                     <Card.Actions>
-                                        <Card.LikeButton src="/images/icons/like.png" onClick={() => handleClickOnLikeButton(item, dispatch)} />
-                                        <Card.LikeButton src="/images/icons/dislike.png" onClick={() => handleClickOnDislikeButton(item, dispatch)} />
+                                        <Player>
+                                            <Player.Button asIcon={true} />
+                                            <Player.Video src="/videos/netflix-intro.mp4" />
+                                        </Player>
+                                        <Card.LikeButton 
+                                            src="/images/icons/like.png" 
+                                            onClick={() => handleClickOnLikeButton(item, itemIsLiked, dispatch)}
+                                            isActive={itemIsLiked}
+                                        />    
                                     </Card.Actions>
                                     <Card.SubTitle> {item.title} </Card.SubTitle>
                                     <Card.Text> {item.description} </Card.Text>
                                 </Card.Meta>
                             </Card.Item>
-                        ))}
+                        )}
+                        )}
                     </Card.Entities>
 
                     <Card.Feature category={category}>
