@@ -7,9 +7,15 @@ export default function WishListContainer () {
 
     const { state, dispatch } = useContext(WishListContext)
 
+    const itemIsLiked = true
+
     return (
         <Wishlist>
             <Wishlist.Title> My wishlist </Wishlist.Title>
+
+            {state.length === 0 &&  
+                <Wishlist.SubTitle> Your wishlist is currently empty &#9785;&#65039; </Wishlist.SubTitle>
+            }
 
             <Wishlist.Grid>
 
@@ -24,7 +30,7 @@ export default function WishListContainer () {
                             </Player>
                             <Card.LikeButton 
                                 src="/images/icons/like.png" 
-                                onClick={() => handleClickOnLikeButton(item, true, dispatch)}
+                                onClick={() => handleClickOnLikeButton(item, itemIsLiked, dispatch)}
                                 isActive={true}
                             />
 

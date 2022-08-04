@@ -94,6 +94,7 @@ export const Meta = styled.div`
   padding: 10px;
   background-color: #0000008f;
   cursor: default;
+  width: 100%;
 `
 
 export const Actions = styled.div`
@@ -124,7 +125,7 @@ export const LikeButton = styled.div<ILikeButton>`
 export const Image = styled.img`
   border: 0;
   width: 100%;
-  max-width: 305px;
+  //max-width: 305px;
   cursor: pointer;
   height: auto;
   padding: 0;
@@ -134,11 +135,10 @@ export const Image = styled.img`
 export const Item = styled.div`
   display: flex;
   flex-direction: column;
-  margin-right: 5px;
   position: relative;
   cursor: pointer;
   transition: transform 0.2s;
-
+    
   &:hover {
     transform: scale(1.3);
     z-index: 99;

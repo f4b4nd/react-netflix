@@ -42,7 +42,7 @@ export function BrowseHeaderContainer ({category, setCategory, slides, setSlideR
 
     return (
 
-    <Header src="joker1" dontShowOnSmallViewPort>
+    <Header src="joker1" bg={!displayWishList} dontShowOnSmallViewPort>
 
         <Header.Frame>
 

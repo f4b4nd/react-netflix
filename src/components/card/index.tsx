@@ -44,11 +44,11 @@ Card.Title = function CardTitle({ children, ...restProps }: IChildren) {
 }
 
 Card.SubTitle = function CardSubTitle({ children, ...restProps }: IChildren) {
-    return <SubTitle {...restProps}>{children}</SubTitle>
+    return <SubTitle className="card__title" {...restProps}>{children}</SubTitle>
 }
 
 Card.Text = function CardText({ children, ...restProps }: IChildren) {
-    return <Text {...restProps}>{children}</Text>
+    return <Text className="card__text" {...restProps}>{children}</Text>
 }
 
 Card.Entities = function CardEntities({ children, ...restProps }: IChildren) {
@@ -56,11 +56,11 @@ Card.Entities = function CardEntities({ children, ...restProps }: IChildren) {
 }
 
 Card.Meta = function CardMeta({ children, ...restProps }: IChildren) {
-    return <Meta {...restProps}>{children}</Meta>
+    return <Meta className="card__meta" {...restProps}>{children}</Meta>
 }
 
 Card.Actions = function CardActions({ children, ...restProps }: IChildren) {
-    return <Actions {...restProps}>{children}</Actions>
+    return <Actions className="card__actions" {...restProps}>{children}</Actions>
 }
 
 Card.LikeButton = function CardLikeButton({ src, isActive, ...restProps }: ICardLikeButton) {
@@ -76,7 +76,7 @@ Card.Item = function CardItem({ item, children, ...restProps }: ICardItem) {
     const { setShowFeature, setItemFeature } = useContext(FeatureContext)
 
     return (
-        <Item
+        <Item className="card__item"
             onClick={() => { setItemFeature(item) ; setShowFeature(true) }}
             {...restProps}
         >
@@ -86,7 +86,7 @@ Card.Item = function CardItem({ item, children, ...restProps }: ICardItem) {
 }
 
 Card.Image = function CardImage({ ...restProps }) {
-    return <Image {...restProps} />
+    return <Image className="card__image" {...restProps} />
 }
 
 Card.Feature = function CardFeature({ category, children, ...restProps }: ICardFeature) {

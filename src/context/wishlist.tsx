@@ -1,6 +1,10 @@
 import { createContext, useReducer } from 'react'
-import useWishList from '../hooks/useWishList'
-import { setMovieToLocalStorage, removeMovieFromLocalStorage } from '../utils/localStorage'
+
+import { 
+    setMovieToLocalStorage, 
+    removeMovieFromLocalStorage, 
+    getWishListFromLocalStorage 
+} from '../utils/localStorage'
 
 export const WishListContext = createContext<IWishListContext>({
     state: [],
@@ -9,7 +13,7 @@ export const WishListContext = createContext<IWishListContext>({
 
 export const WishListContextProvider = ({children}: IChildren) => {
 
-    const initialState = useWishList()
+    const initialState = getWishListFromLocalStorage()
 
     const [state, dispatch] = useReducer(wishListReducer, initialState)
 
@@ -26,7 +30,7 @@ export const wishListReducer: IwishListReducer = (state, action) => {
     switch (action.type) {
 
         case 'ADD_TO_WISHLIST':
-            const wishlistHasMovie = state.find(movie => movie.id === action.payload.id)
+            const wishlistHasMovie = state.filter(movie => movie.id === action.payload.id).length > 0
             if (wishlistHasMovie) {
                 return state
             }

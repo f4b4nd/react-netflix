@@ -128,7 +128,7 @@ interface IChildren {
 }
 
 /** RESTPROPS */
-interface RestProps {
+interface RestProps extends React.HTMLAttributes<HTMLDivElement> {
     [key: string]: string
 }
 
