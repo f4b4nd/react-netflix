@@ -132,7 +132,8 @@ export const ButtonLink = styled(ReachRouterLink)<IHeaderButtonLink>`
   color: white;
   border: 0;
   font-size: 15px;
-  border-radius: 3px;
+  font-weight: bold;
+  border-radius: 5px;
   padding: 8px 17px;
   cursor: pointer;
   text-decoration: none;
@@ -147,9 +148,10 @@ export const Button = styled.div`
   background-color: #e6e6e6;
   color: #000;
   border-width: 0;
-  padding: 10px 20px;
+  padding: 8px 17px;
   border-radius: 5px;
-  max-width: 130px;
+  height: fit-content;
+
   font-weight: bold;
   font-size: 15px;
   cursor: pointer;

@@ -35,7 +35,7 @@ export function BrowseHeaderContainer ({category, setCategory, slides, setSlideR
         const slideRows = slides[category as keyof Tslides]
 
         onSearchTermChange(slideRows, searchTerm)
-
+    
     //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchTerm, category])
     

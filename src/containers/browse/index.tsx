@@ -42,7 +42,8 @@ export function BrowseContainer({ slides }: IBrowserContainer) {
 
     useEffect(() => {
         setSlideRows(slides[category as keyof Tslides])
-    //eslint-disable-next-line react-hooks/exhaustive-deps
+        setDisplayWishList(false)
+        //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [slides])
 
     useEffect(() => {
