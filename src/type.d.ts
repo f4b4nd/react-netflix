@@ -40,3 +40,30 @@ type TslideRow = {
     title: string,
     data: TMovie[]
 }
+
+/** MOVIEDB API*/
+type TMovieAPI = {
+    id: number,
+    adult: booelan,
+    backdrop_path: src,
+    genre_ids: number[],
+    original_language: string,
+    original_title: string,
+    overview: string,
+    popularity: float, 
+    poster_path: string,
+    release_date: string,
+    title: string,
+    video: boolean,
+    vote_average: float, 
+    vote_count: number,
+}
+
+type TResponseAPI = TMovieAPI[] | TMultipleMoviesAPI
+
+type TMultipleMoviesAPI = {
+    page: number,
+    results: TMovieAPI[],
+    total_pages: number,
+    total_results: number,
+}

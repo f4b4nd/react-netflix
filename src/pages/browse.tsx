@@ -17,7 +17,7 @@ export default function Browse () {
 
     const slides = selectionFilter({ series, films })
 
-    const movies = useFetchAPI(API_ROUTES.getMovies.action)
+    const movies = useFetchAPI(API_ROUTES.getMovie({type: 'tv', itemID: '2'}))
 
     return <BrowseContainer slides={slides} />
     

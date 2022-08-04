@@ -1,7 +1,9 @@
 interface Props {
-    type: 'movie' | 'tv',
+    type: Titem,
     [x: string]: string,
 }
+
+type Titem = 'movie' | 'tv'
 
 type TimgSize = "original" | "w500"
 
@@ -31,9 +33,13 @@ const ENDPOINTS = {
     
     trendingItems: `trending/all/week${LANGUAGE_URL}`,
 
+    itemDetail: ({type, itemID}: Props) => `${type}/${itemID}?`
+
 }
 
 export const API_ROUTES = {
+
+    getMovie: ({type, itemID}: Props) => getAuthURL(ENDPOINTS.itemDetail({type, itemID}), true),
 
     getMovies: {
         action: getAuthURL(ENDPOINTS.itemsByGenre({type: 'movie', genreID: '28'})),
