@@ -4,5 +4,5 @@ interface IselectionFilter {
 }
 
 interface IhandleClickOnLikeButton {
-    (item: TMovie, itemIsLiked: boolean, dispatch: React.Dispatch<IwishListAction>)
+    (item: TMovieAPI, itemIsLiked: boolean, dispatch: React.Dispatch<IwishListAction>)
 }

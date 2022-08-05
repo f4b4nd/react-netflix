@@ -23,7 +23,7 @@ export function BrowseContainer({ slides }: IBrowserContainer) {
 
     const [category, setCategory] = useState<Tcategory>('series')
 
-    const [slideRows, setSlideRows] = useState<TslideRow[]>([])
+    const [slideRows, setSlideRows] = useState<TslideRowAPI[]>([])
 
     const [displayWishList, setDisplayWishList] = useState<boolean>(false)
 
@@ -41,7 +41,7 @@ export function BrowseContainer({ slides }: IBrowserContainer) {
     }, [profile.displayName])
 
     useEffect(() => {
-        setSlideRows(slides[category as keyof Tslides])
+        setSlideRows(slides[category as keyof TslidesAPI])
         setDisplayWishList(false)
         //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [slides])

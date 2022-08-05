@@ -9,13 +9,20 @@ import { Header, Player } from '../../components'
 import { getFilteredSlideRow } from '../../utils/searchEngine'
 
 import logo from '../../logo.svg'
+import { getImgURL, API_ROUTES } from '../../lib/themoviedb.prod'
+
+import { useFetchAPI } from '../../hooks'
 
 
 export function BrowseHeaderContainer ({category, setCategory, slides, setSlideRows, profile, displayWishList, setDisplayWishList}: IBrowseHeaderContainer) {
     
     const [searchTerm, setSearchTerm] = useState<string>('')
 
-    const onSearchTermChange = (slideRows: TslideRow[], searchterm: string) => {
+    const getTopRatedMovies = useFetchAPI(API_ROUTES.getTopRatedMovies)
+    const randomMovieIndex = Math.floor(Math.random() * getTopRatedMovies.length)
+    const randomMovie = getTopRatedMovies[randomMovieIndex]
+
+    const onSearchTermChange = (slideRows: TslideRowAPI[], searchterm: string) => {
 
         const preventSearch = searchterm.length < 1
 
@@ -42,7 +49,7 @@ export function BrowseHeaderContainer ({category, setCategory, slides, setSlideR
 
     return (
 
-    <Header src="joker1" bg={!displayWishList} dontShowOnSmallViewPort>
+    <Header src={getImgURL(randomMovie?.backdrop_path, 'original')} bg={!displayWishList} dontShowOnSmallViewPort>
 
         <Header.Frame>
 
@@ -91,13 +98,9 @@ export function BrowseHeaderContainer ({category, setCategory, slides, setSlideR
         {!displayWishList &&
             <Header.Feature>
 
-                <Header.FeatureCallOut>Watch Joker Now</Header.FeatureCallOut>
+                <Header.FeatureCallOut>Watch {randomMovie?.name} Now</Header.FeatureCallOut>
 
-                <Header.Text>
-                Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham
-                City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a
-                futile attempt to feel like he's part of the world around him.
-                </Header.Text>
+                <Header.Text> {randomMovie?.overview} </Header.Text>
 
                 <Player>
                     <Player.Button />

@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { WishListContext } from '../context/wishlist'
 import { Card, Player, Wishlist } from '../components'
 import { handleClickOnLikeButton } from '../utils/likeMovie'
+import { getImgURL } from '../lib/themoviedb.prod';
 
 export default function WishListContainer () {
 
@@ -20,8 +21,8 @@ export default function WishListContainer () {
             <Wishlist.Grid>
 
             {state.map(item => (
-                <Card.Item key={item.docId} item={item}>
-                    <Card.Image src={`/images/series/${item.genre}/${item.slug}/small.jpg`} />
+                <Card.Item key={item.id} item={item}>
+                    <Card.Image src={getImgURL(item.poster_path)} />
                     <Card.Meta>
                         <Card.Actions>
                             <Player>
@@ -35,8 +36,8 @@ export default function WishListContainer () {
                             />
 
                         </Card.Actions>
-                        <Card.SubTitle> {item.title} </Card.SubTitle>
-                        <Card.Text> {item.description} </Card.Text>
+                        <Card.SubTitle> {item.name} </Card.SubTitle>
+                        <Card.Text> {item.overview} </Card.Text>
                     </Card.Meta>
                 </Card.Item>
             ))

@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import { WishListContext } from '../../context/wishlist'
 import { handleClickOnLikeButton } from '../../utils/likeMovie'
 import { Card, Player } from '../../components'
+import { getImgURL } from '../../lib/themoviedb.prod';
 
 
 export function BrowseMediaContentContainer ({category, slideRows}: IBrowseMediaContentContainer) {
@@ -30,8 +31,8 @@ export function BrowseMediaContentContainer ({category, slideRows}: IBrowseMedia
                             const itemIsLiked = state.filter(movie => movie.id === item.id).length > 0
 
                             return (
-                            <Card.Item key={item.docId} item={item}>
-                                <Card.Image src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`} />
+                            <Card.Item key={item.id} item={item}>
+                                <Card.Image src={getImgURL(item.poster_path)} />
                                 <Card.Meta>
                                     <Card.Actions>
                                         <Player>
@@ -44,8 +45,8 @@ export function BrowseMediaContentContainer ({category, slideRows}: IBrowseMedia
                                             isActive={itemIsLiked}
                                         />    
                                     </Card.Actions>
-                                    <Card.SubTitle> {item.title} </Card.SubTitle>
-                                    <Card.Text> {item.description} </Card.Text>
+                                    <Card.SubTitle> {item.name} </Card.SubTitle>
+                                    <Card.Text> {item.overview} </Card.Text>
                                 </Card.Meta>
                             </Card.Item>
                         )}

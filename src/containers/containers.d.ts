@@ -3,8 +3,8 @@
 interface IBrowseHeaderContainer {
     category: Tcategory,
     setCategory: React.Dispatch<React.SetStateAction<Tcategory>>,
-    slides: Tslides,
-    setSlideRows: React.Dispatch<React.SetStateAction<TslideRow[]>>,
+    slides: TslidesAPI,
+    setSlideRows: React.Dispatch<React.SetStateAction<TslideRowAPI[]>>,
     profile: Tprofile,
     displayWishList: boolean,
     setDisplayWishList: React.Dispatch<React.SetStateAction<boolean>>,
@@ -12,12 +12,12 @@ interface IBrowseHeaderContainer {
 }
 
 interface IBrowserContainer {
-    slides: Tslides,
+    slides: TslidesAPI,
 }
 
 interface IBrowseMediaContentContainer {
     category: Tcategory,
-    slideRows: TslideRow[],
+    slideRows: TslideRowAPI[],
 }
 
 /** PROFILE */

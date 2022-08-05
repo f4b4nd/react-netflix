@@ -5,7 +5,7 @@ interface ICardFeature extends IChildren {
 }
 
 interface ICardItem extends IChildren {
-    item: TMovie
+    item: TMovieAPI
 }
 
 interface ICardLikeButton extends IChildren {

@@ -15,8 +15,8 @@ interface IPlayerContext {
 interface IFeatureContext {
     showFeature: boolean,
     setShowFeature: React.Dispatch<React.SetStateAction<boolean>>,
-    itemFeature: TMovie,
-    setItemFeature: React.Dispatch<React.SetStateAction<TMovie>>,
+    itemFeature: TMovieAPI,
+    setItemFeature: React.Dispatch<React.SetStateAction<TMovieAPI>>,
 }
 
 /** ACCORDION */
@@ -27,15 +27,15 @@ interface IToggleContext {
 
 /** WISHLIST */
 interface IWishListContext  {
-    state: TMovie[],
+    state: TMovieAPI[],
     dispatch: React.dispatch<IwishListAction>,
 }
 
 interface IwishListReducer {
-    (state: TMovie[], action: IwishListAction)
+    (state: TMovieAPI[], action: IwishListAction)
 }
 
 interface IwishListAction {
     type: 'ADD_TO_WISHLIST' | 'REMOVE_FROM_WISHLIST',
-    payload: TMovie
+    payload: TMovieAPI
 }

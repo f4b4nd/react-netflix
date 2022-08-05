@@ -1,6 +1,6 @@
-export const getFilteredSlideRow = (slideRow: TslideRow, searchterm: string) => {
+export const getFilteredSlideRow = (slideRow: TslideRowAPI, searchterm: string) => {
 
-    const results: TslideRow['data'] = []
+    const results: TslideRowAPI['data'] = []
 
     slideRow.data.forEach(item => {
         if (itemMatches(item, searchterm)) {
@@ -14,10 +14,10 @@ export const getFilteredSlideRow = (slideRow: TslideRow, searchterm: string) => 
 
 }
 
-const itemMatches = (item: TMovie, searchterm: string) => {
+const itemMatches = (item: TMovieAPI, searchterm: string) => {
     const searchtermLowerCase = searchterm.toLocaleLowerCase()
     const titleMatches = item.title?.toLocaleLowerCase().includes(searchtermLowerCase)
-    const descriptionMatches = item.description?.toLocaleLowerCase().includes(searchtermLowerCase)
-    const genreMatches = item.genre?.toLocaleLowerCase().includes(searchtermLowerCase)
-    return titleMatches || descriptionMatches || genreMatches
+    const descriptionMatches = item.overview?.toLocaleLowerCase().includes(searchtermLowerCase)
+    //const genreMatches = item.genre?.toLocaleLowerCase().includes(searchtermLowerCase)
+    return titleMatches || descriptionMatches //|| genreMatches
 }

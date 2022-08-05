@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 
 export default function useFetchAPI (url: string) {
 
-    const [content, setContent] = useState<TResponseAPI>([])
+    const [content, setContent] = useState<TMovieAPI[]>([])
 
     const fetchResponse = async (url: string) => {
 
@@ -13,8 +13,8 @@ export default function useFetchAPI (url: string) {
             return
         }
 
-        const JSONresponse = await response.json()
-        const data = JSONresponse.results ?? [JSONresponse]
+        const JSONresponse: TResponseAPI = await response.json()
+        const data: TMovieAPI[] = 'results' in JSONresponse ? JSONresponse.results : [JSONresponse]
         setContent(data)
         console.log('apimovies', data)
 

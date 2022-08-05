@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react'
 
 import { FeatureContext } from '../../context/feature'
+import { getImgURL } from '../../lib/themoviedb.prod';
 
 import {
     Container,
@@ -26,7 +27,7 @@ import {
 export default function Card({ children, ...restProps }: IChildren) {
 
     const [showFeature, setShowFeature] = useState<boolean>(false)
-    const [itemFeature, setItemFeature] = useState<TMovie>({})
+    const [itemFeature, setItemFeature] = useState<TMovieAPI>({} as TMovieAPI)
 
     return (
         <FeatureContext.Provider value={{ showFeature, setShowFeature, itemFeature, setItemFeature }}>
@@ -99,13 +100,13 @@ Card.Feature = function CardFeature({ category, children, ...restProps }: ICardF
 
         <Feature 
             {...restProps}
-            src={`/images/${category}/${itemFeature.genre}/${itemFeature.slug}/large.jpg`}
+            src={getImgURL(itemFeature.backdrop_path, 'w500')}
         >
             <Content>
 
-                <FeatureTitle>{itemFeature.title}</FeatureTitle>
+                <FeatureTitle>{itemFeature.name}</FeatureTitle>
 
-                <FeatureText>{itemFeature.description}</FeatureText>
+                <FeatureText>{itemFeature.overview}</FeatureText>
 
                 <FeatureClose onClick={() => setShowFeature(false)}>
                     <img src="/images/icons/close.png" alt="Close" />
@@ -116,12 +117,12 @@ Card.Feature = function CardFeature({ category, children, ...restProps }: ICardF
                     flexDirection="row"
                     alignItems="center"
                 >
-                    <Maturity rating={itemFeature.maturity}>
-                        {itemFeature?.maturity && itemFeature.maturity < 12 ? 'PG' : itemFeature.maturity}
+                    <Maturity rating={itemFeature.adult}>
+                        {itemFeature?.adult ? 'PG' : itemFeature.adult}
                     </Maturity>
 
                     <FeatureText fontWeight="bold">
-                        {itemFeature?.genre}
+                        {itemFeature?.genre_ids}
                     </FeatureText>
 
                 </Group>

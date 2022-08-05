@@ -34,11 +34,27 @@ type Tslides = {
     }[],
 }
 
+type TslidesAPI = {
+    series: {
+        title: string,
+        data: TMovieAPI[],
+    }[],
+    films: {
+        title: string,
+        data: TMovieAPI[],
+    }[],
+}
+
 /** SLIDES ROWS*/
 
 type TslideRow = {
     title: string,
     data: TMovie[]
+}
+
+type TslideRowAPI = {
+    title: string,
+    data: TMovieAPI[]
 }
 
 /** MOVIEDB API*/
@@ -57,13 +73,14 @@ type TMovieAPI = {
     video: boolean,
     vote_average: float, 
     vote_count: number,
+    name: string
 }
 
-type TResponseAPI = TMovieAPI[] | TMultipleMoviesAPI
+type TResponseAPI = TMovieAPI | TMultipleMoviesAPI
 
 type TMultipleMoviesAPI = {
-    page: number,
+    page?: number,
     results: TMovieAPI[],
-    total_pages: number,
-    total_results: number,
+    total_pages?: number,
+    total_results?: number,
 }
