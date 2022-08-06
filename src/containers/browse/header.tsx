@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 
 import { ROUTES } from '../../constants'
 
@@ -19,8 +19,10 @@ export function BrowseHeaderContainer ({category, setCategory, slides, setSlideR
     const [searchTerm, setSearchTerm] = useState<string>('')
 
     const getTopRatedMovies = useFetchAPI(API_ROUTES.getTopRatedMovies)
-    const randomMovieIndex = Math.floor(Math.random() * getTopRatedMovies.length)
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+    const randomMovieIndex = useMemo(() => Math.floor(Math.random() * getTopRatedMovies.length), [])
     const randomMovie = getTopRatedMovies[randomMovieIndex]
+
 
     const onSearchTermChange = (slideRows: TslideRowAPI[], searchterm: string) => {
 
@@ -98,7 +100,7 @@ export function BrowseHeaderContainer ({category, setCategory, slides, setSlideR
         {!displayWishList &&
             <Header.Feature>
 
-                <Header.FeatureCallOut>Watch {randomMovie?.name} Now</Header.FeatureCallOut>
+                <Header.FeatureCallOut>Watch {randomMovie?.title} Now</Header.FeatureCallOut>
 
                 <Header.Text> {randomMovie?.overview} </Header.Text>
 

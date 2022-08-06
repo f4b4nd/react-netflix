@@ -43,12 +43,10 @@ export const API_ROUTES = {
     getTVShowByID: (itemID: string) => getAuthURL(ENDPOINTS.itemDetail({type: 'tv', itemID}), true),
 
     getMovies: {
-        action: getAuthURL(ENDPOINTS.itemsByGenre({type: 'movie', genreID: '28'})),
         animation : getAuthURL(ENDPOINTS.itemsByGenre({type: 'movie', genreID: '16'})),
         comedy: getAuthURL(ENDPOINTS.itemsByGenre({type: 'movie', genreID: '35'})),
         documentary : getAuthURL(ENDPOINTS.itemsByGenre({type: 'movie', genreID: '99'})),
         drama : getAuthURL(ENDPOINTS.itemsByGenre({type: 'movie', genreID: '18'})),
-        scifi : getAuthURL(ENDPOINTS.itemsByGenre({type: 'movie', genreID: '878'})),
     },
 
     getTVShows: {
@@ -56,7 +54,6 @@ export const API_ROUTES = {
         comedy: getAuthURL(ENDPOINTS.itemsByGenre({type: 'tv', genreID: '35'})),
         documentary : getAuthURL(ENDPOINTS.itemsByGenre({type: 'tv', genreID: '99'})),
         drama : getAuthURL(ENDPOINTS.itemsByGenre({type: 'tv', genreID: '18'})),
-        scifi : getAuthURL(ENDPOINTS.itemsByGenre({type: 'tv', genreID: '878'})),
     },
 
     search: {

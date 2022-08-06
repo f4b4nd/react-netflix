@@ -95,6 +95,10 @@ export const Meta = styled.div`
   background-color: #0000008f;
   cursor: default;
   width: 100%;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `
 
 export const Actions = styled.div`
@@ -138,7 +142,8 @@ export const Item = styled.div`
   position: relative;
   cursor: pointer;
   transition: transform 0.2s;
-    
+  width: 150px!important;
+
   &:hover {
     transform: scale(1.3);
     z-index: 99;
@@ -158,7 +163,17 @@ export const FeatureText = styled.p<IFeatureText>`
   color: white;
   font-weight: ${({ fontWeight }) => (fontWeight === 'bold' ? 'bold' : 'normal')};
   margin: 0;
+  height: 500px;
+  padding: 0 10px;
+  //border: 1px solid red;
   text-transform: capitalize;
+  //white-space: nowrap;
+  overflow: hidden;
+  //text-overflow: ellipsis;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+
 
   @media (max-width: 600px) {
     line-height: 22px;

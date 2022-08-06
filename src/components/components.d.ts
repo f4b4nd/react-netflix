@@ -14,6 +14,11 @@ interface ICardLikeButton extends IChildren {
     isActive?: boolean
 }
 
+/*** CAR0USEL */
+interface ICarouselArrow {
+    onClick: (e: React.MouseEvent<HTMLElement>) => void
+}
+
 /**FORM */
 
 interface IFormBase {

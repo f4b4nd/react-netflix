@@ -25,7 +25,7 @@ export default function useFetchAPI (url: string) {
         fetchResponse(url)
     
     //eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [url])
 
     return content
 }

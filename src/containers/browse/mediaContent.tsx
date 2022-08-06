@@ -2,8 +2,8 @@ import { useContext } from 'react'
 
 import { WishListContext } from '../../context/wishlist'
 import { handleClickOnLikeButton } from '../../utils/likeMovie'
-import { Card, Player } from '../../components'
-import { getImgURL } from '../../lib/themoviedb.prod';
+import { Card, Carousel, Player } from '../../components'
+import { getImgURL } from '../../lib/themoviedb.prod'
 
 
 export function BrowseMediaContentContainer ({category, slideRows}: IBrowseMediaContentContainer) {
@@ -25,7 +25,8 @@ export function BrowseMediaContentContainer ({category, slideRows}: IBrowseMedia
 
                     <Card.Title> {slideRow.title} </Card.Title>
 
-                    <Card.Entities>
+                    <Carousel>
+                        <Carousel.Gallery>
                         {slideRow.data.map((item) => {
 
                             const itemIsLiked = state.filter(movie => movie.id === item.id).length > 0
@@ -51,7 +52,8 @@ export function BrowseMediaContentContainer ({category, slideRows}: IBrowseMedia
                             </Card.Item>
                         )}
                         )}
-                    </Card.Entities>
+                        </Carousel.Gallery>
+                    </Carousel>
 
                     <Card.Feature category={category}>
                         <Player>

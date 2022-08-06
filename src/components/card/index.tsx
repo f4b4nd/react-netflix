@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react'
 
 import { FeatureContext } from '../../context/feature'
-import { getImgURL } from '../../lib/themoviedb.prod';
+import { getImgURL } from '../../lib/themoviedb.prod'
 
 import {
     Container,
