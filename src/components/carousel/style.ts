@@ -13,7 +13,7 @@ export const Inner = styled.div`
   overflow-x: scroll;
   overflow-y: clip;
   height: 100%;
-
+  scroll-behavior: smooth;
 `
 
 export const Gallery = styled.div`

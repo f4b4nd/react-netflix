@@ -3,35 +3,24 @@ import { Container, Inner, Gallery, ArrowContainer, Arrow } from './style'
 
 export default function Carousel({children}: IChildren) {
 
-    const handleClickOnLeftArrow = (e: React.MouseEvent<HTMLElement>) => {
+    const slideLeft = (e: React.MouseEvent<HTMLElement>) => {
         e.preventDefault()
-        const container = (e.target as any).closest('.gallery__container')
-        console.log('click container', container)
-        container?.scrollTo({
-            top: 0,
-            left: 100,
-            behavior: 'smooth'
-        })
+        const gallery = (e.target as any).closest('.gallery__container')
+        gallery.scrollLeft = gallery.scrollLeft - 500
     }
 
-
-    const handleClickOnRightArrow = (e: React.MouseEvent<HTMLElement>) => {
+    const slideRight = (e: React.MouseEvent<HTMLElement>) => {
         e.preventDefault()
-        const container = (e.target as any).closest('.gallery__container')
-        console.log('click container', container)
-        container?.scrollTo({
-            top: 0,
-            left: 100,
-            behavior: 'smooth'
-        })
+        const gallery = (e.target as any).closest('.gallery__container')
+        gallery.scrollLeft = gallery.scrollLeft + 500
     }
 
     return (
         <Container className="carousel">
             <Inner className="gallery__container">
-                <Carousel.LeftArrow onClick={(e) => handleClickOnLeftArrow(e)} />
+                <Carousel.LeftArrow onClick={(e) => slideLeft(e)} />
                     {children}
-                <Carousel.RightArrow onClick={(e) => handleClickOnRightArrow(e)} />
+                <Carousel.RightArrow onClick={(e) => slideRight(e)} />
             </Inner>
         </Container>
     )
@@ -39,9 +28,7 @@ export default function Carousel({children}: IChildren) {
 
 Carousel.Gallery = function CarouselGallery ({children}: IChildren) {
     return (
-        <Gallery 
-            className="carousel__gallery" 
-        >
+        <Gallery className="carousel__gallery">
             {children}
         </Gallery>
     )
@@ -49,11 +36,11 @@ Carousel.Gallery = function CarouselGallery ({children}: IChildren) {
 
 Carousel.RightArrow = function CarouselRightArrow ({onClick}: ICarouselArrow) {
     return (
-        <ArrowContainer 
+        <ArrowContainer
             className="carousel__right-arrow" 
             onClick={onClick}
         >
-            <Arrow  
+            <Arrow
                 src="/images/icons/chevron-right-circle.png" 
                 alt="previous-arrow"
             />
