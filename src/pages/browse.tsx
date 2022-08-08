@@ -1,12 +1,10 @@
 import { useFetchAPI } from '../hooks'
 
-import { BrowseContainer } from '../containers/browse'
+import { BrowseContainer } from '../containers'
 
 import { API_ROUTES } from '../lib/themoviedb.prod'
 
 export default function Browse () {
-
-    const movies = useFetchAPI(API_ROUTES.getMovieByID('2'))
 
     const slides = {
         films: [

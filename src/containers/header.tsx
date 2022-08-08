@@ -4,9 +4,9 @@ import { ROUTES } from '../constants'
 
 import logo from '../logo.svg'
 
-import signInAnonymously from '../utils/signInAnymously';
+import signInAnonymously from '../utils/signInAnymously'
 
-export function HeaderContainer({ children }: IChildren) {
+export default function HeaderContainer({ children }: IChildren) {
     return (
         <Header>
 

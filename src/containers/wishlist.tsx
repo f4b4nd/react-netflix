@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { WishListContext } from '../context/wishlist'
 import { Card, Player, Wishlist } from '../components'
 import { handleClickOnLikeButton } from '../utils/likeMovie'
-import { getImgURL } from '../lib/themoviedb.prod';
+import { getImgURL } from '../lib/themoviedb.prod'
 
 export default function WishListContainer () {
 

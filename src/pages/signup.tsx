@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { Form } from '../components'
-import { HeaderContainer } from '../containers/header'
-import { FooterContainer } from '../containers/footer'
+import  { firebase } from '../lib/firebase.prod'
+
+import { HeaderContainer, FooterContainer } from '../containers'
 
 import { ROUTES } from '../constants'
 
-import  { firebase } from '../lib/firebase.prod'
+import { Form } from '../components'
+
 
 export default function SignUp() {
 

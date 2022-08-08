@@ -39,3 +39,9 @@ interface IwishListAction {
     type: 'ADD_TO_WISHLIST' | 'REMOVE_FROM_WISHLIST',
     payload: TMovieAPI
 }
+
+/**PROFILE */
+interface IProfileContext {
+    profile: Tprofile,
+    setProfile: React.Dispatch<React.SetStateAction<Tprofile>>
+}

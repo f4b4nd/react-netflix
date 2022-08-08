@@ -6,12 +6,14 @@ interface IArrowContainer {
 
 export const Container = styled.div`
   position: relative;
-  height: 300px;
+  height: 600px;
+  padding: 0 56px;
+
 `
 
 export const Inner = styled.div`
-  overflow-x: scroll;
-  overflow-y: clip;
+  overflow: hidden;
+  //overflow-y: visible;
   height: 100%;
   scroll-behavior: smooth;
 `
@@ -19,9 +21,9 @@ export const Inner = styled.div`
 export const Gallery = styled.div`
   display: flex;
   height: 100%;
-  width: 100500px;
+  //flex-wrap: nowrap;
+  width: fit-content;
   column-gap: 20px;
-  padding: 0 50px;
   border: 1px solid red;
 `
 

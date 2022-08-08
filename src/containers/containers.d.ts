@@ -6,6 +6,7 @@ interface IBrowseHeaderContainer {
     slides: TslidesAPI,
     setSlideRows: React.Dispatch<React.SetStateAction<TslideRowAPI[]>>,
     profile: Tprofile,
+    setProfile: React.Dispatch<React.SetStateAction<Tprofile>>,
     displayWishList: boolean,
     setDisplayWishList: React.Dispatch<React.SetStateAction<boolean>>,
 

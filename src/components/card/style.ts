@@ -143,6 +143,9 @@ export const Item = styled.div`
   cursor: pointer;
   transition: transform 0.2s;
   width: 150px!important;
+  flex-basis: 300px;
+  min-width: 300px;
+  height: 600px;
 
   &:hover {
     transform: scale(1.3);

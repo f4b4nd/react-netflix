@@ -5,7 +5,7 @@ import logo from '../logo.svg'
 import { Header, Profiles } from '../components'
 
 
-export function SelectProfileContainer({ user, setProfile }: ISelectProfileContainer) {
+export default function SelectProfileContainer({ user, setProfile }: ISelectProfileContainer) {
 
     const handleClickOnUserProfile = (user: IUser) => {
  

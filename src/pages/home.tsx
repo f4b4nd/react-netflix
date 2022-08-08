@@ -1,7 +1,4 @@
-import FaqsContainer from '../containers/faqs'
-import JumbotronContainer from '../containers/jumbotron'
-import { FooterContainer } from '../containers/footer'
-import { HeaderContainer } from '../containers/header'
+import { HeaderContainer, JumbotronContainer, FaqsContainer, FooterContainer } from '../containers'
 
 import { OptForm, Feature } from '../components'
 

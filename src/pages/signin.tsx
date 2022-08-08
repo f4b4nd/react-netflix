@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom'
 
 import  { firebase } from "../lib/firebase.prod"
 
+import { HeaderContainer, FooterContainer } from '../containers'
+
 import { Form } from '../components'
-import { HeaderContainer } from '../containers/header'
-import { FooterContainer } from '../containers/footer'
 
 import { ROUTES } from '../constants'
 

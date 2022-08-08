@@ -8,13 +8,14 @@ import { Header, Player } from '../../components'
 
 import { getFilteredSlideRow } from '../../utils/searchEngine'
 
-import logo from '../../logo.svg'
 import { getImgURL, API_ROUTES } from '../../lib/themoviedb.prod'
 
 import { useFetchAPI } from '../../hooks'
 
+import logo from '../../logo.svg'
 
-export function BrowseHeaderContainer ({category, setCategory, slides, setSlideRows, profile, displayWishList, setDisplayWishList}: IBrowseHeaderContainer) {
+
+export default function BrowseHeaderContainer ({category, setCategory, slides, setSlideRows, profile, setProfile, displayWishList, setDisplayWishList}: IBrowseHeaderContainer) {
     
     const [searchTerm, setSearchTerm] = useState<string>('')
 
@@ -37,6 +38,11 @@ export function BrowseHeaderContainer ({category, setCategory, slides, setSlideR
 
         setSlideRows(filteredSlideRows)
 
+    }
+
+    const onSignOut = () => {
+        setProfile({displayName: "", photoURL: ""})
+        firebase.auth().signOut()
     }
 
     useEffect(() => {
@@ -85,7 +91,7 @@ export function BrowseHeaderContainer ({category, setCategory, slides, setSlideR
                         </Header.Group>
 
                         <Header.Group>
-                            <Header.TextLink onClick={() => firebase.auth().signOut()}>Sign out</Header.TextLink>
+                            <Header.TextLink onClick={() => onSignOut()}>Sign out</Header.TextLink>
                         </Header.Group>
 
                     </Header.Dropdown>

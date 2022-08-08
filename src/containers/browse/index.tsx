@@ -1,19 +1,14 @@
 import { useState, useEffect } from 'react'
 
-import { SelectProfileContainer } from '../profiles'
+import { firebase } from '../../lib/firebase.prod'
 
-import { BrowseMediaContentContainer } from './mediaContent'
-
-import { BrowseHeaderContainer } from './header'
-
-import { FooterContainer } from '../footer'
+import { BrowseHeaderContainer, BrowseMediaContentContainer, SelectProfileContainer, FooterContainer, WishListContainer} from '../../containers'
 
 import { Loading } from '../../components'
 
-import { firebase } from '../../lib/firebase.prod'
-import WishListContainer from '../wishlist';
 
-export function BrowseContainer({ slides }: IBrowserContainer) {
+
+export default function BrowseContainer({ slides }: IBrowserContainer) {
 
     const user = firebase.auth().currentUser || null
 
@@ -31,12 +26,7 @@ export function BrowseContainer({ slides }: IBrowserContainer) {
 
         if (profile.displayName) {
             setLoading(false)
-            return
-        }
-
-        setTimeout(() => {
-            setLoading(false)
-        }, 700)
+        }        
 
     }, [profile.displayName])
 
@@ -48,7 +38,10 @@ export function BrowseContainer({ slides }: IBrowserContainer) {
 
     useEffect(() => {
         if (user && user.isAnonymous) {
-            setProfile({ displayName: "Guest", photoURL: "guest" })
+
+            setTimeout(() => {
+                setProfile({ displayName: "Guest", photoURL: "guest" })
+            }, 500)
         }
     //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user])
@@ -62,6 +55,7 @@ export function BrowseContainer({ slides }: IBrowserContainer) {
 
                 <BrowseHeaderContainer 
                     profile={profile}
+                    setProfile={setProfile}
                     category={category}
                     setCategory={setCategory}
                     slides={slides}
@@ -81,7 +75,6 @@ export function BrowseContainer({ slides }: IBrowserContainer) {
                     )
                 }
                 
-
                 <FooterContainer />
 
                 </>
@@ -92,8 +85,8 @@ export function BrowseContainer({ slides }: IBrowserContainer) {
                 <SelectProfileContainer 
                     user={user} 
                     setProfile={setProfile} 
-                /> 
-                
+                />
+
             }
 
         </>
