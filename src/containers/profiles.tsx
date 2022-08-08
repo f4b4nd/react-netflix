@@ -1,17 +1,24 @@
-import { ROUTES } from '../constants'
+import { useContext } from 'react'
 
-import logo from '../logo.svg'
+import { ROUTES } from '../constants'
 
 import { Header, Profiles } from '../components'
 
+import { ProfileContext } from '../context/profile'
 
-export default function SelectProfileContainer({ user, setProfile }: ISelectProfileContainer) {
+
+export default function SelectProfileContainer({ user, setLoading }: ISelectProfileContainer) {
+
+    const {setProfile} = useContext(ProfileContext)
 
     const handleClickOnUserProfile = (user: IUser) => {
  
         if (user && user.displayName && user.photoURL) {
-            setProfile({ displayName: user.displayName, photoURL: user.photoURL })
-            return
+            setProfile({ displayName: user.displayName, photoURL: user.photoURL || ""})
+            setLoading(true)
+            setTimeout(() => {
+                setLoading(false)
+            }, 700)
         }
 
     }
@@ -23,7 +30,7 @@ export default function SelectProfileContainer({ user, setProfile }: ISelectProf
 
             <Header.Frame>
 
-                <Header.Logo to={ROUTES.HOME} src={logo} alt="Netflix" />
+                <Header.Logo to={ROUTES.HOME} src="/images/icons/logo.svg" alt="Netflix" />
                 
             </Header.Frame>
 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 
 import { firebase } from '../../lib/firebase.prod'
 
@@ -6,15 +6,16 @@ import { BrowseHeaderContainer, BrowseMediaContentContainer, SelectProfileContai
 
 import { Loading } from '../../components'
 
+import { ProfileContext } from '../../context/profile'
 
 
 export default function BrowseContainer({ slides }: IBrowserContainer) {
 
     const user = firebase.auth().currentUser || null
 
-    const [profile, setProfile] = useState<Tprofile>({} as Tprofile)
+    const {profile, setProfile} = useContext(ProfileContext)
 
-    const [loading, setLoading] = useState<boolean>(true)
+    const [loading, setLoading] = useState<boolean>(false)
 
     const [category, setCategory] = useState<Tcategory>('series')
 
@@ -22,13 +23,9 @@ export default function BrowseContainer({ slides }: IBrowserContainer) {
 
     const [displayWishList, setDisplayWishList] = useState<boolean>(false)
 
-    useEffect(() => {
+    const userHasProfile: boolean = !(!profile.displayName || profile.displayName === null)
 
-        if (profile.displayName) {
-            setLoading(false)
-        }        
-
-    }, [profile.displayName])
+    const userMustChooseProfile: boolean = !user?.isAnonymous && !userHasProfile
 
     useEffect(() => {
         setSlideRows(slides[category as keyof TslidesAPI])
@@ -37,25 +34,26 @@ export default function BrowseContainer({ slides }: IBrowserContainer) {
     }, [slides])
 
     useEffect(() => {
-        if (user && user.isAnonymous) {
-
+        if (user?.isAnonymous && !userHasProfile) {
+            setProfile({ displayName: "Guest", photoURL: "guest" })
+            setLoading(true)
             setTimeout(() => {
-                setProfile({ displayName: "Guest", photoURL: "guest" })
-            }, 500)
+                setLoading(false)
+            }, 700)
         }
     //eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [user])
+    }, [user?.isAnonymous])
 
     return (
         <>
+            {loading ? 
+                <Loading src={user && !user?.isAnonymous ? user.photoURL : profile.photoURL} /> : <Loading.ReleaseBody />
+            }
+
             {profile.displayName && 
                 <>
                 
-                {loading ? <Loading src={user && !user.isAnonymous ? user.photoURL : "guest"} /> : <Loading.ReleaseBody />}
-
                 <BrowseHeaderContainer 
-                    profile={profile}
-                    setProfile={setProfile}
                     category={category}
                     setCategory={setCategory}
                     slides={slides}
@@ -80,11 +78,11 @@ export default function BrowseContainer({ slides }: IBrowserContainer) {
                 </>
             }
 
-            {!user?.isAnonymous && !profile.displayName && 
+            {userMustChooseProfile  && 
             
                 <SelectProfileContainer 
                     user={user} 
-                    setProfile={setProfile} 
+                    setLoading={setLoading}
                 />
 
             }

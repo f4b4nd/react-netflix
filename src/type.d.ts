@@ -18,7 +18,7 @@ type Tcategory = string
 
 /** PROFILE */
 type Tprofile = {
-    displayName: string,
+    displayName: string | null,
     photoURL: string,
 }
 

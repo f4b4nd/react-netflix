@@ -1,6 +1,10 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useContext } from 'react';
 
 import { ROUTES } from '../../constants'
+
+import { getImgURL, API_ROUTES } from '../../lib/themoviedb.prod'
+
+import { useFetchAPI } from '../../hooks'
 
 import { firebase } from "../../lib/firebase.prod"
 
@@ -8,21 +12,19 @@ import { Header, Player } from '../../components'
 
 import { getFilteredSlideRow } from '../../utils/searchEngine'
 
-import { getImgURL, API_ROUTES } from '../../lib/themoviedb.prod'
-
-import { useFetchAPI } from '../../hooks'
-
-import logo from '../../logo.svg'
+import { ProfileContext } from '../../context/profile'
 
 
-export default function BrowseHeaderContainer ({category, setCategory, slides, setSlideRows, profile, setProfile, displayWishList, setDisplayWishList}: IBrowseHeaderContainer) {
+export default function BrowseHeaderContainer ({category, setCategory, slides, setSlideRows, displayWishList, setDisplayWishList}: IBrowseHeaderContainer) {
     
     const [searchTerm, setSearchTerm] = useState<string>('')
+
+    const {profile, setProfile} = useContext(ProfileContext)
 
     const getTopRatedMovies = useFetchAPI(API_ROUTES.getTopRatedMovies)
     //eslint-disable-next-line react-hooks/exhaustive-deps
     const randomMovieIndex = useMemo(() => Math.floor(Math.random() * getTopRatedMovies.length), [])
-    const randomMovie = getTopRatedMovies[randomMovieIndex]
+    const topMovie = getTopRatedMovies[randomMovieIndex]
 
 
     const onSearchTermChange = (slideRows: TslideRowAPI[], searchterm: string) => {
@@ -41,7 +43,7 @@ export default function BrowseHeaderContainer ({category, setCategory, slides, s
     }
 
     const onSignOut = () => {
-        setProfile({displayName: "", photoURL: ""})
+        setProfile({displayName: null, photoURL: ""})
         firebase.auth().signOut()
     }
 
@@ -57,12 +59,12 @@ export default function BrowseHeaderContainer ({category, setCategory, slides, s
 
     return (
 
-    <Header src={getImgURL(randomMovie?.backdrop_path, 'original')} bg={!displayWishList} dontShowOnSmallViewPort>
+    <Header src={getImgURL(topMovie?.backdrop_path, 'original')} bg={!displayWishList} dontShowOnSmallViewPort>
 
         <Header.Frame>
 
             <Header.Group>
-                <Header.Logo to={ROUTES.HOME} src={logo} alt="Netflix" />
+                <Header.Logo to={ROUTES.HOME} src="/images/icons/logo.svg" alt="Netflix" />
 
                 <Header.TextLink active={category === 'series'} onClick={() => {setCategory('series'); setDisplayWishList(false)}}>
                     Series
@@ -106,9 +108,9 @@ export default function BrowseHeaderContainer ({category, setCategory, slides, s
         {!displayWishList &&
             <Header.Feature>
 
-                <Header.FeatureCallOut>Watch {randomMovie?.title} Now</Header.FeatureCallOut>
+                <Header.FeatureCallOut>Watch {topMovie?.title} Now</Header.FeatureCallOut>
 
-                <Header.Text> {randomMovie?.overview} </Header.Text>
+                <Header.Text> {topMovie?.overview} </Header.Text>
 
                 <Player>
                     <Player.Button />

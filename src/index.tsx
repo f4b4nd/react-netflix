@@ -4,6 +4,7 @@ import 'normalize.css'
 
 import { FirebaseContextProvider } from './context/firebase'
 import { WishListContextProvider } from './context/wishlist'
+import { ProfileContextProvider } from './context/profile'
 
 import App from './app'
 
@@ -14,7 +15,9 @@ const root = ReactDOM.createRoot(
 root.render(
     <FirebaseContextProvider>
         <WishListContextProvider>
-            <App />
-        </WishListContextProvider>
+            <ProfileContextProvider>
+                <App />
+            </ProfileContextProvider>
+        </WishListContextProvider>        
     </FirebaseContextProvider>
 )

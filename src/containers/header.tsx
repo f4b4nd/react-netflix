@@ -2,17 +2,15 @@ import { Header } from '../components'
 
 import { ROUTES } from '../constants'
 
-import logo from '../logo.svg'
-
 import signInAnonymously from '../utils/signInAnymously'
 
 export default function HeaderContainer({ children }: IChildren) {
     return (
-        <Header>
+        <Header src="/images/misc/home-bg.jpg">
 
           <Header.Frame>
 
-              <Header.Logo to={ROUTES.HOME} src={logo} alt="Netflix" />
+              <Header.Logo to={ROUTES.HOME} src="/images/icons/logo.svg" alt="Netflix" />
               
               <Header.Group>
 
