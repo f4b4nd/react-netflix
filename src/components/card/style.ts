@@ -15,11 +15,15 @@ interface IFeature {
 }
 
 interface IMaturity {
-  rating?: number
+  isRated?: boolean
 }
 
 interface ILikeButton {
   isActive?: boolean
+}
+
+interface IItem {
+  width?: string
 }
 
 export const Title = styled.p`
@@ -61,23 +65,24 @@ export const Group = styled.div<IGroup>`
 `
 
 export const SubTitle = styled.p`
-  font-size: 12px;
+  font-size: 17px;
   color: #fff;
   font-weight: bold;
   margin-top: 0;
   margin-bottom: 0;
   user-select: none;
-  display: none;
 `
 
 export const Text = styled.p`
-  margin-top: 5px;
-  font-size: 10px;
+  font-size: 15px;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1em;
+  margin: 0;
   color: #fff;
-  margin-bottom: 0;
-  user-select: none;
-  display: none;
-  line-height: normal;
 `
 
 export const Entities = styled.div`
@@ -88,17 +93,18 @@ export const Entities = styled.div`
 `
 
 export const Meta = styled.div`
-  display: none;
+  display: flex;
+  visibility: hidden ;
+  flex-direction: column;
+  justify-content: space-evenly;
+
   position: absolute;
   bottom: 0;
-  padding: 10px;
+  padding: 5px 10px;
   background-color: #0000008f;
   cursor: default;
   width: 100%;
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  height: 40%;
 `
 
 export const Actions = styled.div`
@@ -106,12 +112,11 @@ export const Actions = styled.div`
   column-gap: 1em;
   font-size: 0.8em;
   color: white;
-  margin-bottom: 1em;
 `
 
 export const LikeButton = styled.div<ILikeButton>`
-  height: 22px;
-  width: 22px;
+  height: 30px;
+  width: 30px;
   cursor: pointer;
 
   img {
@@ -129,32 +134,29 @@ export const LikeButton = styled.div<ILikeButton>`
 export const Image = styled.img`
   border: 0;
   width: 100%;
-  //max-width: 305px;
   cursor: pointer;
-  height: auto;
+  height: 100%;
   padding: 0;
   margin: 0;
 `
 
-export const Item = styled.div`
+export const Item = styled.div<IItem>`
   display: flex;
   flex-direction: column;
   position: relative;
   cursor: pointer;
-  transition: transform 0.2s;
-  width: 150px!important;
-  flex-basis: 300px;
-  min-width: 300px;
-  height: 600px;
+  transition: transform 0.7s;
+  ${({width}) => `width: ${width ?? '200px'};` }
+  height: 100%;
 
   &:hover {
-    transform: scale(1.3);
+    transform: scale(1.05);
     z-index: 99;
   }
 
   @media (min-width: 1200px) {
-    &:hover ${Meta}, &:hover ${Text}, &:hover ${SubTitle} {
-      display: block;
+    &:hover ${Meta} {
+      visibility: visible;
       z-index: 100;
     }
   }
@@ -166,17 +168,13 @@ export const FeatureText = styled.p<IFeatureText>`
   color: white;
   font-weight: ${({ fontWeight }) => (fontWeight === 'bold' ? 'bold' : 'normal')};
   margin: 0;
-  height: 500px;
-  padding: 0 10px;
-  //border: 1px solid red;
+  padding: 0;
+  max-height: 200px;
   text-transform: capitalize;
-  //white-space: nowrap;
   overflow: hidden;
-  //text-overflow: ellipsis;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   display: -webkit-box;
-
 
   @media (max-width: 600px) {
     line-height: 22px;
@@ -184,12 +182,14 @@ export const FeatureText = styled.p<IFeatureText>`
 `
 
 export const Feature = styled.div<IFeature>`
+  position: relative;
+  height: 360px;
+  margin: 0 56px;
+
   display: flex;
   flex-direction: row;
   background: url(${({ src }) => src});
-  background-size: contain;
-  position: relative;
-  height: 360px;
+  background-size: 40% 100%;
   background-position-x: right;
   background-repeat: no-repeat;
   background-color: black;
@@ -240,15 +240,15 @@ export const Content = styled.div`
 `
 
 export const Maturity = styled.div<IMaturity>`
-  background-color: ${({ rating }) => (rating && rating >= 15 ? '#f44336' : '#2f9600')};
+  background-color: ${({ isRated }) => (isRated ? '#f44336' : '#2f9600')};
   border-radius: 15px;
-  width: 28px;
-  line-height: 28px;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
   text-align: center;
   color: white;
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  margin-right: 10px;
   font-size: 12px;
 `
 

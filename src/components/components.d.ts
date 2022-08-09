@@ -1,14 +1,14 @@
 /** CARD */
 
 interface ICardFeature extends IChildren {
-    category: Tcategory
 }
 
 interface ICardItem extends IChildren {
-    item: TMovieAPI
+    item: TMovieAPI,
+    width?: string
 }
 
-interface ICardLikeButton extends IChildren {
+interface ICardLikeButton extends IChildren  {
     src: string,
     onClick?: () => void,
     isActive?: boolean
@@ -136,4 +136,3 @@ interface IChildren {
 interface RestProps extends React.HTMLAttributes<HTMLDivElement> {
     [key: string]: string
 }
-

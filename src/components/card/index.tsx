@@ -90,7 +90,7 @@ Card.Image = function CardImage({ ...restProps }) {
     return <Image className="card__image" {...restProps} />
 }
 
-Card.Feature = function CardFeature({ category, children, ...restProps }: ICardFeature) {
+Card.Feature = function CardFeature({ children, ...restProps }: ICardFeature) {
     
     const { showFeature, itemFeature, setShowFeature } = useContext(FeatureContext)
 
@@ -99,14 +99,15 @@ Card.Feature = function CardFeature({ category, children, ...restProps }: ICardF
         {showFeature && 
 
         <Feature 
+            className="card__feature"
             {...restProps}
-            src={getImgURL(itemFeature.backdrop_path, 'w500')}
+            src={getImgURL(itemFeature.backdrop_path, 'original')}
         >
             <Content>
 
-                <FeatureTitle>{itemFeature.name}</FeatureTitle>
+                <FeatureTitle className="feature__title">{itemFeature.title ||itemFeature.name}</FeatureTitle>
 
-                <FeatureText>{itemFeature.overview}</FeatureText>
+                <FeatureText className="feature__text">{itemFeature.overview}</FeatureText>
 
                 <FeatureClose onClick={() => setShowFeature(false)}>
                     <img src="/images/icons/close.png" alt="Close" />
@@ -117,13 +118,9 @@ Card.Feature = function CardFeature({ category, children, ...restProps }: ICardF
                     flexDirection="row"
                     alignItems="center"
                 >
-                    <Maturity rating={itemFeature.adult}>
-                        {itemFeature?.adult ? 'PG' : itemFeature.adult}
+                    <Maturity isRated={itemFeature.adult}>
+                        {itemFeature?.adult ? '18+' : 'All'}
                     </Maturity>
-
-                    <FeatureText fontWeight="bold">
-                        {itemFeature?.genre_ids}
-                    </FeatureText>
 
                 </Group>
 

@@ -19,9 +19,10 @@ export const SubTitle = styled.h2`
 
 
 export const Grid = styled.div`
-    padding: 0 56px;
+    padding: 0 50px;
     display: grid;
-    justify-content: center ;
+    justify-content: center;
+    justify-items: center;
 
     grid-template-columns: repeat(auto-fit, 350px);
     grid-gap: 30px 30px;

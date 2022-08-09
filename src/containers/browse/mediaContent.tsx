@@ -32,7 +32,7 @@ export default function BrowseMediaContentContainer ({category, slideRows}: IBro
                             const itemIsLiked = state.filter(movie => movie.id === item.id).length > 0
 
                             return (
-                            <Card.Item key={item.id} item={item}>
+                            <Card.Item key={item.id} item={item} width="250px">
                                 <Card.Image src={getImgURL(item.poster_path)} />
                                 <Card.Meta>
                                     <Card.Actions>
@@ -46,16 +46,16 @@ export default function BrowseMediaContentContainer ({category, slideRows}: IBro
                                             isActive={itemIsLiked}
                                         />    
                                     </Card.Actions>
-                                    <Card.SubTitle> {item.name} </Card.SubTitle>
+                                    <Card.SubTitle> {item.name || item.title } </Card.SubTitle>
                                     <Card.Text> {item.overview} </Card.Text>
                                 </Card.Meta>
                             </Card.Item>
-                        )}
-                        )}
+                            )
+                        })}
                         </Carousel.Gallery>
                     </Carousel>
 
-                    <Card.Feature category={category}>
+                    <Card.Feature>
                         <Player>
                             <Player.Button />
                             <Player.Video src="/videos/netflix-intro.mp4" />

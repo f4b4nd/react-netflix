@@ -1,30 +1,28 @@
 import styled from 'styled-components'
 
 interface IArrowContainer {
-    isLeft?: boolean
+    isLeftArrow?: boolean
 }
 
 export const Container = styled.div`
   position: relative;
-  height: 600px;
+  height: 400px;
   padding: 0 56px;
-
 `
 
 export const Inner = styled.div`
   overflow: hidden;
-  //overflow-y: visible;
   height: 100%;
   scroll-behavior: smooth;
+  padding: 20px 20px;
 `
 
 export const Gallery = styled.div`
   display: flex;
   height: 100%;
-  //flex-wrap: nowrap;
+  flex-wrap: nowrap;
   width: fit-content;
   column-gap: 20px;
-  border: 1px solid red;
 `
 
 export const ArrowContainer = styled.div<IArrowContainer>`
@@ -36,7 +34,7 @@ export const ArrowContainer = styled.div<IArrowContainer>`
   z-index: 200;
   cursor: pointer;
 
-  ${({isLeft}) => isLeft ? `
+  ${({isLeftArrow}) => isLeftArrow ? `
     
     left: 10px;
 

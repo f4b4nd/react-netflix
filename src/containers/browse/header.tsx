@@ -26,7 +26,6 @@ export default function BrowseHeaderContainer ({category, setCategory, slides, s
     const randomMovieIndex = useMemo(() => Math.floor(Math.random() * getTopRatedMovies.length), [])
     const topMovie = getTopRatedMovies[randomMovieIndex]
 
-
     const onSearchTermChange = (slideRows: TslideRowAPI[], searchterm: string) => {
 
         const preventSearch = searchterm.length < 1

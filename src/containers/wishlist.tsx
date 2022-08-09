@@ -21,7 +21,7 @@ export default function WishListContainer () {
             <Wishlist.Grid>
 
             {state.map(item => (
-                <Card.Item key={item.id} item={item}>
+                <Card.Item key={item.id} item={item} width="300px">
                     <Card.Image src={getImgURL(item.poster_path)} />
                     <Card.Meta>
                         <Card.Actions>

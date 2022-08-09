@@ -33,7 +33,7 @@ Player.Video = function PlayerVideo({ src }: IPlayerVideo) {
                             <source src={src} type="video/mp4" />
                         </video>
                         <Close />
-                    </Inner>bodybody
+                    </Inner>
                 </Overlay>,
                 document.body
             )

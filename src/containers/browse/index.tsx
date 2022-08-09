@@ -23,7 +23,7 @@ export default function BrowseContainer({ slides }: IBrowserContainer) {
 
     const [displayWishList, setDisplayWishList] = useState<boolean>(false)
 
-    const userHasProfile: boolean = !(!profile.displayName || profile.displayName === null)
+    const userHasProfile: boolean = profile.displayName != null
 
     const userMustChooseProfile: boolean = !user?.isAnonymous && !userHasProfile
 

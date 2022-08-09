@@ -73,8 +73,8 @@ export const Button = styled.div<IButton>`
   align-items: center;
 
   ${({asIcon}) => asIcon ? `
-    width: 23px;
-    height: 23px;
+    width: 31px;
+    height: 31px;
     overflow: hidden;
 
     &:hover img {

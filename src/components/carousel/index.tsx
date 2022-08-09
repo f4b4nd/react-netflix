@@ -53,7 +53,7 @@ Carousel.LeftArrow = function CarouselLeftArrow ({onClick}: ICarouselArrow) {
         <ArrowContainer 
             className="carousel__left-arrow" 
             onClick={onClick}
-            isLeft={true}
+            isLeftArrow={true}
         >
             <Arrow  
                 src="/images/icons/chevron-right-circle.png" 
