@@ -1,11 +1,11 @@
 
 # Netflix-Clone Project
 
-A Netflix clone using ReactJS, Styled-components, Firebase, and Fuse.js
+A Netflix clone using ReactJS, Typescript, Styled-components and Firebase
 
-This app is currently hosted on netlify :
+You can find a demo with this link :
 
-https://react-netflix-clone-f4b4nd.netlify.app/
+[https://react-netflix-clone-f4b4nd.netlify.app/](https://react-netflix-clone-f4b4nd.netlify.app/)
 
 
 ---
@@ -19,6 +19,24 @@ https://react-netflix-clone-f4b4nd.netlify.app/
 
 ---
 
+# :sparkles: Features
+- :heavy_check_mark: Display a galery of movies by categories
+- Play the generic of movies 
+- Display the informations details of movies
+- Add / Remove movie to wish list with persistance
+- Search for a movie
+- User account authentification (signin, signup, logout)
+- Responsive layout
+  
+# Skills
+- Reproduce an existing web application
+- Authentificate an user via firebase
+- Retrieve data from an external API 
+- Secure API connection
+- Use of React hooks and custom hooks
+- Use of localstorage
+  
+---
 # Running tests
 ## Unit tests with Jest
 
