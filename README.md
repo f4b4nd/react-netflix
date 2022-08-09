@@ -9,6 +9,8 @@ You can find a demo with this link :
 [https://react-netflix-clone-f4b4nd.netlify.app/](https://react-netflix-clone-f4b4nd.netlify.app/)
 
 
+![Image of f4b4nd's React Netflix Interface](https://raw.githubusercontent.com/f4b4nd/react-netflix/main/public/images/misc/react-netflix-screenshot.png)
+
 <br />
 
 # :rocket: Skills
@@ -17,7 +19,7 @@ You can find a demo with this link :
 :heavy_check_mark: &nbsp; Retrieve data from an external API <br />
 :heavy_check_mark: &nbsp; Secure API requests <br />
 :heavy_check_mark: &nbsp; Use React hooks and custom hooks <br />
-:heavy_check_mark: &nbsp; Use localstorage <br />
+:heavy_check_mark: &nbsp; Persist sessions <br />
   
 <br />
 
