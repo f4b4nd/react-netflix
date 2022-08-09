@@ -2,12 +2,15 @@
 # Netflix-Clone Project
 
 - A Netflix clone using ReactJS, Typescript, Styled-components and Firebase.
-- Movies are retrieved using this external API &nbsp;  :arrow_right: &nbsp; [<b>theMovieDB </b>]( https://www.themoviedb.org/documentation/api)
+- Movies are retrieved using this external API &nbsp; :arrow_right: &nbsp; [<b>theMovieDB </b>]( https://www.themoviedb.org/documentation/api)
 
 You can find a demo with this link :
 
 [https://react-netflix-clone-f4b4nd.netlify.app/](https://react-netflix-clone-f4b4nd.netlify.app/)
 
+<br />
+
+:arrow_down: &nbsp; :arrow_down: &nbsp; :arrow_down: &nbsp; <br /> 
 
 ![Image of f4b4nd's React Netflix Interface](https://raw.githubusercontent.com/f4b4nd/react-netflix/main/public/images/misc/react-netflix-screenshot.png)
 
