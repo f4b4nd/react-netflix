@@ -12,7 +12,7 @@ export default function BrowseMediaContentContainer ({category, slideRows}: IBro
 
     return (
 
-    <Card.Group>
+    <Card.Group className="cards__grid">
 
         {slideRows.map(slideRow => {
 

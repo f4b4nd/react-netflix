@@ -31,21 +31,21 @@ export default function Card({ children, ...restProps }: IChildren) {
 
     return (
         <FeatureContext.Provider value={{ showFeature, setShowFeature, itemFeature, setItemFeature }}>
-            <Container {...restProps}>{children}</Container>
+            <Container className="cards" {...restProps}>{children}</Container>
         </FeatureContext.Provider>
     )
 }
 
-Card.Group = function CardGroup({ children, ...restProps }: IChildren) {
+Card.Group = function CardGroup({ children, ...restProps }: HTMLProps) {
     return <Group {...restProps}>{children}</Group>
 }
 
 Card.Title = function CardTitle({ children, ...restProps }: IChildren) {
-    return <Title {...restProps}>{children}</Title>
+    return <Title className="cards__title" {...restProps}>{children}</Title>
 }
 
 Card.SubTitle = function CardSubTitle({ children, ...restProps }: IChildren) {
-    return <SubTitle className="card__title" {...restProps}>{children}</SubTitle>
+    return <SubTitle className="card__subtitle" {...restProps}>{children}</SubTitle>
 }
 
 Card.Text = function CardText({ children, ...restProps }: IChildren) {

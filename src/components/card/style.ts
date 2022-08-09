@@ -37,8 +37,8 @@ export const Title = styled.h1`
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 50px;
-
+  margin-top: 50px;
+  
   &:last-of-type {
     margin-bottom: 0;
   }
@@ -49,12 +49,6 @@ export const Group = styled.div<IGroup>`
   flex-direction: ${({ flexDirection }) => (flexDirection === 'row' ? 'row' : 'column')};
   ${({ alignItems }) => alignItems && `align-items: ${alignItems}`};
   ${({ margin }) => margin && `margin: ${margin}`};
-
-  > ${Container}:first-of-type {
-    @media (min-width: 1100px) {
-      margin-top: -100px;
-    }
-  }
 `
 
 export const SubTitle = styled.p`
@@ -97,7 +91,7 @@ export const Meta = styled.div`
   background-color: #0000008f;
   cursor: default;
   width: 100%;
-  height: 40%;
+  height: 50%;
 `
 
 export const Actions = styled.div`
@@ -141,6 +135,8 @@ export const Item = styled.div<IItem>`
   transition: transform 0.7s;
   ${({width}) => `width: ${width ?? '200px'};` }
   height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
 
   &:hover {
     transform: scale(1.05);

@@ -27,6 +27,8 @@ export const Background = styled.div<IBackground>`
   flex-direction: column;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.35)), url(${({ src }) => src}) top left / cover
     no-repeat;
+  max-height: 600px;
+  height: fit-content;
 
   @media (max-width: 1100px) {
     ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && `background: none;`}
@@ -239,10 +241,11 @@ export const Profile = styled.div`
 `
 
 export const Feature = styled(Container)`
-  padding: 150px 0 500px 0;
+  margin: 100px;
   flex-direction: column;
   align-items: normal;
-  width: 50%;
+  width: 55%;
+  height: fit-content;
 
   @media (max-width: 1100px) {
     display: none;
