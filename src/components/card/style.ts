@@ -26,12 +26,11 @@ interface IItem {
   width?: string
 }
 
-export const Title = styled.p`
-  font-size: 24px;
+export const Title = styled.h1`
+  font-size: 34px;
   color: #e5e5e5;
   font-weight: bold;
-  margin-left: 56px;
-  margin-right: 56px;
+  margin-left: 76px;
   margin-top: 0;
 `
 
@@ -39,12 +38,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
-
-  > ${Title} {
-    @media (max-width: 1000px) {
-      margin-left: 30px;
-    }
-  }
 
   &:last-of-type {
     margin-bottom: 0;

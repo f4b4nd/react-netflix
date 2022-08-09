@@ -36,7 +36,7 @@ export default function WishListContainer () {
                             />
 
                         </Card.Actions>
-                        <Card.SubTitle> {item.name} </Card.SubTitle>
+                        <Card.SubTitle> {item.name || item.title } </Card.SubTitle>
                         <Card.Text> {item.overview} </Card.Text>
                     </Card.Meta>
                 </Card.Item>

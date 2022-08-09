@@ -99,7 +99,6 @@ export default function BrowseHeaderContainer ({category, setCategory, slides, s
 
                 </Header.Profile>
             
-
             </Header.Group>
 
         </Header.Frame>

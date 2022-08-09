@@ -36,12 +36,16 @@ export const Background = styled.div<IBackground>`
 export const Container = styled.div`
   display: flex;
   margin: 0 56px;
-  height: 100px;
+  height: fit-content;
   justify-content: space-between;
   align-items: center;
-
   a {
     display: flex;
+  }
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    padding-bottom: 1em;
   }
 
   @media (max-width: 1000px) {
@@ -71,6 +75,11 @@ export const Group = styled.div`
   display: flex;
   align-items: center;
   column-gap: 1em;
+
+  @media (max-width: 700px) {
+    width: 100%;
+    justify-content: space-between;
+  }
 `
 
 export const SearchInput = styled.input<ISearchInput>`
@@ -260,6 +269,7 @@ export const Logo = styled.img`
   height: 36px;
   width: 134px;
   margin-right: 40px;
+  flex-basis: 80%;
 
   @media (min-width: 1449px) {
     height: 45px;
