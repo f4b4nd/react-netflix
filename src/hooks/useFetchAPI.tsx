@@ -6,17 +6,25 @@ export default function useFetchAPI (url: string) {
 
     const fetchResponse = async (url: string) => {
 
-        const response = await fetch(url)
+        try {
 
-        if (!response.ok) {
-            console.log(response.status)
-            return
+            const response = await fetch(url)
+
+            if (!response.ok) {
+                console.log(response.status)
+                return
+            }
+    
+            const JSONresponse: TResponseAPI = await response.json()
+            const data: TMovieAPI[] = 'results' in JSONresponse ? JSONresponse.results : [JSONresponse]
+            setContent(data)
+            console.log('apimovies', data)
+
         }
 
-        const JSONresponse: TResponseAPI = await response.json()
-        const data: TMovieAPI[] = 'results' in JSONresponse ? JSONresponse.results : [JSONresponse]
-        setContent(data)
-        console.log('apimovies', data)
+        catch (error) {
+            console.log('catch error', error)
+        }
 
     }
 

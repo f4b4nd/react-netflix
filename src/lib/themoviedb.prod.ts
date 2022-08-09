@@ -6,7 +6,9 @@ interface Props {
 
 type TimgSize = "original" | "w500"
 
-const API_KEY: string = process.env.REACT_APP_MOVIEDB_API_KEY ?? ""
+const API_KEY: string = process.env.REACT_APP_MOVIEDB_API_KEY || ""
+
+console.log("apikey", API_KEY)
 
 const BASE_IMG_URL = "https://image.tmdb.org/t/p"
 const BASE_URL_V4 =  "https://api.themoviedb.org/4"
