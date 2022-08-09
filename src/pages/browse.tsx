@@ -6,6 +6,8 @@ import { API_ROUTES } from '../lib/themoviedb.prod'
 
 export default function Browse () {
 
+    console.log('browse', process.env.REACT_APP_MOVIEDB_API_KEY)
+    
     const slides = {
         films: [
             { title: 'Animation', data: useFetchAPI(API_ROUTES.getMovies.animation) },
