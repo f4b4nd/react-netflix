@@ -36,7 +36,7 @@ export const Background = styled.div<IBackground>`
 export const Container = styled.div`
   display: flex;
   margin: 0 56px;
-  height: fit-content;
+  height: 100px;
   justify-content: space-between;
   align-items: center;
   a {
@@ -46,6 +46,7 @@ export const Container = styled.div`
   @media (max-width: 700px) {
     flex-direction: column;
     padding-bottom: 1em;
+    height: fit-content;
   }
 
   @media (max-width: 1000px) {
