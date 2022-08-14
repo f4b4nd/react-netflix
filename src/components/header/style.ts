@@ -27,7 +27,6 @@ export const Background = styled.div<IBackground>`
   flex-direction: column;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.35)), url(${({ src }) => src}) top left / cover
     no-repeat;
-  max-height: 600px;
   height: fit-content;
 
   @media (max-width: 1100px) {
@@ -178,6 +177,7 @@ export const Button = styled.div`
 export const Picture = styled.button<IPicture>`
   background: url(${({ src }) => src});
   background-size: contain;
+  background-repeat: no-repeat;
   border: 0;
   width: 32px;
   height: 32px;

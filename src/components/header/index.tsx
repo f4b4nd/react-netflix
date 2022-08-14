@@ -76,7 +76,7 @@ Header.Search = function HeaderSearch({ searchTerm, setSearchTerm, ...restProps 
 }
 
 Header.Profile = function HeaderProfile({ children, ...restProps }: IChildren) {
-  return <Profile {...restProps}>{children}</Profile>
+  return <Profile className="header__profile" {...restProps}>{children}</Profile>
 }
 
 Header.Feature = function HeaderFeature({ children, ...restProps }: IChildren) {
@@ -84,7 +84,7 @@ Header.Feature = function HeaderFeature({ children, ...restProps }: IChildren) {
 }
 
 Header.Picture = function HeaderPicture({ src, ...restProps }: IHeaderPicture) {
-  return <Picture {...restProps} src={`/images/users/${src}.png`} />
+  return <Picture className="header__profile__picture" {...restProps} src={`/images/users/${src}.png`} />
 }
 
 Header.Dropdown = function HeaderDropdown({ children, ...restProps }: IChildren) {
