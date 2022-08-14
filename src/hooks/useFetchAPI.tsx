@@ -5,7 +5,7 @@ export default function useFetchAPI (url: string) {
     const [content, setContent] = useState<TMovieAPI[]>([])
 
     const fetchResponse = async (url: string) => {
-
+        console.log('fetchResponse url', url)
         try {
 
             const response = await fetch(url)
