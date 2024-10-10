@@ -46,7 +46,9 @@ export default function SelectProfileContainer({ user, setLoading }: ISelectProf
                     onClick={() => handleClickOnUserProfile(user)}
                     data-testid="user-profile"
                 >
+                    
                     <Profiles.Picture src={user && user.photoURL} />
+
                     <Profiles.Name>{user?.displayName}</Profiles.Name>
 
                 </Profiles.User>
