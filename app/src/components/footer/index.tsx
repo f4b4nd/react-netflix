@@ -14,7 +14,7 @@ Footer.Column = function FooterColumn({ children, ...restProps }: IChildren) {
     return <Column {...restProps}> {children} </Column>
 }
 
-Footer.Link = function FooterLink({ children, ...restProps }: IFooterLink) {
+Footer.Link = function FooterLink({ children, ...restProps }: FooterLinkProps) {
     return <Link {...restProps}> {children} </Link>
 }
 

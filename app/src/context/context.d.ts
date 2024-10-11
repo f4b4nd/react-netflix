@@ -1,18 +1,18 @@
 /**FIREBASE */
-interface IFirebaseContext  {
-    user: IUser
+interface FirebaseContextProps  {
+    user: TUsers
 }
 
 /** PLAYER */
 
-interface IPlayerContext {
+interface PlayerContextProps {
     showPlayer: boolean,
     setShowPlayer: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
 /** FEATURE */
 
-interface IFeatureContext {
+interface FeatureContextProps {
     showFeature: boolean,
     setShowFeature: React.Dispatch<React.SetStateAction<boolean>>,
     itemFeature: TMovieAPI,
@@ -20,28 +20,28 @@ interface IFeatureContext {
 }
 
 /** ACCORDION */
-interface IToggleContext {
+interface ToggleContextProps {
     toggleShow: boolean,
     setToggleShow: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
 /** WISHLIST */
-interface IWishListContext  {
+interface WishListContextProps  {
     state: TMovieAPI[],
-    dispatch: React.dispatch<IwishListAction>,
+    dispatch: React.dispatch<WishListActionProps>,
 }
 
-interface IwishListReducer {
-    (state: TMovieAPI[], action: IwishListAction)
+interface WishListReducerProps {
+    (state: TMovieAPI[], action: WishListActionProps)
 }
 
-interface IwishListAction {
+interface WishListActionProps {
     type: 'ADD_TO_WISHLIST' | 'REMOVE_FROM_WISHLIST',
     payload: TMovieAPI
 }
 
 /**PROFILE */
-interface IProfileContext {
-    profile: Tprofile,
-    setProfile: React.Dispatch<React.SetStateAction<Tprofile>>
+interface ProfileContextProps {
+    profile: TProfile,
+    seTProfile: React.Dispatch<React.SetStateAction<TProfile>>
 }

@@ -15,40 +15,40 @@ import { getFilteredSlideRow } from '../../utils/searchEngine'
 import { ProfileContext } from '../../context/profile'
 
 
-export default function BrowseHeaderContainer ({category, setCategory, slides, setSlideRows, displayWishList, setDisplayWishList}: IBrowseHeaderContainer) {
+export default function BrowseHeaderContainer ({category, seTCategory, slides, seTSlideRows, displayWishList, setDisplayWishList}: BrowseHeaderContainerProps) {
     
     const [searchTerm, setSearchTerm] = useState<string>('')
 
-    const {profile, setProfile} = useContext(ProfileContext)
+    const {profile, seTProfile} = useContext(ProfileContext)
 
     const getTopRatedMovies = useFetchAPI(API_ROUTES.getTopRatedMovies)
     //eslint-disable-next-line react-hooks/exhaustive-deps
     const randomMovieIndex = useMemo(() => Math.floor(Math.random() * getTopRatedMovies.length), [])
     const topMovie = getTopRatedMovies[randomMovieIndex]
 
-    const onSearchTermChange = (slideRows: TslideRowAPI[], searchterm: string) => {
+    const onSearchTermChange = (slideRows: TSlideRowAPI[], searchterm: string) => {
 
         const preventSearch = searchterm.length < 1
 
         if (preventSearch) {
-            setSlideRows(slideRows)
+            seTSlideRows(slideRows)
             return
         }
 
         const filteredSlideRows = slideRows.map(slideRow => getFilteredSlideRow(slideRow, searchterm))
 
-        setSlideRows(filteredSlideRows)
+        seTSlideRows(filteredSlideRows)
 
     }
 
     const onSignOut = () => {
-        setProfile({displayName: null, photoURL: ""})
+        seTProfile({displayName: null, photoURL: ""})
         firebase.auth().signOut()
     }
 
     useEffect(() => {
         
-        const slideRows = slides[category as keyof Tslides]
+        const slideRows = slides[category as keyof TSlides]
 
         onSearchTermChange(slideRows, searchTerm)
     
@@ -65,11 +65,11 @@ export default function BrowseHeaderContainer ({category, setCategory, slides, s
             <Header.Group>
                 <Header.Logo to={ROUTES.HOME} src="/images/icons/logo.svg" alt="Netflix" />
 
-                <Header.TextLink active={category === 'series'} onClick={() => {setCategory('series'); setDisplayWishList(false)}}>
+                <Header.TextLink active={category === 'series'} onClick={() => {seTCategory('series'); setDisplayWishList(false)}}>
                     Series
                 </Header.TextLink>
 
-                <Header.TextLink active={category === 'films'} onClick={() => {setCategory('films'); setDisplayWishList(false)}}>
+                <Header.TextLink active={category === 'films'} onClick={() => {seTCategory('films'); setDisplayWishList(false)}}>
                     Films
                 </Header.TextLink>
             </Header.Group>

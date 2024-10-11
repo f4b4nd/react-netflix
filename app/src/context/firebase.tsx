@@ -2,7 +2,7 @@ import { createContext } from 'react'
 
 import { useAuthListener } from '../hooks'
 
-export const FirebaseContext = createContext<IFirebaseContext>({
+export const FirebaseContext = createContext<FirebaseContextProps>({
     user: null
 })
 

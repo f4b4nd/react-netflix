@@ -21,7 +21,7 @@ import {
   Logo,
 } from './style'
 
-export default function Header({ bg = true, children, ...restProps }: IHeader) {
+export default function Header({ bg = true, children, ...restProps }: HeaderProps) {
   return (
     <>
 
@@ -45,7 +45,7 @@ Header.Group = function HeaderGroup({ children, ...restProps }: IChildren) {
   return <Group {...restProps}>{children}</Group>
 }
 
-Header.Logo = function HeaderLogo({ to, src, ...restProps }: IHeaderLogo) {
+Header.Logo = function HeaderLogo({ to, src, ...restProps }: HeaderLogoProps) {
   return (
     <ReachRouterLink to={to}>
       <Logo src={src} {...restProps} />
@@ -53,7 +53,7 @@ Header.Logo = function HeaderLogo({ to, src, ...restProps }: IHeaderLogo) {
   )
 }
 
-Header.Search = function HeaderSearch({ searchTerm, setSearchTerm, ...restProps }: IHeaderSearch) {
+Header.Search = function HeaderSearch({ searchTerm, setSearchTerm, ...restProps }: HeaderSearchProps) {
   
   const [searchActive, setSearchActive] = useState<boolean>(false)
 
@@ -83,7 +83,7 @@ Header.Feature = function HeaderFeature({ children, ...restProps }: IChildren) {
   return <Feature>{children}</Feature>
 }
 
-Header.Picture = function HeaderPicture({ src, ...restProps }: IHeaderPicture) {
+Header.Picture = function HeaderPicture({ src, ...restProps }: HeaderPictureProps) {
   return <Picture className="header__profile__picture" {...restProps} src={`/images/users/${src}.png`} />
 }
 
@@ -91,7 +91,7 @@ Header.Dropdown = function HeaderDropdown({ children, ...restProps }: IChildren)
   return <Dropdown {...restProps}>{children}</Dropdown>
 }
 
-Header.TextLink = function HeaderTextLink({ children, ...restProps }: IHeaderTextLink) {
+Header.TextLink = function HeaderTextLink({ children, ...restProps }: HeaderTextLinkProps) {
   return <Link {...restProps}>{children}</Link>
 }
 
@@ -99,14 +99,14 @@ Header.FeatureCallOut = function HeaderFeatureCallOut({ children, ...restProps }
   return <FeatureCallOut {...restProps}>{children}</FeatureCallOut>
 }
 
-Header.Text = function HeaderText({ children, ...restProps }: IHeaderText) {
+Header.Text = function HeaderText({ children, ...restProps }: HeaderTextProps) {
   return <Text {...restProps}>{children}</Text>
 }
 
-Header.ButtonLink = function HeaderButtonLink({ to, children, ...restProps }: IHeaderButtonLink) {
+Header.ButtonLink = function HeaderButtonLink({ to, children, ...restProps }: HeaderButtonLinkProps) {
   return <ButtonLink to={to} {...restProps}>{children}</ButtonLink>
 }
 
-Header.Button = function HeaderButton({ children, ...restProps }: IHeaderButton) {
+Header.Button = function HeaderButton({ children, ...restProps }: HeaderButtonProps) {
   return <Button {...restProps}>{children}</Button>
 }

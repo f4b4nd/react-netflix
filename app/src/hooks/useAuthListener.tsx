@@ -6,9 +6,9 @@ export default function useAuthListener() {
 
     const localStorageUser = localStorage.getItem('authUser') ?? null
 
-    const [user, setUser] = useState<IUser>(localStorageUser ? JSON.parse(localStorageUser) : null)
+    const [user, setUser] = useState<TUsers>(localStorageUser ? JSON.parse(localStorageUser) : null)
 
-    function setUserToLocalStorage (authUser: IUser) {
+    function setUserToLocalStorage (authUser: TUsers) {
         localStorage.setItem('authUser', JSON.stringify(authUser))
         setUser(authUser)
     }
@@ -20,7 +20,7 @@ export default function useAuthListener() {
 
     useEffect(() => {
 
-        const listener = firebase.auth().onAuthStateChanged((authUser: IUser) => {
+        const listener = firebase.auth().onAuthStateChanged((authUser: TUsers) => {
             if (authUser) {
                 setUserToLocalStorage(authUser)
             } else {

@@ -7,14 +7,14 @@ import { Header, Profiles } from '../components'
 import { ProfileContext } from '../context/profile'
 
 
-export default function SelectProfileContainer({ user, setLoading }: ISelectProfileContainer) {
+export default function SelecTProfileContainer({ user, setLoading }: SelecTProfileContainerProps) {
 
-    const {setProfile} = useContext(ProfileContext)
+    const {seTProfile} = useContext(ProfileContext)
 
-    const handleClickOnUserProfile = (user: IUser) => {
+    const handleClickOnUserProfile = (user: TUsers) => {
  
         if (user && user.displayName && user.photoURL) {
-            setProfile({ displayName: user.displayName, photoURL: user.photoURL || ""})
+            seTProfile({ displayName: user.displayName, photoURL: user.photoURL || ""})
             setLoading(true)
             setTimeout(() => {
                 setLoading(false)

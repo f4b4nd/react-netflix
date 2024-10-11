@@ -134,7 +134,7 @@ export const SearchIcon = styled.button`
   }
 `
 
-export const ButtonLink = styled(ReachRouterLink)<IHeaderButtonLink>`
+export const ButtonLink = styled(ReachRouterLink)<HeaderButtonLinkProps>`
   display: flex;
   justify-content: center;
   background-color: #e50914;

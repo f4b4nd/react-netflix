@@ -1,5 +1,5 @@
 /** USER */
-type IUser = import('firebase').User | null
+type TUsers = import('firebase').User | null
 
 
 /** MOVIE */
@@ -14,16 +14,16 @@ type TMovie = {
 }
 
 /** CATEGORY */
-type Tcategory = string
+type TCategory = string
 
 /** PROFILE */
-type Tprofile = {
+type TProfile = {
     displayName: string | null,
     photoURL: string,
 }
 
 /** SLIDES */
-type Tslides = {
+type TSlides = {
     series: {
         title: string,
         data: TMovie[],
@@ -34,7 +34,7 @@ type Tslides = {
     }[],
 }
 
-type TslidesAPI = {
+type TSlidesAPI = {
     series: {
         title: string,
         data: TMovieAPI[],
@@ -47,12 +47,12 @@ type TslidesAPI = {
 
 /** SLIDES ROWS*/
 
-type TslideRow = {
+type TSlideRow = {
     title: string,
     data: TMovie[]
 }
 
-type TslideRowAPI = {
+type TSlideRowAPI = {
     title: string,
     data: TMovieAPI[]
 }

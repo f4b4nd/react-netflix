@@ -1,6 +1,6 @@
 import { createContext } from 'react'
 
-export const PlayerContext = createContext<IPlayerContext>({
+export const PlayerContext = createContext<PlayerContextProps>({
     showPlayer: false,
     setShowPlayer: () => null,
 })

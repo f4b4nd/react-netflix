@@ -1,6 +1,6 @@
 import { LockBody, ReleaseBody, Spinner, Picture } from './style'
 
-export default function Loading({ src, ...restProps }: ILoading) {
+export default function Loading({ src, ...restProps }: LoadingProps) {
     return (
         <Spinner {...restProps}>
             <LockBody />

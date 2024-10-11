@@ -20,7 +20,7 @@ export default function Player({ children, ...restProps }: IChildren) {
 
 }
 
-Player.Video = function PlayerVideo({ src }: IPlayerVideo) {
+Player.Video = function PlayerVideo({ src }: PlayerVideoProps) {
 
     const { showPlayer, setShowPlayer } = useContext(PlayerContext)
 
@@ -41,7 +41,7 @@ Player.Video = function PlayerVideo({ src }: IPlayerVideo) {
     )
 }
 
-Player.Button = function PlayerButton({ asIcon, ...restProps }: IPlayerButton) {
+Player.Button = function PlayerButton({ asIcon, ...restProps }: PlayerButtonProps) {
 
     const { showPlayer, setShowPlayer } = useContext(PlayerContext)
 

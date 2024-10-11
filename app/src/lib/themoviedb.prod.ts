@@ -39,11 +39,11 @@ const ENDPOINTS = {
 
 export const API_ROUTES = {
 
-    getMovieByID: (itemID: string) => getAuthURL(ENDPOINTS.itemDetail({type: 'movie', itemID}), true),
+    geTMovieByID: (itemID: string) => getAuthURL(ENDPOINTS.itemDetail({type: 'movie', itemID}), true),
     
     getTVShowByID: (itemID: string) => getAuthURL(ENDPOINTS.itemDetail({type: 'tv', itemID}), true),
 
-    getMovies: {
+    geTMovies: {
         animation : getAuthURL(ENDPOINTS.itemsByGenre({type: 'movie', genreID: '16'})),
         comedy: getAuthURL(ENDPOINTS.itemsByGenre({type: 'movie', genreID: '35'})),
         documentary : getAuthURL(ENDPOINTS.itemsByGenre({type: 'movie', genreID: '99'})),

@@ -1,6 +1,6 @@
 import { Container, Item, Inner, Pane, Title, SubTitle, Image  } from "./style"
 
-export default function Jumbotron ({children, flexDirection = 'column', ...restProps}: IJumbotron) {
+export default function Jumbotron ({children, flexDirection = 'column', ...restProps}: JumbotronProps) {
     return (
         <Item {...restProps} >
             <Inner flexDirection={flexDirection}> 

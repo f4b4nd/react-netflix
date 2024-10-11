@@ -10,6 +10,6 @@ export { default as HeaderContainer } from "./header"
 
 export { default as JumbotronContainer } from "./jumbotron"
 
-export { default as SelectProfileContainer } from "./profiles"
+export { default as SelecTProfileContainer } from "./profiles"
 
 export { default as WishListContainer } from "./wishlist"

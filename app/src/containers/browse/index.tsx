@@ -2,24 +2,24 @@ import { useState, useEffect, useContext } from 'react'
 
 import { firebase } from '../../lib/firebase.prod'
 
-import { BrowseHeaderContainer, BrowseMediaContentContainer, SelectProfileContainer, FooterContainer, WishListContainer} from '../../containers'
+import { BrowseHeaderContainer, BrowseMediaContentContainer, SelecTProfileContainer, FooterContainer, WishListContainer} from '../../containers'
 
 import { Loading } from '../../components'
 
 import { ProfileContext } from '../../context/profile'
 
 
-export default function BrowseContainer({ slides }: IBrowserContainer) {
+export default function BrowseContainer({ slides }: BrowserContainerProps) {
 
     const user = firebase.auth().currentUser || null
 
-    const {profile, setProfile} = useContext(ProfileContext)
+    const {profile, seTProfile} = useContext(ProfileContext)
 
     const [loading, setLoading] = useState<boolean>(false)
 
-    const [category, setCategory] = useState<Tcategory>('series')
+    const [category, seTCategory] = useState<TCategory>('series')
 
-    const [slideRows, setSlideRows] = useState<TslideRowAPI[]>([])
+    const [slideRows, seTSlideRows] = useState<TSlideRowAPI[]>([])
 
     const [displayWishList, setDisplayWishList] = useState<boolean>(false)
 
@@ -28,14 +28,14 @@ export default function BrowseContainer({ slides }: IBrowserContainer) {
     const userMustChooseProfile: boolean = !user?.isAnonymous && !userHasProfile
 
     useEffect(() => {
-        setSlideRows(slides[category as keyof TslidesAPI])
+        seTSlideRows(slides[category as keyof TSlidesAPI])
         setDisplayWishList(false)
         //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [slides])
 
     useEffect(() => {
         if (user?.isAnonymous && !userHasProfile) {
-            setProfile({ displayName: "Guest", photoURL: "guest" })
+            seTProfile({ displayName: "Guest", photoURL: "guest" })
             setLoading(true)
             setTimeout(() => {
                 setLoading(false)
@@ -55,9 +55,9 @@ export default function BrowseContainer({ slides }: IBrowserContainer) {
                 
                 <BrowseHeaderContainer 
                     category={category}
-                    setCategory={setCategory}
+                    seTCategory={seTCategory}
                     slides={slides}
-                    setSlideRows={setSlideRows}
+                    seTSlideRows={seTSlideRows}
                     displayWishList={displayWishList}
                     setDisplayWishList={setDisplayWishList}
                 />
@@ -80,7 +80,7 @@ export default function BrowseContainer({ slides }: IBrowserContainer) {
 
             {userMustChooseProfile  && 
             
-                <SelectProfileContainer 
+                <SelecTProfileContainer 
                     user={user} 
                     setLoading={setLoading}
                 />

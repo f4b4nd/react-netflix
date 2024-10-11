@@ -1,12 +1,12 @@
 import { createContext, useReducer } from 'react'
 
 import { 
-    setMovieToLocalStorage, 
+    seTMovieToLocalStorage, 
     removeMovieFromLocalStorage, 
     getWishListFromLocalStorage 
 } from '../utils/localStorage'
 
-export const WishListContext = createContext<IWishListContext>({
+export const WishListContext = createContext<WishListContextProps>({
     state: [],
     dispatch: {},
 })
@@ -25,7 +25,7 @@ export const WishListContextProvider = ({children}: IChildren) => {
 
 }
 
-export const wishListReducer: IwishListReducer = (state, action) => {
+export const wishListReducer: WishListReducerProps = (state, action) => {
 
     switch (action.type) {
 
@@ -35,7 +35,7 @@ export const wishListReducer: IwishListReducer = (state, action) => {
                 return state
             }
             
-            setMovieToLocalStorage(action.payload)
+            seTMovieToLocalStorage(action.payload)
             return  [...state, action.payload]
 
         case 'REMOVE_FROM_WISHLIST':

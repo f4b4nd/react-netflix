@@ -64,7 +64,7 @@ Card.Actions = function CardActions({ children, ...restProps }: IChildren) {
     return <Actions className="card__actions" {...restProps}>{children}</Actions>
 }
 
-Card.LikeButton = function CardLikeButton({ src, isActive, ...restProps }: ICardLikeButton) {
+Card.LikeButton = function CardLikeButton({ src, isActive, ...restProps }: CardLikeButtonProps) {
     return (
         <LikeButton isActive={isActive} {...restProps}>
             <img src={src} alt="like" draggable="false"/>
@@ -72,7 +72,7 @@ Card.LikeButton = function CardLikeButton({ src, isActive, ...restProps }: ICard
     )
 }
 
-Card.Item = function CardItem({ item, children, ...restProps }: ICardItem) {
+Card.Item = function CardItem({ item, children, ...restProps }: CardItemProps) {
 
     const { setShowFeature, setItemFeature } = useContext(FeatureContext)
 
@@ -90,7 +90,7 @@ Card.Image = function CardImage({ ...restProps }) {
     return <Image className="card__image" {...restProps} />
 }
 
-Card.Feature = function CardFeature({ children, ...restProps }: ICardFeature) {
+Card.Feature = function CardFeature({ children, ...restProps }: CardFeatureProps) {
     
     const { showFeature, itemFeature, setShowFeature } = useContext(FeatureContext)
 

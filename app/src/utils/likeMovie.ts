@@ -1,4 +1,4 @@
-export const handleClickOnLikeButton: IhandleClickOnLikeButton = (item, itemIsLiked, dispatch) => {
+export const handleClickOnLikeButton: handleClickOnLikeButtonProps = (item, itemIsLiked, dispatch) => {
     
     if (!itemIsLiked) {
         dispatch({type: 'ADD_TO_WISHLIST', payload: item})

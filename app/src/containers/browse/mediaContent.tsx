@@ -6,7 +6,7 @@ import { Card, Carousel, Player } from '../../components'
 import { getImgURL } from '../../lib/themoviedb.prod'
 
 
-export default function BrowseMediaContentContainer ({category, slideRows}: IBrowseMediaContentContainer) {
+export default function BrowseMediaContentContainer ({category, slideRows}: BrowseMediaContentContainerProps) {
     
     const { state, dispatch } = useContext(WishListContext)
 

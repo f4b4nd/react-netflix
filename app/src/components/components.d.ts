@@ -1,33 +1,33 @@
 /** CARD */
 
-interface ICardFeature extends IChildren {
+interface CardFeatureProps extends IChildren {
 }
 
-interface ICardItem extends IChildren {
+interface CardItemProps extends IChildren {
     item: TMovieAPI,
     width?: string
 }
 
-interface ICardLikeButton extends IChildren  {
+interface CardLikeButtonProps extends IChildren  {
     src: string,
     onClick?: () => void,
     isActive?: boolean
 }
 
 /*** CAR0USEL */
-interface ICarouselArrow {
+interface CarouselArrowProps {
     onClick: (e: React.MouseEvent<HTMLElement>) => void
 }
 
 /**FORM */
 
-interface IFormBase {
+interface FormBaseProps {
     children?: React.ReactNode
     onSubmit?: (event: React.FormEvent) => Promise<void>
     method?: string
 }
 
-interface IFormInput {
+interface FormInputProps {
     children?: React.ReactNode
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
     placeholder?: string
@@ -36,93 +36,93 @@ interface IFormInput {
     autoComplete?: string
 }
 
-interface IFormSubmit {
+interface FormSubmitProps {
     children?: React.ReactNode
     disabled: boolean
     type: "button" | "reset" | "submit" | undefined
     'data-testid': string
 }
 
-interface IFormLink extends IChildren {
+interface FormLinkProps extends IChildren {
     to: string
 }
 
 /*** FOOTER */
 
-interface IFooterLink extends IChildren {
+interface FooterLinkProps extends IChildren {
     href: string
 }
 
 /** HEADER */
 
-interface IHeader extends IChildren {
+interface HeaderProps extends IChildren {
     bg?: boolean
     src?: string
     dontShowOnSmallViewPort?: boolean
 }
 
-interface IHeaderLogo extends RestProps {
+interface HeaderLogoProps extends RestProps {
     to: string,
     src: string,
 }
 
-interface IHeaderSearch {
+interface HeaderSearchProps {
     searchTerm: string,
     setSearchTerm: React.Dispatch<React.SetStateAction<string>>,
 }
 
-interface IHeaderPicture {
+interface HeaderPictureProps {
     src: string | null
 }
 
-interface IHeaderText extends IChildren {
+interface HeaderTextProps extends IChildren {
     onClick?: () => void,
     cursor?: string,
 }
 
-interface IHeaderTextLink extends IChildren {
+interface HeaderTextLinkProps extends IChildren {
     active?: boolean
     onClick?: () => void
 }
 
-interface IHeaderButtonLink extends IChildren {
+interface HeaderButtonLinkProps extends IChildren {
     to: string,
     onClick?: () => void
 }
 
-interface IHeaderButton extends IChildren {
+interface HeaderButtonProps extends IChildren {
     onClick?: () => void
 }
 
 /*** JUMBOTRON */
 
-interface IJumbotron extends IChildren {
+interface JumbotronProps extends IChildren {
     flexDirection: "row" | "column" | "row-reverse" | "column-reverse"
 }
 
 /** LOADING */
 
-interface ILoading {
+interface LoadingProps {
     src: string | null
 }
 
 /*** PLAYER */
 
-interface IPlayerVideo {
+interface PlayerVideoProps {
     src: string
 }
 
-interface IPlayerButton {
+interface PlayerButtonProps {
     asIcon?: boolean
 }
 
 /** PROFILES */
 
-interface IProfilesPicture {
+interface ProfilesPictureProps {
     src: string | null
 }
 
-interface IProfilesUser extends IChildren {
+interface ProfilesTUsers extends IChildren {
     onClick?: () => void
     'data-testid': string,
 }

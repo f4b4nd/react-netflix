@@ -12,11 +12,11 @@ Profiles.List = function ProfilesList({ children, ...restProps }: IChildren) {
     return <List {...restProps}>{children}</List>
 }
 
-Profiles.User = function ProfilesUser({ children, ...restProps }: IProfilesUser) {
+Profiles.User = function ProfilesUser({ children, ...restProps }: ProfilesTUsers) {
     return <Item {...restProps}>{children}</Item>
 }
 
-Profiles.Picture = function ProfilesPicture({ src, ...restProps }: IProfilesPicture) {
+Profiles.Picture = function ProfilesPicture({ src, ...restProps }: ProfilesPictureProps) {
     return (
         <Picture 
             {...restProps} 

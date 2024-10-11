@@ -1,26 +1,26 @@
 /**BROWSER */
 
-interface IBrowseHeaderContainer {
-    category: Tcategory,
-    setCategory: React.Dispatch<React.SetStateAction<Tcategory>>,
-    slides: TslidesAPI,
-    setSlideRows: React.Dispatch<React.SetStateAction<TslideRowAPI[]>>,
+interface BrowseHeaderContainerProps {
+    category: TCategory,
+    seTCategory: React.Dispatch<React.SetStateAction<TCategory>>,
+    slides: TSlidesAPI,
+    seTSlideRows: React.Dispatch<React.SetStateAction<TSlideRowAPI[]>>,
     displayWishList: boolean,
     setDisplayWishList: React.Dispatch<React.SetStateAction<boolean>>,
 
 }
 
-interface IBrowserContainer {
-    slides: TslidesAPI,
+interface BrowserContainerProps {
+    slides: TSlidesAPI,
 }
 
-interface IBrowseMediaContentContainer {
-    category: Tcategory,
-    slideRows: TslideRowAPI[],
+interface BrowseMediaContentContainerProps {
+    category: TCategory,
+    slideRows: TSlideRowAPI[],
 }
 
 /** PROFILE */
-interface ISelectProfileContainer {
-    user: IUser,
+interface SelecTProfileContainerProps {
+    user: TUsers,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>,
 }

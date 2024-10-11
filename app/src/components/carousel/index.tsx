@@ -34,7 +34,7 @@ Carousel.Gallery = function CarouselGallery ({children}: IChildren) {
     )
 }
 
-Carousel.RightArrow = function CarouselRightArrow ({onClick}: ICarouselArrow) {
+Carousel.RightArrow = function CarouselRightArrow ({onClick}: CarouselArrowProps) {
     return (
         <ArrowContainer
             className="carousel__right-arrow" 
@@ -48,7 +48,7 @@ Carousel.RightArrow = function CarouselRightArrow ({onClick}: ICarouselArrow) {
     )
 }
 
-Carousel.LeftArrow = function CarouselLeftArrow ({onClick}: ICarouselArrow) {
+Carousel.LeftArrow = function CarouselLeftArrow ({onClick}: CarouselArrowProps) {
     return (
         <ArrowContainer 
             className="carousel__left-arrow" 

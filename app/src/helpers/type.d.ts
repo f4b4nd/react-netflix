@@ -1,9 +1,9 @@
-interface IIsUserRedirect extends IChildren {
+interface IsUserRedirectProps extends IChildren {
     loggedInPath: string,
-    user: IUser
+    user: TUsers
 }
 
-interface IProtectedRoute extends IChildren {
-    user: IUser
+interface ProtectedRouteProps extends IChildren {
+    user: TUsers
 
 }

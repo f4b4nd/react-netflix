@@ -1,6 +1,6 @@
-export const getFilteredSlideRow = (slideRow: TslideRowAPI, searchterm: string) => {
+export const getFilteredSlideRow = (slideRow: TSlideRowAPI, searchterm: string) => {
 
-    const results: TslideRowAPI['data'] = []
+    const results: TSlideRowAPI['data'] = []
 
     slideRow.data.forEach(item => {
         if (itemMatches(item, searchterm)) {
