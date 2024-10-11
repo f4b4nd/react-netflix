@@ -15,11 +15,11 @@ import { getFilteredSlideRow } from '../../utils/searchEngine'
 import { ProfileContext } from '../../context/profile'
 
 
-export default function BrowseHeaderContainer ({category, seTCategory, slides, seTSlideRows, displayWishList, setDisplayWishList}: BrowseHeaderContainerProps) {
+export default function BrowseHeaderContainer ({category, setCategory, slides, setSlideRows, displayWishList, setDisplayWishList}: BrowseHeaderContainerProps) {
     
     const [searchTerm, setSearchTerm] = useState<string>('')
 
-    const {profile, seTProfile} = useContext(ProfileContext)
+    const {profile, setProfile} = useContext(ProfileContext)
 
     const getTopRatedMovies = useFetchAPI(API_ROUTES.getTopRatedMovies)
     //eslint-disable-next-line react-hooks/exhaustive-deps
@@ -31,18 +31,18 @@ export default function BrowseHeaderContainer ({category, seTCategory, slides, s
         const preventSearch = searchterm.length < 1
 
         if (preventSearch) {
-            seTSlideRows(slideRows)
+            setSlideRows(slideRows)
             return
         }
 
         const filteredSlideRows = slideRows.map(slideRow => getFilteredSlideRow(slideRow, searchterm))
 
-        seTSlideRows(filteredSlideRows)
+        setSlideRows(filteredSlideRows)
 
     }
 
     const onSignOut = () => {
-        seTProfile({displayName: null, photoURL: ""})
+        setProfile({displayName: null, photoURL: ""})
         firebase.auth().signOut()
     }
 
@@ -65,11 +65,11 @@ export default function BrowseHeaderContainer ({category, seTCategory, slides, s
             <Header.Group>
                 <Header.Logo to={ROUTES.HOME} src="/images/icons/logo.svg" alt="Netflix" />
 
-                <Header.TextLink active={category === 'series'} onClick={() => {seTCategory('series'); setDisplayWishList(false)}}>
+                <Header.TextLink active={category === 'series'} onClick={() => {setCategory('series'); setDisplayWishList(false)}}>
                     Series
                 </Header.TextLink>
 
-                <Header.TextLink active={category === 'films'} onClick={() => {seTCategory('films'); setDisplayWishList(false)}}>
+                <Header.TextLink active={category === 'films'} onClick={() => {setCategory('films'); setDisplayWishList(false)}}>
                     Films
                 </Header.TextLink>
             </Header.Group>

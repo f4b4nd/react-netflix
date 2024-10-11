@@ -2,15 +2,15 @@ import { useState, createContext } from 'react'
 
 export const ProfileContext = createContext<ProfileContextProps>({
     profile: {} as TProfile,
-    seTProfile: () => null,
+    setProfile: () => null,
 })
 
 export const ProfileContextProvider = ({children}: IChildren) => {
 
-    const [profile, seTProfile] = useState<TProfile>({} as TProfile)
+    const [profile, setProfile] = useState<TProfile>({} as TProfile)
 
     return (
-        <ProfileContext.Provider value={{ profile, seTProfile }}>
+        <ProfileContext.Provider value={{ profile, setProfile }}>
             {children}
         </ProfileContext.Provider>
     )

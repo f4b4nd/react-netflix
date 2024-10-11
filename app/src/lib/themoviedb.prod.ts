@@ -10,12 +10,11 @@ const API_KEY: string = process.env.REACT_APP_MOVIEDB_API_KEY || ""
 
 
 const BASE_IMG_URL = "https://image.tmdb.org/t/p"
-const BASE_URL_V4 =  "https://api.themoviedb.org/4"
 const BASE_URL_V3 =  "https://api.themoviedb.org/3"
 const LANGUAGE_URL = "?&language=en-US"
 
-const getAuthURL = (endpoint: string, useV3: boolean = false) => {
-    const baseURL = useV3 ? BASE_URL_V3 : BASE_URL_V4
+const getAuthURL = (endpoint: string) => {
+    const baseURL = BASE_URL_V3
     return `${baseURL}/${endpoint}&api_key=${API_KEY}`
 }
 
@@ -25,7 +24,7 @@ export function getImgURL (filename: string, size: TimgSize = 'w500') {
 
 const ENDPOINTS = {
 
-    itemsByGenre: ({type, genreID}: Props) => `discover/${type}/${LANGUAGE_URL}&with_genres=${genreID}`,
+    itemsByGenre: ({type, genreID}: Props) => `discover/${type}${LANGUAGE_URL}&with_genres=${genreID}`,
 
     itemsByQuery: ({type, query}: Props) => `search/${type}${LANGUAGE_URL}&query=${query}`,
 
@@ -39,11 +38,11 @@ const ENDPOINTS = {
 
 export const API_ROUTES = {
 
-    geTMovieByID: (itemID: string) => getAuthURL(ENDPOINTS.itemDetail({type: 'movie', itemID}), true),
+    getMovieByID: (itemID: string) => getAuthURL(ENDPOINTS.itemDetail({type: 'movie', itemID})),
     
-    getTVShowByID: (itemID: string) => getAuthURL(ENDPOINTS.itemDetail({type: 'tv', itemID}), true),
+    getTVShowByID: (itemID: string) => getAuthURL(ENDPOINTS.itemDetail({type: 'tv', itemID})),
 
-    geTMovies: {
+    getMovies: {
         animation : getAuthURL(ENDPOINTS.itemsByGenre({type: 'movie', genreID: '16'})),
         comedy: getAuthURL(ENDPOINTS.itemsByGenre({type: 'movie', genreID: '35'})),
         documentary : getAuthURL(ENDPOINTS.itemsByGenre({type: 'movie', genreID: '99'})),
@@ -62,11 +61,11 @@ export const API_ROUTES = {
         tvShows: (query: string) => getAuthURL(ENDPOINTS.itemsByQuery({type: 'tv', query})),
     },
 
-    getTopRatedMovies: getAuthURL(ENDPOINTS.topRatedItems({type: 'movie'}), true),
+    getTopRatedMovies: getAuthURL(ENDPOINTS.topRatedItems({type: 'movie'})),
 
-    getTopRatedTVShows: getAuthURL(ENDPOINTS.topRatedItems({type: 'tv'}), true),
+    getTopRatedTVShows: getAuthURL(ENDPOINTS.topRatedItems({type: 'tv'})),
 
-    getTrending: getAuthURL(ENDPOINTS.trendingItems, true),
+    getTrending: getAuthURL(ENDPOINTS.trendingItems),
 
 }
 

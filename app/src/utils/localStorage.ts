@@ -8,7 +8,7 @@ export const getWishListFromLocalStorage = (): TMovieAPI[] => {
 
 }
 
-export const seTMovieToLocalStorage = (item: TMovieAPI) => {
+export const setMovieToLocalStorage = (item: TMovieAPI) => {
 
     const itemsAsString: string = localStorage.getItem("movies") || "[]"
 

@@ -43,5 +43,5 @@ interface WishListActionProps {
 /**PROFILE */
 interface ProfileContextProps {
     profile: TProfile,
-    seTProfile: React.Dispatch<React.SetStateAction<TProfile>>
+    setProfile: React.Dispatch<React.SetStateAction<TProfile>>
 }

@@ -2,9 +2,9 @@
 
 interface BrowseHeaderContainerProps {
     category: TCategory,
-    seTCategory: React.Dispatch<React.SetStateAction<TCategory>>,
+    setCategory: React.Dispatch<React.SetStateAction<TCategory>>,
     slides: TSlidesAPI,
-    seTSlideRows: React.Dispatch<React.SetStateAction<TSlideRowAPI[]>>,
+    setSlideRows: React.Dispatch<React.SetStateAction<TSlideRowAPI[]>>,
     displayWishList: boolean,
     setDisplayWishList: React.Dispatch<React.SetStateAction<boolean>>,
 
@@ -20,7 +20,7 @@ interface BrowseMediaContentContainerProps {
 }
 
 /** PROFILE */
-interface SelecTProfileContainerProps {
+interface SelectProfileContainerProps {
     user: TUsers,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>,
 }
